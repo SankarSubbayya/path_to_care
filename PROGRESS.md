@@ -66,9 +66,24 @@ Handoff log between sessions. Every session ends by updating this; every session
 
 See [SUBMISSION.md](SUBMISSION.md) for the user-action runbook.
 
-## Compatibility detour: vLLM (Phase 7)
+## vLLM serving path (post-eval, complementary to the in-process path)
 
-User suggested vLLM per AMD's recommendation. Tried `uv pip install vllm` (resolves to 0.20.1) — the PyPI wheel is CUDA-only and pulls a CPU `torch==2.11.0` that clobbers our ROCm 2.9.1 build. After uninstall + ROCm torch reinstall: same as before. The AMD-blessed path requires either a `vllm-rocm` wheel (not on the AMD index) or a `VLLM_TARGET_DEVICE=rocm` source build (~30-60 min compile). Out of scope for the 24-hour window. **Documented as concrete AMD product feedback in [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) and [docs/BIP_POST.md](docs/BIP_POST.md)**: publish the ROCm vLLM wheel on `https://download.pytorch.org/whl/rocm6.3` so `uv pip install vllm` is sticky. This is exactly the kind of friction the AMD team can fix and is the strongest single piece of feedback.
+Three install paths tried for vLLM on this MI300X:
+
+1. `uv pip install vllm` (PyPI default) → CUDA-built, clobbered our ROCm torch with CPU `torch==2.11.0`. Fails on `libtorch_cuda.so`.
+2. `uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/0.20.1/rocm721` → ROCm 7.2.1 torch, incompatible with our ROCm 6.2 driver. Fails on `ncclCommShrink`.
+3. **`vllm/vllm-openai-rocm:v0.20.1` Docker image (AMD's MI300X recipe path) → works.** Image isolates ROCm user-mode libs from host driver. Verified live (2026-05-09 21:42 UTC):
+   - `docker run` flags per [docs/VLLM_SERVE.md](docs/VLLM_SERVE.md) (`--device /dev/kfd /dev/dri`, `--cap-add=SYS_PTRACE`, `--security-opt seccomp=unconfined`, `--group-add=video`, `--entrypoint /bin/bash`)
+   - `vllm serve google/gemma-4-31B-it --api-key ptc-demo-2026-amd --host 0.0.0.0 --port 8000 --max-model-len 8192 --gpu-memory-utilization 0.9 --dtype bfloat16`
+   - Server up in ~90 s. Model resident 61.9 GB. `GET /v1/models` with key → 200; without → 401. Chat completion returned cardinal-rule-clean text.
+   - Connection: `http://localhost:8000/v1`, key `ptc-demo-2026-amd`, model `google/gemma-4-31B-it`.
+
+**Why we keep two paths:** the v1 eval (`results/baseline_metrics.json`, `results/tuned_metrics.json`) was produced by the in-process `transformers.generate` path; switching engines would invalidate the before/after delta. vLLM is the **production serving path** for the Gradio Space and for any post-submission usage. Both coexist via a planned `core/llm_vllm.py` shim selected by `PTC_INFERENCE` env var.
+
+**Next optimizations** (documented in [docs/VLLM_SERVE.md](docs/VLLM_SERVE.md) "GPU memory tuning"):
+- Lower `--gpu-memory-utilization` to 0.4 to free GPU for parallel work.
+- FP8 quantization (vLLM `--quantization fp8` online, or load a pre-quantized FP8 Gemma 4 31B from HF Hub if one exists). Cuts model footprint roughly in half (~31 GB vs ~62 GB).
+- `scripts/vllm_serve.sh fp8` is the wrapper.
 
 ## Next
 

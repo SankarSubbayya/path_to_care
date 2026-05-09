@@ -91,6 +91,28 @@ Per the brief:
 echo "lablab submission filed: <YYYY-MM-DDTHH:MMZ>" > evidence/lablab_confirmation.txt
 ```
 
+## Post-submission: production inference path
+
+The eval numbers above were produced by the in-process `transformers.generate` path (so the before/after delta is engine-consistent). For the Gradio Space and any post-submission usage, **use the vLLM Docker path** documented in [docs/VLLM_SERVE.md](docs/VLLM_SERVE.md):
+
+```bash
+bash scripts/vllm_serve.sh           # bf16,  --gpu-memory-utilization 0.9, ~62 GB
+bash scripts/vllm_serve.sh fp8       # online fp8, --gpu-memory-utilization 0.4, ~31 GB
+```
+
+After the script returns, wait ~90 s for weights to load. Verify with:
+
+```bash
+curl http://localhost:8000/v1/models -H "Authorization: Bearer ptc-demo-2026-amd"
+```
+
+Connection details for the Space (or any client):
+- **Base URL:** `http://<host>:8000/v1`
+- **API key:** `ptc-demo-2026-amd`
+- **Model:** `google/gemma-4-31B-it`
+
+This is the AMD-blessed path — `vllm/vllm-openai-rocm:v0.20.1` from the published recipe at https://docs.vllm.ai/projects/recipes/en/latest/Google/Gemma4.html — and it's documented as concrete AMD product feedback in [docs/BIP_POST.md](docs/BIP_POST.md) (publish the ROCm vLLM wheel on `download.pytorch.org/whl/rocm6.3` so `pip install vllm` Just Works).
+
 ## After submission
 
 Run the full test-results flip pass; the verify-gate will accept each evidence file in turn:

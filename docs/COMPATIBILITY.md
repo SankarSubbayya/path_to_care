@@ -80,17 +80,35 @@ While running smoke tests, two breaking changes from 4.x → 5.x bit us:
 
 Fixed in [scripts/smoke_models.py](../scripts/smoke_models.py). Mention this in the BiP / ROCm-feedback writeup as a transformers 5.x ROCm-stack observation.
 
-## vLLM on ROCm (attempted, deferred to v2)
+## vLLM on ROCm — Docker is the working path
 
-AMD recommends vLLM as the production inference path for the MI300X. We tried `uv pip install vllm` (resolved to 0.20.1) inside the venv:
+**Final state (verified live):** Gemma 4 31B-it served by `vllm/vllm-openai-rocm:v0.20.1` Docker image, OpenAI-compatible API on `:8000` with `--api-key` auth. See [docs/VLLM_SERVE.md](VLLM_SERVE.md) for the operational playbook.
 
-- The wheel from PyPI is built for CUDA — it requires `libtorch_cuda.so` and silently overwrites our ROCm torch with a CPU/CUDA `torch==2.11.0`. Same failure mode as the early-Phase-1 footgun ([documented above](#hardware--runtime-stack)) but in a different guise.
-- Recovery: `uv pip install --reinstall --index-url https://download.pytorch.org/whl/rocm6.3 torch==2.9.1+rocm6.3 ...` and remove vLLM.
-- The AMD-recommended path on ROCm requires either a pre-built `vllm-rocm` wheel or a source build with `VLLM_TARGET_DEVICE=rocm`. Neither was attempted in the 24-hour window — a source build alone is ~30-60 min compile time before any code path runs.
+We hit two pip-install dead ends before landing on Docker:
 
-**Implication for v2:** integrate vLLM via the AMD-blessed install path; refactor `core/llm.py` to make HTTP calls into a vLLM server instead of in-process `transformers.generate`. Expected wins: 2-5× throughput, batch-friendly, OpenAI-compatible API for the Gradio Space backend. Also frees up the demo from holding the model in process.
+1. **`uv pip install vllm`** (PyPI default) — resolves to a CUDA-built `vllm==0.20.1` whose dependency tree silently downgrades our `torch==2.9.1+rocm6.3` to a CPU `torch==2.11.0`. vLLM then fails: `OSError: libtorch_cuda.so: cannot open shared object file`.
+2. **`uv pip install vllm --extra-index-url https://wheels.vllm.ai/rocm/0.20.1/rocm721`** — the vLLM-published ROCm wheel index. Pulls a `torch==2.10.0+git8514f05` built against ROCm **7.2.1**. Our system driver is ROCm **6.2.x**. Torch import fails: `ImportError: undefined symbol: ncclCommShrink`. ROCm 7.2.1's RCCL exports a function our 6.2 driver's `librccl.so` doesn't. Driver mismatch.
 
-**Concrete AMD product-feedback:** publish the ROCm vLLM wheel on the same `download.pytorch.org/whl/rocm6.3` index so `uv pip install vllm` Just Works for hackathon participants — instead of silently replacing their ROCm torch with a CPU build. This single change would save every new ROCm developer the exact debugging detour we hit.
+**The working path:** the official `vllm/vllm-openai-rocm:v0.20.1` Docker image bundles its own ROCm user-mode libraries, isolated from the host's torch / driver mismatch. The image needs:
+
+```
+--group-add=video                  # /dev/dri group access
+--cap-add=SYS_PTRACE               # ROCm RCCL debugger ops
+--security-opt seccomp=unconfined  # ROCm syscalls Docker default-blocks
+--device /dev/kfd                  # AMD Kernel Fusion Driver
+--device /dev/dri                  # DRM render nodes
+```
+
+`--entrypoint /bin/bash` lets us pass our own `vllm serve …` invocation as the command, no image rebuild needed.
+
+**Verified live (2026-05-09, 21:42 UTC):**
+- Server up in ~90 s: weight load 39 s, model resident 61.9 GB, KV cache + cudagraph compile follows.
+- `GET /v1/models` with `Authorization: Bearer ptc-demo-2026-amd` → `200 OK`. Without the header → `401`.
+- Chat completion → "Plausible conditions include cellulitis, a localized skin infection, or an allergic reaction to a sting or bite." Cardinal-rule clean ("plausible conditions" not "you have").
+
+**Concrete AMD product-feedback:** publish the ROCm vLLM wheel on `https://download.pytorch.org/whl/rocm6.3` so `uv pip install vllm` is sticky to the user's existing torch build, instead of silently replacing it with CPU. Every new ROCm vLLM user hits this. The Docker image works around it but adds an extra layer of indirection that not every workflow can accept.
+
+**Why we keep the in-process `transformers` path for the eval numbers:** the v1 baseline + tuned eval runs through `core/llm.py`'s `transformers.generate`. Switching engines mid-eval would change KV-cache/sampling implementations and invalidate the before/after delta. vLLM is the **production serving path** (Gradio Space, post-submission demo, throughput); the eval is the credibility evidence. Both coexist via a planned `core/llm_vllm.py` swap layer. See [docs/VLLM_SERVE.md](VLLM_SERVE.md) "What this changes elsewhere."
 
 ## peft + Gemma 4: `Gemma4ClippableLinear` (verified live)
 

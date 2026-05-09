@@ -177,6 +177,16 @@ If any of these are missing at hour 23, that's the buffer hour's job. Don't add 
 
 ---
 
+## Inference paths
+
+We have two live inference paths, used for different purposes. Don't mix them mid-eval.
+
+1. **In-process `transformers` (v1 evidence path)** — [core/llm.py](core/llm.py). `gemma4()` and `qwen()` load via `transformers.AutoModelFor*`, hold weights in memory, called from MCPs and the orchestrator directly. **This is what produced `results/baseline_metrics.json` and `results/tuned_metrics.json`.** Switching engines mid-eval would change KV cache + sampling implementations and invalidate the before/after delta.
+
+2. **vLLM in Docker (production serving path)** — [docs/VLLM_SERVE.md](docs/VLLM_SERVE.md). `vllm/vllm-openai-rocm:v0.20.1` image, OpenAI-compatible API on `:8000` with `--api-key ptc-demo-2026-amd`. Use [scripts/vllm_serve.sh](scripts/vllm_serve.sh) to start (`bf16` or `fp8` mode). Verified live: weight load 39 s, model resident 61.9 GB on MI300X, `/v1/chat/completions` returns clean responses. Why Docker not pip: the PyPI vLLM wheel is CUDA-built and clobbers ROCm torch; the `wheels.vllm.ai/rocm/0.20.1/rocm721` index ships ROCm-7.2.1-built torch which is incompatible with our 6.2 driver. Docker bundles its own ROCm user-mode libs.
+
+**Switching:** a `core/llm_vllm.py` shim (planned, v2) will make the orchestrator engine-agnostic via `PTC_INFERENCE=vllm` env var. Until then, the eval path is in-process and the Gradio Space points at the vLLM server.
+
 ## Continuous-development harness
 
 This repo runs the [cwc-long-running-agents](https://github.com/anthropics/cwc-long-running-agents) harness, adapted for Path-to-Care evidence patterns. The 24-hour build has a sleep window and likely context resets — the harness keeps state durable and prevents "I claim it's done" lies.
