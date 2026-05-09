@@ -21,16 +21,18 @@
 
 Held-out eval: 30 adversarially-authored test cases (10 R / 10 Y / 10 G; 25 with perturbations: dialect, contradicted narrative, off-distribution image, irrelevant context). Reward function from [docs/EVALUATION.md](docs/EVALUATION.md): `R = 1.0 exact / 0.5 adjacent / 0.0 off-by-2`.
 
-> See [docs/RESULTS.md](docs/RESULTS.md) for the full table once the tuned eval has run.
-
 | Metric                         | Zero-shot Gemma 4 31B | LoRA-tuned Gemma 4 31B | Δ |
 |--------------------------------|-----------------------|------------------------|---|
-| Mean reward                    | TODO                  | TODO                   | TODO |
-| Exact-match urgency            | TODO                  | TODO                   | TODO |
-| Within-1-level urgency         | TODO                  | TODO                   | TODO |
-| **FN Red→Green** (lower safer) | TODO                  | TODO                   | TODO |
+| Mean reward                    | 0.983                 | 0.983                  | +0.0 |
+| Exact-match urgency            | 96.7% (29/30)         | 96.7% (29/30)          | +0.0 |
+| Within-1-level urgency         | 100.0%                | 100.0%                 | +0.0 |
+| **FN Red→Green** (lower safer) | 0.0% (0/10 Red cases) | 0.0% (0/10 Red cases)  | +0.0 |
+
+**Read the result honestly:** the zero-shot baseline is essentially at the ceiling of this hand-crafted 30-case test set. The LoRA fine-tune **does not regress** the baseline (no false negatives, no Red-cases-misclassified-as-Green), and demonstrates that **LoRA SFT on Gemma 4 31B-it converges in 32 seconds on a single MI300X** (loss 3.90 → 0.58, 45M trainable params, 0.14% of base). The headline of this submission is the *infrastructure* (24-hour multimodal-agent build on AMD), not a tuning delta on a small synthetic test set. Real delta numbers require the 80-case set + skin-tone stratification scoped for v2 ([docs/PLAN.md](docs/PLAN.md)). See [docs/RESULTS.md](docs/RESULTS.md) for the full confusion matrix.
 
 The "false-negative Red→Green" rate — predicting *Green* when ground-truth is *Red* — is the **cardinal safety metric**: under-triage in this context can mean a patient stays home with sepsis. We report it separately because aggregate accuracy hides it.
+
+**Cardinal-rule rewriter fired live during eval** ([logs/cardinal_rule_rewrites.log](logs/cardinal_rule_rewrites.log)): on case Y09 the model emitted "you have a fever" in patient framing; the rewriter changed it to "signs suggest a fever" before the orchestrator returned. Evidence the safety net works under real model drift.
 
 ## Architecture
 

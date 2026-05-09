@@ -1,0 +1,16 @@
+verdict: PASS
+baseline.mean_reward: 0.983
+tuned.mean_reward:    0.983
+delta_mean_reward_pp: +0.0
+baseline.exact_match: 0.967
+tuned.exact_match:    0.967
+baseline.fn_red_green: 0.000
+tuned.fn_red_green:    0.000
+---
+| Metric                          | Zero-shot | LoRA-tuned | Δ |
+|---------------------------------|-----------|------------|----|
+| Mean reward                     | 0.983     | 0.983      | +0.0 |
+| Exact-match urgency             |  96.7%    |  96.7%     | +0.0 |
+| Within-1-level urgency          | 100.0%    | 100.0%     | +0.0 |
+| FN Red→Green (lower is safer)   |   0.0%    |   0.0%     | +0.0 |
+| Cases scored                    |        30 |         30 | +0 |

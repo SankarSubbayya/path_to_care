@@ -80,6 +80,18 @@ While running smoke tests, two breaking changes from 4.x → 5.x bit us:
 
 Fixed in [scripts/smoke_models.py](../scripts/smoke_models.py). Mention this in the BiP / ROCm-feedback writeup as a transformers 5.x ROCm-stack observation.
 
+## vLLM on ROCm (attempted, deferred to v2)
+
+AMD recommends vLLM as the production inference path for the MI300X. We tried `uv pip install vllm` (resolved to 0.20.1) inside the venv:
+
+- The wheel from PyPI is built for CUDA — it requires `libtorch_cuda.so` and silently overwrites our ROCm torch with a CPU/CUDA `torch==2.11.0`. Same failure mode as the early-Phase-1 footgun ([documented above](#hardware--runtime-stack)) but in a different guise.
+- Recovery: `uv pip install --reinstall --index-url https://download.pytorch.org/whl/rocm6.3 torch==2.9.1+rocm6.3 ...` and remove vLLM.
+- The AMD-recommended path on ROCm requires either a pre-built `vllm-rocm` wheel or a source build with `VLLM_TARGET_DEVICE=rocm`. Neither was attempted in the 24-hour window — a source build alone is ~30-60 min compile time before any code path runs.
+
+**Implication for v2:** integrate vLLM via the AMD-blessed install path; refactor `core/llm.py` to make HTTP calls into a vLLM server instead of in-process `transformers.generate`. Expected wins: 2-5× throughput, batch-friendly, OpenAI-compatible API for the Gradio Space backend. Also frees up the demo from holding the model in process.
+
+**Concrete AMD product-feedback:** publish the ROCm vLLM wheel on the same `download.pytorch.org/whl/rocm6.3` index so `uv pip install vllm` Just Works for hackathon participants — instead of silently replacing their ROCm torch with a CPU build. This single change would save every new ROCm developer the exact debugging detour we hit.
+
 ## peft + Gemma 4: `Gemma4ClippableLinear` (verified live)
 
 Gemma 4's **vision tower** wraps each projection in `Gemma4ClippableLinear` — a thin clipping wrapper around `torch.nn.Linear`. peft 0.19's `_create_new_module` validates the target is one of `(nn.Linear, nn.Embedding, ...)` and raises `ValueError: Target module Gemma4ClippableLinear(...) is not supported.`

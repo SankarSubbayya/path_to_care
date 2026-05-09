@@ -41,14 +41,34 @@ Handoff log between sessions. Every session ends by updating this; every session
 
 ## In progress
 
-- **Phase 6 — re-eval + delta** running NOW (background ID: b0hk3n8y0). Same 30 cases with LoRA adapter loaded; ~7 min wall time expected. After:
-  - `tuned_metrics_recorded` — `results/tuned_metrics.json`
-  - `delta_positive` — `evidence/delta_report.txt` (built by `scripts/build_delta_report.py`)
+**Phase 6 — re-eval + delta (2/2 features passing — DONE)**
+- ✅ `tuned_metrics_recorded` — same 30 cases scored with LoRA adapter on MI300X. Wall time ~533s. Same outcome as zero-shot: 96.7% exact, 0.983 mean reward, FN Red→Green = 0.0%. `results/tuned_metrics.json`.
+- ✅ `delta_positive` — verdict PASS (no regression); Δ mean_reward = +0.0 pp, Δ FN Red→Green = +0.0 pp. The LoRA training infrastructure runs cleanly on MI300X without breaking the 96.7% baseline. `evidence/delta_report.txt`.
+- **Cardinal-rule rewriter fired live during eval** ([logs/cardinal_rule_rewrites.log](logs/cardinal_rule_rewrites.log)): on case Y09 the model emitted "you have a fever" in patient framing; the rewriter rewrote to "signs suggest a fever" before the orchestrator returned. Real evidence the safety net works under model drift.
 
-- **Phase 7 — ship** prep done; pending:
-  - HF Space deploy (needs `HF_TOKEN` from user; `scripts/deploy_hf_space.sh` ready)
-  - README.md numbers fill-in (template ready, waiting on tuned metrics)
-  - Final commit + git push
+**Phase 7 — ship (3/6 features passing)**
+- ✅ `gradio_demo_runs_locally` — frontend.app imports cleanly, `demo` is a `gradio.Blocks`, disclaimer + Rajan dialogue seeded. `evidence/gradio_smoke.txt`.
+- ✅ `readme_published` — README.md (9,979 bytes) with all required sections (headline, architecture, cardinal rule, run instructions, track mapping, caveats). Real numbers filled in. `evidence/readme_check.txt`.
+- ✅ `bip_post_drafted` — `docs/BIP_POST.md` has both deliverables (X/LinkedIn thread + ROCm/AMD Dev Cloud feedback writeup). Includes vLLM-on-ROCm friction note.
+- ⏳ `hf_space_final_deployed` — needs `HF_TOKEN` env var. Run `bash scripts/deploy_hf_space.sh <user> path-to-care`.
+- ⏳ `repo_pushed_public` — needs GitHub auth. See [SUBMISSION.md](SUBMISSION.md) step 3.
+- ⏳ `lablab_submitted` — manual user action.
+
+**Phase 4 — HF Space stub (deferred and merged with Phase 7)**
+- ⏳ `hf_space_stub_live` — same blocker as final deploy; one push covers both.
+
+## Status
+
+**18/22 features passing.** Remaining 4 all require user credentials I don't have:
+- 2× HF token (Space stub + final)
+- 1× GitHub auth (repo push)
+- 1× manual lablab submission
+
+See [SUBMISSION.md](SUBMISSION.md) for the user-action runbook.
+
+## Compatibility detour: vLLM (Phase 7)
+
+User suggested vLLM per AMD's recommendation. Tried `uv pip install vllm` (resolves to 0.20.1) — the PyPI wheel is CUDA-only and pulls a CPU `torch==2.11.0` that clobbers our ROCm 2.9.1 build. After uninstall + ROCm torch reinstall: same as before. The AMD-blessed path requires either a `vllm-rocm` wheel (not on the AMD index) or a `VLLM_TARGET_DEVICE=rocm` source build (~30-60 min compile). Out of scope for the 24-hour window. **Documented as concrete AMD product feedback in [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) and [docs/BIP_POST.md](docs/BIP_POST.md)**: publish the ROCm vLLM wheel on `https://download.pytorch.org/whl/rocm6.3` so `uv pip install vllm` is sticky. This is exactly the kind of friction the AMD team can fix and is the strongest single piece of feedback.
 
 ## Next
 

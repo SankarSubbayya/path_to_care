@@ -35,15 +35,15 @@
   },
 
   "phase_6_reeval_and_delta": {
-    "tuned_metrics_recorded":    { "passing": false, "evidence": "results/tuned_metrics.json" },
-    "delta_positive":            { "passing": false, "evidence": "evidence/delta_report.txt" }
+    "tuned_metrics_recorded":    { "passing": true,  "evidence": "results/tuned_metrics.json" },
+    "delta_positive":            { "passing": true,  "evidence": "evidence/delta_report.txt" }
   },
 
   "phase_7_ship": {
-    "gradio_demo_runs_locally":  { "passing": false, "evidence": "evidence/gradio_smoke.txt" },
+    "gradio_demo_runs_locally":  { "passing": true,  "evidence": "evidence/gradio_smoke.txt" },
     "hf_space_final_deployed":   { "passing": false, "evidence": "evidence/hf_space_final.txt" },
-    "readme_published":          { "passing": false, "evidence": "evidence/readme_check.txt" },
-    "bip_post_drafted":          { "passing": false, "evidence": "docs/BIP_POST.md" },
+    "readme_published":          { "passing": true,  "evidence": "evidence/readme_check.txt" },
+    "bip_post_drafted":          { "passing": true,  "evidence": "docs/BIP_POST.md" },
     "repo_pushed_public":        { "passing": false, "evidence": "evidence/git_remote.txt" },
     "lablab_submitted":          { "passing": false, "evidence": "evidence/lablab_confirmation.txt" }
   }

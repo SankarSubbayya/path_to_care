@@ -1,0 +1,7 @@
+verdict: PASS
+gradio_version: 6.14.0
+demo object: gradio.Blocks ✓
+disclaimer present ✓
+run() is callable ✓
+Rajan dialogue seeded ✓
+app_module: frontend.app
