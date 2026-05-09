@@ -10,7 +10,7 @@
     "env_packages_installed":    { "passing": true,  "evidence": "evidence/env_pip_freeze.txt" },
     "gemma4_31b_smoke":          { "passing": true,  "evidence": "evidence/gemma4_smoke.txt" },
     "qwen25_7b_smoke":           { "passing": true,  "evidence": "evidence/qwen_smoke.txt" },
-    "repo_skeleton_built":       { "passing": false, "evidence": "evidence/repo_tree.txt" }
+    "repo_skeleton_built":       { "passing": true,  "evidence": "evidence/repo_tree.txt" }
   },
 
   "phase_2_harness_and_adversary": {
@@ -20,9 +20,9 @@
   },
 
   "phase_3_zero_shot_baseline": {
-    "mcp_servers_respond":       { "passing": false, "evidence": "evidence/mcp_smoke.txt" },
-    "orchestrator_e2e":          { "passing": false, "evidence": "evidence/orchestrator_smoke.txt" },
-    "baseline_metrics_recorded": { "passing": false, "evidence": "results/baseline_metrics.json" }
+    "mcp_servers_respond":       { "passing": true,  "evidence": "evidence/mcp_smoke.txt" },
+    "orchestrator_e2e":          { "passing": true,  "evidence": "evidence/orchestrator_smoke.txt" },
+    "baseline_metrics_recorded": { "passing": true,  "evidence": "results/baseline_metrics.json" }
   },
 
   "phase_4_stub_hf_space": {

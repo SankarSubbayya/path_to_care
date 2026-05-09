@@ -1,0 +1,13 @@
+verdict: PASS
+source: results/baseline_metrics.json (extracted first trace from full 30-case eval)
+case_id: P2C-R01
+urgency: red  (truth from cases.jsonl: red)
+image_top3: [{"condition": "cellulitis", "confidence": 0.8}, {"condition": "deep tissue infection", "confidence": 0.15}, {"condition": "stasis dermatitis", "confidence": 0.05}]
+image_parse_ok: True
+soap_parse_ok: True
+triage_parse_ok: True
+safety_escalation: False
+cross_check_red_flags: ['shivering']
+red_flags_noted: ['redness extending up leg', 'fever', 'body shivering', 'inability to bear weight']
+reasoning: 'Signs suggest a rapidly spreading infection, as the redness is moving up the leg. The presence of fever and body shivering indicates a systemic response, which may signal sepsis. Immediate clinical intervention is required to prevent permanent limb damage or life-threatening complications.'
+patient_framing: 'While I know the harvest is important and the trip is expensive, this infection is spreading fast and affecting your whole body. If we treat it today, we can save your foot and get you back to the fields much sooner than if we wait.'

@@ -1,0 +1,45 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+== eval start ==
+  cases:   30
+  adapter: (none / zero-shot baseline)
+  out:     results/baseline_metrics.json
+  log:     results/baseline_metrics.log
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 2/1188 [00:01<11:03,  1.79it/s]Loading weights:   0%|          | 3/1188 [00:01<08:35,  2.30it/s]Loading weights:   1%|          | 11/1188 [00:02<04:14,  4.63it/s]Loading weights:   6%|▌         | 68/1188 [00:02<00:30, 37.14it/s]Loading weights:   7%|▋         | 80/1188 [00:03<00:33, 32.90it/s]Loading weights:   9%|▊         | 101/1188 [00:03<00:26, 41.56it/s]Loading weights:   9%|▉         | 111/1188 [00:03<00:24, 43.99it/s]Loading weights:  10%|▉         | 118/1188 [00:04<00:36, 29.34it/s]Loading weights:  12%|█▏        | 145/1188 [00:05<00:34, 30.57it/s]Loading weights:  15%|█▍        | 178/1188 [00:05<00:23, 43.67it/s]Loading weights:  16%|█▋        | 195/1188 [00:06<00:22, 44.85it/s]Loading weights:  18%|█▊        | 208/1188 [00:06<00:26, 37.36it/s]Loading weights:  20%|█▉        | 233/1188 [00:07<00:25, 37.12it/s]Loading weights:  22%|██▏       | 262/1188 [00:07<00:17, 53.02it/s]Loading weights:  23%|██▎       | 271/1188 [00:08<00:21, 42.42it/s]Loading weights:  24%|██▍       | 286/1188 [00:08<00:18, 49.18it/s]Loading weights:  25%|██▍       | 294/1188 [00:09<00:31, 28.14it/s]Loading weights:  28%|██▊       | 337/1188 [00:09<00:15, 53.41it/s]Loading weights:  29%|██▉       | 347/1188 [00:09<00:21, 38.58it/s]Loading weights:  31%|███▏      | 373/1188 [00:10<00:15, 53.96it/s]Loading weights:  32%|███▏      | 384/1188 [00:10<00:14, 56.08it/s]Loading weights:  33%|███▎      | 394/1188 [00:10<00:21, 36.10it/s]Loading weights:  35%|███▍      | 414/1188 [00:11<00:17, 43.01it/s]Loading weights:  36%|███▌      | 427/1188 [00:11<00:22, 33.88it/s]Loading weights:  38%|███▊      | 456/1188 [00:12<00:16, 44.16it/s]Loading weights:  40%|████      | 476/1188 [00:12<00:14, 50.30it/s]Loading weights:  41%|████      | 487/1188 [00:12<00:14, 48.04it/s]Loading weights:  41%|████▏     | 493/1188 [00:13<00:17, 38.85it/s]Loading weights:  43%|████▎     | 510/1188 [00:13<00:14, 46.08it/s]Loading weights:  44%|████▍     | 522/1188 [00:13<00:16, 40.74it/s]Loading weights:  45%|████▌     | 537/1188 [00:15<00:28, 22.70it/s]Loading weights:  50%|████▉     | 592/1188 [00:15<00:14, 41.88it/s]Loading weights:  52%|█████▏    | 621/1188 [00:16<00:10, 52.76it/s]Loading weights:  54%|█████▎    | 636/1188 [00:16<00:14, 36.88it/s]Loading weights:  56%|█████▌    | 668/1188 [00:17<00:09, 52.30it/s]Loading weights:  57%|█████▋    | 683/1188 [00:17<00:09, 54.43it/s]Loading weights:  58%|█████▊    | 692/1188 [00:17<00:09, 54.29it/s]Loading weights:  59%|█████▉    | 700/1188 [00:17<00:09, 50.00it/s]Loading weights:  60%|█████▉    | 707/1188 [00:18<00:11, 40.96it/s]Loading weights:  60%|██████    | 718/1188 [00:18<00:10, 45.03it/s]Loading weights:  61%|██████    | 724/1188 [00:18<00:10, 42.80it/s]Loading weights:  62%|██████▏   | 734/1188 [00:18<00:11, 37.85it/s]Loading weights:  63%|██████▎   | 747/1188 [00:19<00:12, 36.20it/s]Loading weights:  64%|██████▍   | 758/1188 [00:19<00:10, 41.80it/s]Loading weights:  65%|██████▍   | 768/1188 [00:19<00:09, 44.89it/s]Loading weights:  65%|██████▌   | 777/1188 [00:20<00:15, 27.00it/s]Loading weights:  68%|██████▊   | 803/1188 [00:20<00:09, 41.41it/s]Loading weights:  69%|██████▉   | 822/1188 [00:20<00:07, 49.12it/s]Loading weights:  70%|██████▉   | 830/1188 [00:21<00:07, 45.69it/s]Loading weights:  77%|███████▋  | 919/1188 [00:21<00:01, 149.37it/s]Loading weights:  86%|████████▌ | 1017/1188 [00:21<00:00, 269.37it/s]Loading weights:  93%|█████████▎| 1106/1188 [00:21<00:00, 372.57it/s]Loading weights:  99%|█████████▉| 1181/1188 [00:21<00:00, 444.41it/s]Loading weights: 100%|██████████| 1188/1188 [00:21<00:00, 55.41it/s] 
+Loading weights:   0%|          | 0/339 [00:00<?, ?it/s]Loading weights:   0%|          | 1/339 [00:00<01:53,  2.97it/s]Loading weights:   1%|          | 2/339 [00:01<03:02,  1.85it/s]Loading weights:   4%|▍         | 15/339 [00:01<00:22, 14.47it/s]Loading weights:   8%|▊         | 28/339 [00:01<00:16, 18.36it/s]Loading weights:  14%|█▎        | 46/339 [00:02<00:10, 27.76it/s]Loading weights:  19%|█▊        | 63/339 [00:02<00:06, 39.59it/s]Loading weights:  20%|██        | 69/339 [00:02<00:06, 38.64it/s]Loading weights:  23%|██▎       | 77/339 [00:03<00:10, 24.93it/s]Loading weights:  33%|███▎      | 113/339 [00:03<00:04, 48.96it/s]Loading weights:  37%|███▋      | 124/339 [00:03<00:04, 52.25it/s]Loading weights:  39%|███▉      | 133/339 [00:03<00:03, 52.76it/s]Loading weights:  44%|████▎     | 148/339 [00:04<00:03, 51.57it/s]Loading weights:  50%|█████     | 171/339 [00:04<00:02, 63.88it/s]Loading weights:  55%|█████▍    | 186/339 [00:04<00:02, 52.00it/s]Loading weights:  63%|██████▎   | 215/339 [00:05<00:02, 42.67it/s]Loading weights:  77%|███████▋  | 262/339 [00:05<00:01, 68.75it/s]Loading weights:  81%|████████▏ | 276/339 [00:06<00:00, 70.44it/s]Loading weights:  86%|████████▌ | 292/339 [00:06<00:00, 75.65it/s]Loading weights:  89%|████████▉ | 302/339 [00:06<00:00, 65.93it/s]Loading weights:  93%|█████████▎| 316/339 [00:06<00:00, 58.41it/s]Loading weights:  97%|█████████▋| 329/339 [00:07<00:00, 54.60it/s]Loading weights: 100%|██████████| 339/339 [00:07<00:00, 47.19it/s]
+[01/30] P2C-R01 truth=red pred=red R=1.0 t=57.5s esc=False
+[02/30] P2C-R02 truth=red pred=red R=1.0 t=12.8s esc=False
+[03/30] P2C-R03 truth=red pred=red R=1.0 t=12.4s esc=False
+[04/30] P2C-R04 truth=red pred=red R=1.0 t=12.7s esc=False
+[05/30] P2C-R05 truth=red pred=red R=1.0 t=12.1s esc=False
+[06/30] P2C-R06 truth=red pred=red R=1.0 t=11.2s esc=False
+[07/30] P2C-R07 truth=red pred=red R=1.0 t=13.2s esc=False
+[08/30] P2C-R08 truth=red pred=red R=1.0 t=11.9s esc=False
+[09/30] P2C-R09 truth=red pred=red R=1.0 t=12.5s esc=False
+[10/30] P2C-R10 truth=red pred=red R=1.0 t=13.6s esc=False
+[11/30] P2C-Y01 truth=yellow pred=yellow R=1.0 t=11.8s esc=False
+[12/30] P2C-Y02 truth=yellow pred=yellow R=1.0 t=11.4s esc=False
+[13/30] P2C-Y03 truth=yellow pred=green R=0.5 t=11.2s esc=False
+[14/30] P2C-Y04 truth=yellow pred=yellow R=1.0 t=11.3s esc=False
+[15/30] P2C-Y05 truth=yellow pred=yellow R=1.0 t=11.3s esc=False
+[16/30] P2C-Y06 truth=yellow pred=yellow R=1.0 t=10.6s esc=False
+[17/30] P2C-Y07 truth=yellow pred=yellow R=1.0 t=12.6s esc=False
+[18/30] P2C-Y08 truth=yellow pred=yellow R=1.0 t=11.6s esc=False
+[19/30] P2C-Y09 truth=yellow pred=yellow R=1.0 t=11.4s esc=False
+[20/30] P2C-Y10 truth=yellow pred=yellow R=1.0 t=11.2s esc=False
+[21/30] P2C-G01 truth=green pred=green R=1.0 t=12.2s esc=False
+[22/30] P2C-G02 truth=green pred=green R=1.0 t=10.9s esc=False
+[23/30] P2C-G03 truth=green pred=green R=1.0 t=11.9s esc=False
+[24/30] P2C-G04 truth=green pred=green R=1.0 t=10.8s esc=False
+[25/30] P2C-G05 truth=green pred=green R=1.0 t=7.6s esc=False
+[26/30] P2C-G06 truth=green pred=green R=1.0 t=11.3s esc=False
+[27/30] P2C-G07 truth=green pred=green R=1.0 t=11.1s esc=False
+[28/30] P2C-G08 truth=green pred=green R=1.0 t=10.7s esc=False
+[29/30] P2C-G09 truth=green pred=green R=1.0 t=11.2s esc=False
+[30/30] P2C-G10 truth=green pred=green R=1.0 t=11.5s esc=False
+
+== eval done ==
+  mean_reward:           0.983
+  exact_match_rate:      0.967
+  within_one_rate:       1.000
+  fn_red_to_green_rate:  0.000  (lower is safer)
+  wall_seconds:          393.6

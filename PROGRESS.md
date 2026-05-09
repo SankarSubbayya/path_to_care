@@ -22,6 +22,13 @@ Handoff log between sessions. Every session ends by updating this; every session
 - ✅ `adversary_generates_30` — `data/cases.jsonl` has 30 cases (10 R / 10 Y / 10 G), 25 with adversarial perturbations. Hand-crafted dermatology presentations + dialect/contradiction/off-distribution-image perturbations.
 - ✅ `test_set_balanced_RYG` — distribution verified.
 
+**Phase 3 — Zero-shot baseline (3/3 features passing — DONE)**
+- ✅ `mcp_servers_respond` — all 4 MCPs respond on case P2C-R01 in 63s cold. `evidence/mcp_smoke.txt`.
+- ✅ `orchestrator_e2e` — end-to-end through `run_case`; cardinal-rule clean output. `evidence/orchestrator_smoke.txt`.
+- ✅ `baseline_metrics_recorded` — **30/30 cases scored on MI300X in 393.6s (~13s per case after warmup)**. Mean reward 0.983 / exact-match 96.7% / within-1-level 100% / **FN Red→Green = 0.0** (cardinal safety metric perfect). 10/10 RED, 10/10 GREEN, 9/10 YELLOW. Only miss: P2C-Y03 (mild contact dermatitis) → green at R=0.5. `results/baseline_metrics.json`.
+
+**Important context for the LoRA story:** baseline is essentially at the ceiling of this 30-case test set. The LoRA fine-tune's job is now (a) demonstrate the training infrastructure works on AMD MI300X, (b) maintain or improve the score, (c) potentially fix P2C-Y03. The headline pivots from "+X% from tuning" to "tuning runs reliably on MI300X without regressing a 96.7%-accurate baseline." Honest framing.
+
 ## In progress
 
 - **Phase 1 — closing out:**

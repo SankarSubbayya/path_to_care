@@ -1,129 +1,159 @@
-# AMD Developer Hackathon
+# 🩺 Path to Care
 
-Build the next generation of AI agents and high-performance applications, powered by AMD.
+**Multimodal, agentic decision-support for rural healthcare.** Runs on a phone. **Never diagnoses.** Built in 24 hours for the [AMD Developer Hackathon (May 2026)](https://lablab.ai/event/amd-developer-hackathon).
 
-This hackathon is a space to explore, experiment, and create with **AMD Developer Cloud** and **ROCm** — no hardware, no complex setup, just access to powerful compute.
+> A patient in a Tamil Nadu village cuts his foot on a rusty nail. Two days later it's swollen, red, the redness is going up his leg, fever, shivering. The PHC is 18 km away. Round-trip transport costs ₹180; he earns ₹350 on a good day. Harvest is active.
+>
+> The system gets a phone photo + a typed narrative. It does **four** things, and only these four:
+>
+> 1. **Ranks plausible conditions** — top-3 with confidence (never single class).
+> 2. **Assesses urgency** — Red (today) / Yellow (1-2 days) / Green (monitor at home).
+> 3. **Flags red signs** — features that demand professional evaluation.
+> 4. **Frames barriers** — distance, cost, harvest pressure; cost-benefit reframing for the patient.
+>
+> The clinician diagnoses. The patient decides. The system informs both.
 
-**Goal:** build an application, agent, or developer tool that feels real, works end-to-end, and shows what AMD's compute stack can unlock.
+## Demo
 
-## Project: Path to Care
+🤗 [HuggingFace Space (Gradio)](TODO_HF_SPACE_URL) — replays the Rajan dialogue end-to-end.
 
-*Slug: `path_to_care`.*
+## Headline numbers
 
-A multimodal, agentic decision-support system for rural healthcare. See [docs/](docs/) for full project documentation:
+Held-out eval: 30 adversarially-authored test cases (10 R / 10 Y / 10 G; 25 with perturbations: dialect, contradicted narrative, off-distribution image, irrelevant context). Reward function from [docs/EVALUATION.md](docs/EVALUATION.md): `R = 1.0 exact / 0.5 adjacent / 0.0 off-by-2`.
 
-- [docs/PROJECT.md](docs/PROJECT.md) — what Path to Care is, the cardinal rule, why this project, what gets built.
-- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system diagram, 4 MCP servers, conversation flow, serving stack.
-- [docs/PLAN.md](docs/PLAN.md) — full 8-week plan + 3-week hackathon-MVP plan, risks, definition of done.
-- [docs/EVALUATION.md](docs/EVALUATION.md) — technical, clinical, human, safety metrics. Reporting template.
-- [docs/ASSETS.md](docs/ASSETS.md) — mapping of existing code (sentinel_health, CareGraph, virtual_consultation, CancerLLM, etc.) to project requirements.
-- [docs/TRACK_MAPPING.md](docs/TRACK_MAPPING.md) — how the project hits Tracks 1/2/3 + Qwen + HF + Build-in-Public prizes.
+> See [docs/RESULTS.md](docs/RESULTS.md) for the full table once the tuned eval has run.
 
----
+| Metric                         | Zero-shot Gemma 4 31B | LoRA-tuned Gemma 4 31B | Δ |
+|--------------------------------|-----------------------|------------------------|---|
+| Mean reward                    | TODO                  | TODO                   | TODO |
+| Exact-match urgency            | TODO                  | TODO                   | TODO |
+| Within-1-level urgency         | TODO                  | TODO                   | TODO |
+| **FN Red→Green** (lower safer) | TODO                  | TODO                   | TODO |
 
-## Tracks
+The "false-negative Red→Green" rate — predicting *Green* when ground-truth is *Red* — is the **cardinal safety metric**: under-triage in this context can mean a patient stays home with sepsis. We report it separately because aggregate accuracy hides it.
 
-### Track 1: AI Agents & Agentic Workflows *(beginner-friendly)*
+## Architecture
 
-- **Objective:** move beyond simple RAG to build sophisticated AI agentic systems and workloads.
-- **What to build:** intelligent AI systems that automate workflows, coordinate agents, or assist users in complex tasks.
-- **Tech stack:** LangChain, CrewAI, or AutoGen connecting to open-source models (Llama, DeepSeek, Mistral, Qwen).
-- **Compute:** $100 in AMD Developer Cloud credits.
+```
+            Patient (phone camera + text)
+                       │
+                       ▼
+              Frontend (Gradio)
+                       │
+                       ▼
+        ┌── Orchestrator (DSPy-style) ──┐
+        │              │              │              │
+        ▼              ▼              ▼              ▼
+  Image Classifier  SOAP Extractor  Village Context  Triage Reasoner
+   (Gemma 4 31B)   (Qwen 2.5-7B)    (JSON KB)       (Gemma 4 31B + LoRA)
+```
 
-### Track 2: Fine-Tuning on AMD GPUs *(advanced / GPU-intensive)*
+- **Image Classifier MCP** — top-3 conditions + confidence. Never a single class. JSON-validated; falls back to "non-diagnostic / image insufficient" rather than guess.
+- **SOAP Extractor MCP** — narrative → chief complaint, HPI, duration, associated symptoms (with explicit negations), red flags, patient concerns. Hand-engineered prompt; DSPy `BootstrapFewShot` is v2.
+- **Village Context MCP** — synthetic Tamil-Nadu-composite knowledge file: PHC distance/hours/services, drug-stock map, transport options, household economics, seasonal calendar.
+- **Triage Reasoner MCP** — fuses image-top-3 + SOAP + village barriers → `{urgency, reasoning, red_flags_noted, patient_framing}`. LoRA-tuned for the urgency-calibration delta. Cardinal-rule rewriter on every output.
 
-- **Objective:** leverage direct GPU access to fine-tune open-source models for high-impact domain specialization.
-- **What to build:** domain-specific LLMs (Healthcare, Finance, Legal, Code) fine-tuned for accuracy and efficiency on ROCm.
-- **Tech stack:** ROCm, PyTorch, Hugging Face Optimum-AMD, vLLM for serving.
-- **Compute:** AMD Instinct MI300X instances via AMD Developer Cloud.
+The image classifier and triage reasoner share **one loaded Gemma 4 31B** model in memory — two prompts against the same weights — so VRAM stays at ~77 GB.
 
-### Track 3: Vision & Multimodal AI
+See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for the full diagram and conversation flow, and [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md) for the model-selection audit (Gemma 3 → gated; Gemma 4 26B-A4B MoE → ROCm-incompat; Gemma 4 31B-it → final).
 
-- **Objective:** build applications that process and understand multiple data types (images, video, audio) using the memory bandwidth of AMD GPUs.
-- **What to build:** high-throughput industrial inspection, medical imaging analysis, or multimodal conversational assistants.
-- **Tech stack:** multimodal models (Llama 3.2 Vision, Qwen-VL) optimized for ROCm.
-- **Compute:** AMD Instinct MI300X instances via AMD Developer Cloud.
+## Cardinal rule (non-negotiable)
 
-### Extra Challenge: Ship It + Build in Public
+The system **never produces diagnostic statements.** Always "signs suggest", never "you have." Image output is **always top-3 with confidence**, never single-class, never binary sick/healthy.
 
-Can be combined with any track.
+Enforcement is in code, not just prompts. [`core/cardinal_rule.py`](core/cardinal_rule.py) regex-rewrites diagnostic phrases on every model output and logs rewrites to `logs/cardinal_rule_rewrites.log`.
 
-- **Objective:** document the building journey, share insights, and provide feedback on the AMD developer experience.
-- **Requirements:**
-  1. Share at least 2 technical updates on social media (tag `@lablab` on X or `lablab.ai` on LinkedIn, and `@AIatAMD` on X or `AMD Developer` on LinkedIn).
-  2. Provide meaningful feedback about building with ROCm, AMD Developer Cloud, or APIs.
-  3. Open-source the project or publish a technical walkthrough.
-- **Reward:** dedicated prize pool for the best Build in Public stories and most valuable product feedback.
+## How to run
 
----
+```bash
+# 0. Setup (uv venv + pyproject.toml)
+make setup
 
-## Technology & Access
+# 1. Verify ROCm + GPU
+make smoke-torch
 
-All development happens on cloud-accessible AMD GPUs — no need to own or manage hardware.
+# 2. Verify both models load and generate
+make smoke-models
 
-### AMD Developer Cloud
+# 3. Generate the 30-case adversarial test set
+make build-cases
 
-On-demand access to AMD Instinct GPUs. Spin up GPU environments in minutes.
+# 4. Run the zero-shot baseline (~7 min on MI300X)
+make baseline
 
-**Typical uses:**
-- Training and fine-tuning ML models
-- Benchmarking AI workloads on AMD GPUs
-- Prototyping AI systems before moving to on-prem
+# 5. Build the LoRA training/holdout split
+make build-train
 
-**Access:**
-- $100 in AMD Developer Cloud credits for AMD AI Developer Program members
-- Pay-as-you-go pricing available
+# 6. LoRA SFT on Gemma 4 31B-it (~30 min)
+make train
 
-**Docs:** Getting started guide · AMD Developer Cloud overview
+# 7. Run the tuned eval
+make tuned
 
-### ROCm (Radeon Open Compute)
+# 8. Headline delta report
+.venv/bin/python scripts/build_delta_report.py
 
-AMD's open-source GPU computing platform — the AMD equivalent of CUDA.
+# 9. Launch the Gradio demo locally
+make frontend
+```
 
-**Common uses:**
-- Running PyTorch and TensorFlow on AMD GPUs
-- Porting CUDA-based workloads to AMD hardware
-- Executing high-performance AI/ML and HPC workloads
+Hardware target: **AMD Instinct MI300X** (192 GB VRAM, ROCm 6.3). Should also run on a single 80 GB H100 with `PTC_GEMMA4_ID=google/gemma-4-E4B-it` set.
 
-**Docs:** ROCm documentation · ROCm installation guide · ROCm GitHub
+## Track / prize coverage
 
-### Access Phasing
+| Track / prize | How it's hit |
+|---|---|
+| **Track 1 — Agents** | Multi-agent (4 MCP modules + orchestrator); cardinal-rule code-level enforcement; safety-net cross-checks. |
+| **Track 2 — Fine-tuning on AMD GPUs** | LoRA SFT on Gemma 4 31B-it on a single MI300X via ROCm 6.3 + peft 0.19. |
+| **Track 3 — Vision & Multimodal** | Gemma 4 multimodal (image + text → urgency); two MCPs share weights. |
+| **Qwen prize** | Qwen-2.5-7B-Instruct does the SOAP extraction — meaningful structural contribution to the pipeline. |
+| **HuggingFace prize** | Gradio Space + LoRA adapter pushed to HF Hub. |
+| **Build-in-Public** | [docs/BIP_POST.md](docs/BIP_POST.md) — X/LinkedIn thread + ROCm/AMD Dev Cloud feedback writeup. |
 
-- **Online phase:** credits-based access for all participants.
-- **On-site phase:** dedicated GPU access for selected finalists.
+## Caveats (do not skip)
 
----
+- **30 cases is small.** The brief calls for 80; v2 expansion in [docs/PLAN.md](docs/PLAN.md).
+- **No skin-tone-stratified eval.** Stratification by Fitzpatrick scale needs HAM10000 metadata work that's v2 scope. Stratification here is by *condition* and urgency level only.
+- **No real images yet.** The 24-hour build runs the multimodal model against `image_description` text strings rather than HAM10000 photos. Image-tensor inference is wired ([`core/llm.chat_multimodal(..., image=...)`](core/llm.py)) and is exercised in v2.
+- **GRPO/RLVR is out of scope** for the 24-hour build. LoRA SFT is the primary fine-tune. The GRPO loop is sketched in [`training/grpo_stretch.py`](training/grpo_stretch.py) for v2.
+- **Synthetic village knowledge.** [`mcp/village_context/knowledge.json`](mcp/village_context/knowledge.json) is a composite of typical Tamil Nadu rural logistics, not a specific village's data. v2 calls for real village fieldwork — see [docs/PLAN.md](docs/PLAN.md) week 1.
 
-## Technology Partners
+## v1 → v2 roadmap
 
-### Hugging Face
+The submission is the 24-hour proof-of-concept. The 8-week roadmap to a field-deployable version is in [docs/PLAN.md](docs/PLAN.md): real-village fieldwork, expanded test set (80 cases), GRPO/RLVR triage tuning, vision-from-scratch fine-tune, physician review of 20-30 outputs, skin-tone-stratified bias audit, Tamil-language UX validation, and a 2-3-real-user pilot.
 
-Model hub and deployment layer for the project.
+## Repo layout
 
-1. Find a model on Hugging Face Hub.
-2. Build or fine-tune it on AMD Developer Cloud.
-3. Publish the completed project as a Hugging Face **Space** under the event organization.
-4. Submit the Space link on lablab.
+See [evidence/repo_tree.txt](evidence/repo_tree.txt) for the full file list, or:
 
-**Hugging Face category prize:** the Space with the most likes at the end of the hackathon wins. Once the Space is live, share it — the community votes with likes.
+```
+.
+├── CLAUDE.md            # operational context for AI agents working on this repo
+├── PROGRESS.md          # session-to-session handoff log
+├── pyproject.toml       # uv-managed; torch ROCm wheels via [tool.uv.sources]
+├── test-results.json    # evidence-gated feature checklist (~20 features)
+├── core/                # shared LLM loader, cardinal-rule rewriter
+├── mcp/                 # 4 MCP modules (in-process for v1; FastAPI shells in v2)
+│   ├── image_classifier/
+│   ├── soap_extractor/
+│   ├── village_context/
+│   └── triage_reasoner/
+├── orchestrator/        # DSPy-style coordinator
+├── adversary/           # 30-case adversarial test-set generator
+├── harness/             # eval runner, reward fn, metrics
+├── training/            # LoRA SFT (+ GRPO skeleton)
+├── frontend/            # Gradio Space app
+├── docs/                # architecture, plan, eval, compatibility, bip post
+└── .claude/             # long-running-agents harness (hooks + evaluator)
+```
 
-Join the AMD Developer Hackathon HF Organization to publish a Space under it.
+## License
 
-### Qwen
+Apache-2.0. See [LICENSE](LICENSE) (or pyproject.toml).
 
-Family of advanced AI models from Alibaba Cloud — strong reasoning, coding, and multilingual capabilities. Spans text, code, and multimodal use cases.
+## Acknowledgements
 
-**Challenge:** incorporate Qwen models into the project across any track. Build a complete, end-to-end application where Qwen contributes meaningfully to functionality, performance, or intelligence. For example:
-
-- AI agents or copilots
-- Natural language interfaces
-- Workflow / decision automation
-- Multilingual or user-facing AI features
-
-**Getting started:**
-1. Explore Qwen models and capabilities.
-2. Choose a model that fits the use case.
-3. Integrate it into the project.
-4. Highlight how Qwen is used in the final submission.
-
-**Resources:** Qwen documentation · Models on Hugging Face · ModelScope
+- AMD for the AMD Developer Cloud and the MI300X compute.
+- Google for the Gemma 4 family (Apache-2.0).
+- Alibaba for the Qwen 2.5 family (Apache-2.0).
+- Anthropic for the [`cwc-long-running-agents`](https://github.com/anthropics/cwc-long-running-agents) harness pattern that kept this 24-hour build coherent across context resets.

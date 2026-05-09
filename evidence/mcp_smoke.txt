@@ -1,0 +1,43 @@
+verdict: PASS
+case_id: P2C-R01
+truth:   red
+
+-- image_classifier (43.7s) --
+  parse_ok: True
+  top3:     [{'condition': 'cellulitis', 'confidence': 0.8}, {'condition': 'deep tissue infection', 'confidence': 0.15}, {'condition': 'stasis dermatitis', 'confidence': 0.05}]
+
+-- soap_extractor (12.1s) --
+  parse_ok: True
+  fields:   {
+  "chief_complaint": "Swollen and red foot",
+  "hpi": "I cut my foot on a rusty nail two days back when I was working in the field. Now my whole foot is swollen and red, the redness is going up my leg.",
+  "duration": "2 days",
+  "associated_symptoms": [
+    "swelling",
+    "redness extending up leg",
+    "fever since yesterday night",
+    "body shivering"
+  ],
+  "past_medical_history": "none stated",
+  "medications": "none stated",
+  "vitals": {},
+  "exam_findings": [
+    "swelling",
+    "redness extending up leg",
+    "fever"
+  ],
+  "red_flags": [
+    "swelling",
+    "redness extending up 
+
+-- village_context (0.00s) --
+  context_keys: ['cultural_factors', 'district_hospital_km', 'drug_in_stock', 'harvest_active_today', 'lost_wages_if_full_day_inr', 'phc_distance_km', 'phc_open_now', 'phc_round_trip_as_pct_of_daily_wage', 'phc_round_trip_cost_inr']
+  blurb:        PHC is 18 km away; round-trip transport is ₹180 (≈51.4% of a daily wage of ₹350). District hospital is 65 km. Harvest is active — leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.
+
+-- triage_reasoner (7.2s) --
+  parse_ok:        True
+  urgency:         red
+  reasoning:       'Signs suggest a rapidly spreading infection, as the redness is moving up the leg. The presence of fever and body shivering indicates a systemic response, which may signal sepsis. Immediate clinical intervention is required to prevent permanent limb damage or life-threatening complications.'
+  red_flags_noted: ['redness extending up leg', 'fever', 'body shivering', 'inability to bear weight']
+  patient_framing: 'While I know the harvest is important and the trip is expensive, this infection is spreading fast and affecting your whole body. If we treat it today, we can save your foot and get you back to the fields much sooner than if we wait.'
+

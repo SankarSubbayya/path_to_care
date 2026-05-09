@@ -1,0 +1,1859 @@
+{
+  "_meta": {
+    "cases_path": "data/cases.jsonl",
+    "adapter": null,
+    "n_cases_attempted": 30,
+    "n_cases_scored": 30,
+    "wall_seconds": 393.6
+  },
+  "metrics": {
+    "n": 30,
+    "mean_reward": 0.9833333333333333,
+    "exact_match_rate": 0.9666666666666667,
+    "within_one_rate": 1.0,
+    "fn_red_to_green_rate": 0.0,
+    "confusion": {
+      "green": {
+        "green": 10,
+        "yellow": 0,
+        "red": 0
+      },
+      "yellow": {
+        "green": 1,
+        "yellow": 9,
+        "red": 0
+      },
+      "red": {
+        "green": 0,
+        "yellow": 0,
+        "red": 10
+      }
+    },
+    "per_case": [
+      {
+        "case_id": "P2C-R01",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R02",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R03",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R04",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R05",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R06",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R07",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R08",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R09",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-R10",
+        "predicted": "red",
+        "ground_truth": "red",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y01",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y02",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y03",
+        "predicted": "green",
+        "ground_truth": "yellow",
+        "reward": 0.5,
+        "exact": false,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y04",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y05",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y06",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y07",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y08",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y09",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-Y10",
+        "predicted": "yellow",
+        "ground_truth": "yellow",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G01",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G02",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G03",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G04",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G05",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G06",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G07",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G08",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G09",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      },
+      {
+        "case_id": "P2C-G10",
+        "predicted": "green",
+        "ground_truth": "green",
+        "reward": 1.0,
+        "exact": true,
+        "within_one": true,
+        "fn_red_to_green": false
+      }
+    ]
+  },
+  "traces": [
+    {
+      "case_id": "P2C-R01",
+      "image_top3": [
+        {
+          "condition": "cellulitis",
+          "confidence": 0.8
+        },
+        {
+          "condition": "deep tissue infection",
+          "confidence": 0.15
+        },
+        {
+          "condition": "stasis dermatitis",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Swollen and red foot",
+        "hpi": "I cut my foot on a rusty nail two days back when I was working in the field. Now my whole foot is swollen and red, the redness is going up my leg.",
+        "duration": "2 days",
+        "associated_symptoms": [
+          "swelling",
+          "redness extending up leg",
+          "fever since yesterday night",
+          "body shivering"
+        ],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "swelling",
+          "redness extending up leg",
+          "fever"
+        ],
+        "red_flags": [
+          "swelling",
+          "redness extending up leg",
+          "fever",
+          "body shivering"
+        ],
+        "patient_concerns": [
+          "cannot keep weight on the foot"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "shivering"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest a rapidly spreading infection, as the redness is moving up the leg. The presence of fever and body shivering indicates a systemic response, which may signal sepsis. Immediate clinical intervention is required to prevent permanent limb damage or life-threatening complications.",
+      "red_flags_noted": [
+        "redness extending up leg",
+        "fever",
+        "body shivering",
+        "inability to bear weight"
+      ],
+      "patient_framing": "While I know the harvest is important and the trip is expensive, this infection is spreading fast and affecting your whole body. If we treat it today, we can save your foot and get you back to the fields much sooner than if we wait.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R02",
+      "image_top3": [
+        {
+          "condition": "partial-thickness and full-thickness burns",
+          "confidence": 0.8
+        },
+        {
+          "condition": "deep partial-thickness burns",
+          "confidence": 0.15
+        },
+        {
+          "condition": "superficial partial-thickness burns",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Burn on child's arm",
+        "hpi": "The child fell into a cooking fire, resulting in a burn on her arm that is both white and red with blisters.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "crying",
+          "not eating",
+          "no fever"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "white skin",
+          "red skin",
+          "blisters",
+          "crying",
+          "not eating"
+        ],
+        "red_flags": [
+          "burn on child's arm with blisters"
+        ],
+        "patient_concerns": [
+          "cannot afford to miss work"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest a deep partial-thickness or full-thickness burn, indicated by the white skin and blisters. The child is showing systemic distress through poor appetite and crying. Immediate care is necessary to prevent severe infection and permanent scarring.",
+      "red_flags_noted": [
+        "full-thickness burn signs (white skin)",
+        "blisters",
+        "child not eating"
+      ],
+      "patient_framing": "While the trip to the clinic is expensive and the harvest is busy, treating this burn today prevents a much more costly and dangerous infection later. It is safer to lose one day of work now than to risk the child's long-term health.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R03",
+      "image_top3": [
+        {
+          "condition": "envenomation",
+          "confidence": 0.8
+        },
+        {
+          "condition": "cellulitis",
+          "confidence": 0.15
+        },
+        {
+          "condition": "allergic reaction",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Snake bite",
+        "hpi": "Snake bit me in the paddy field one hour ago, two punctures on my ankle, leg swelling fast, dizziness, and gum bleeding.",
+        "duration": "1 hour",
+        "associated_symptoms": [
+          "swelling",
+          "dizziness",
+          "gum bleeding"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "swelling",
+          "dizziness",
+          "gum bleeding"
+        ],
+        "red_flags": [
+          "snake bite",
+          "swelling",
+          "dizziness",
+          "gum bleeding"
+        ],
+        "patient_concerns": [
+          "none stated"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "snake",
+        "fang"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest systemic envenomation, indicated by rapid swelling and critical red flags like gum bleeding and dizziness. These symptoms suggest a potential coagulopathy or neurotoxicity that requires immediate antivenom. Delaying care to finish harvest could lead to life-threatening complications.",
+      "red_flags_noted": [
+        "snake bite",
+        "rapid swelling",
+        "dizziness",
+        "gum bleeding"
+      ],
+      "patient_framing": "While I know the harvest is important and the trip is expensive, these signs are very serious. It is much safer to go to the hospital now than to risk a permanent injury or a life-threatening emergency tomorrow.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R04",
+      "image_top3": [
+        {
+          "condition": "critical limb ischemia with dry gangrene",
+          "confidence": 0.8
+        },
+        {
+          "condition": "diabetic foot ulcer with gangrene",
+          "confidence": 0.15
+        },
+        {
+          "condition": "peripheral artery disease",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Black, smelly toe",
+        "hpi": "Last week, my father had a small wound on his big toe which has now turned black and smells bad.",
+        "duration": "1 week",
+        "associated_symptoms": [
+          "no pain",
+          "tired",
+          "confused"
+        ],
+        "past_medical_history": [
+          "diabetes"
+        ],
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "black toe",
+          "bad smell"
+        ],
+        "red_flags": [
+          "black toe",
+          "smelly toe",
+          "confusion"
+        ],
+        "patient_concerns": [
+          "tired"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "black"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest tissue death (gangrene) and a potential systemic infection. The presence of confusion and fatigue are critical red flags indicating the infection may have spread to the bloodstream (sepsis). Immediate clinical intervention is required to prevent further limb loss or death.",
+      "red_flags_noted": [
+        "black toe",
+        "smelly toe",
+        "confusion",
+        "fatigue"
+      ],
+      "patient_framing": "While the trip to the clinic is expensive and the harvest is busy, this is a medical emergency. If we do not treat this today, you risk losing the toe or becoming too sick to work for the rest of the season.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R05",
+      "image_top3": [
+        {
+          "condition": "gas gangrene",
+          "confidence": 0.6
+        },
+        {
+          "condition": "necrotizing fasciitis",
+          "confidence": 0.3
+        },
+        {
+          "condition": "tetanus",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Jaw stiffness",
+        "hpi": "Three days ago, I scraped my hand on barbed wire, which resulted in a small scratch. Today, my jaw feels stiff and it's hard to open my mouth.",
+        "duration": "3 days",
+        "associated_symptoms": [
+          "purple skin around hand wound"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "swelling",
+          "stiffness in jaw"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "trismus"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest a systemic progression from a puncture wound to jaw stiffness (lockjaw), which is a critical indicator of tetanus. The presence of purple skin around the wound further suggests a severe, rapidly progressing infection. Immediate clinical intervention is required to prevent respiratory failure.",
+      "red_flags_noted": [
+        "jaw stiffness",
+        "purple skin discoloration",
+        "puncture wound history"
+      ],
+      "patient_framing": "While I know the harvest is important and the trip is expensive, this stiffness in your jaw is a serious warning sign. If we do not get you to the clinic today, you may become too sick to work for a much longer time.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R06",
+      "image_top3": [
+        {
+          "condition": "acute urticaria and angioedema",
+          "confidence": 0.8
+        },
+        {
+          "condition": "anaphylaxis",
+          "confidence": 0.15
+        },
+        {
+          "condition": "drug eruption",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "rash and swelling after taking new tablets",
+        "hpi": "After taking new tablets for headache, my whole body developed rashes within 30 minutes. My lips are swelling and my throat feels tight, making it hard to breathe.",
+        "duration": "30 minutes",
+        "associated_symptoms": [
+          "swelling",
+          "tightness in throat",
+          "difficulty breathing"
+        ],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "rashes",
+          "swelling of lips",
+          "tightness in throat"
+        ],
+        "red_flags": [
+          "swelling",
+          "tightness in throat",
+          "difficulty breathing"
+        ],
+        "patient_concerns": [
+          "difficulty breathing"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest a severe systemic allergic reaction. The presence of throat tightness and difficulty breathing are critical red flags indicating potential airway obstruction. Immediate medical intervention is required to prevent respiratory failure.",
+      "red_flags_noted": [
+        "swelling",
+        "tightness in throat",
+        "difficulty breathing"
+      ],
+      "patient_framing": "Your breathing is becoming difficult, which is a very serious emergency. While I know the harvest is important, we must get you to the clinic right now to make sure you can breathe safely.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R07",
+      "image_top3": [
+        {
+          "condition": "cellulitis with lymphangitis",
+          "confidence": 0.7
+        },
+        {
+          "condition": "cutaneous abscess",
+          "confidence": 0.2
+        },
+        {
+          "condition": "septicemia",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Painful lump on hand",
+        "hpi": "Big painful lump on my hand for a week. Now red lines going up to my armpit, and the armpit hurts.",
+        "duration": "1 week",
+        "associated_symptoms": [
+          "red lines going up to armpit",
+          "armpit hurts",
+          "low fever"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {
+          "temperature_c": "low"
+        },
+        "exam_findings": [
+          "painful lump on hand",
+          "red lines going up to armpit",
+          "hurting armpit"
+        ],
+        "red_flags": [
+          "red lines going up to armpit"
+        ],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "lymphangitic"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest a spreading infection, specifically lymphangitis indicated by red lines moving toward the armpit. The presence of a low fever and pain in the lymph nodes suggests the infection is no longer localized. This requires immediate clinical intervention to prevent systemic sepsis.",
+      "red_flags_noted": [
+        "red lines going up to armpit",
+        "low fever",
+        "lymph node pain"
+      ],
+      "patient_framing": "While I know the harvest is important and the trip is expensive, this infection is moving up your arm. If we treat it today at the PHC, we can stop it from becoming a much more serious illness that would keep you out of the fields for weeks.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R08",
+      "image_top3": [
+        {
+          "condition": "second-degree sunburn",
+          "confidence": 0.9
+        },
+        {
+          "condition": "photodermatitis",
+          "confidence": 0.07
+        },
+        {
+          "condition": "staphylococcal scalded skin syndrome",
+          "confidence": 0.03
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Red patches and blisters on shoulders and back",
+        "hpi": "After working in the sun all day during harvest, he developed big red patches on his shoulders and back, which have now turned into blisters.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "no fever",
+          "sleepy",
+          "not drinking water"
+        ],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "big red patches",
+          "blisters"
+        ],
+        "red_flags": [
+          "sleepy",
+          "not drinking water"
+        ],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "While the skin signs suggest a second-degree burn, the patient is exhibiting systemic red flags including lethargy and poor fluid intake. These signs suggest potential dehydration or systemic shock, which require immediate clinical intervention regardless of the skin condition.",
+      "red_flags_noted": [
+        "sleepy",
+        "not drinking water"
+      ],
+      "patient_framing": "While the harvest is important, your body is showing signs of severe exhaustion and dehydration that could become dangerous. It is safer to spend the money on transport now than to risk a much longer and more expensive hospital stay later.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R09",
+      "image_top3": [
+        {
+          "condition": "necrotizing fasciitis",
+          "confidence": 0.8
+        },
+        {
+          "condition": "gas gangrene",
+          "confidence": 0.15
+        },
+        {
+          "condition": "severe cellulitis with abscess",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Pain in thigh",
+        "hpi": "Pain in my thigh started two days ago and has become more severe despite the redness being less pronounced.",
+        "duration": "2 days",
+        "associated_symptoms": [
+          "dark skin",
+          "crackling sensation",
+          "no fever"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {
+          "temperature_c": 39
+        },
+        "exam_findings": [
+          "dark skin",
+          "crackling sensation under skin",
+          "redness"
+        ],
+        "red_flags": [
+          "dark skin",
+          "crackling sensation under skin",
+          "high temperature"
+        ],
+        "patient_concerns": [
+          "cannot afford to miss work"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "fever 39",
+        "crepitus"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest a rapidly progressing deep-tissue infection. The presence of a crackling sensation (crepitus), skin discoloration, and high fever are critical indicators of a surgical emergency. Immediate intervention is required to prevent systemic failure or limb loss.",
+      "red_flags_noted": [
+        "dark skin",
+        "crackling sensation under skin",
+        "high temperature"
+      ],
+      "patient_framing": "While missing work today is a loss, this is a very serious infection that can spread quickly. Going to the clinic now is the only way to save your leg and ensure you can return to work for the rest of the harvest.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-R10",
+      "image_top3": [
+        {
+          "condition": "staphylococcal secondary impetiginization",
+          "confidence": 0.6
+        },
+        {
+          "condition": "streptococcal secondary impetiginization",
+          "confidence": 0.3
+        },
+        {
+          "condition": "staphylococcal scalded skin syndrome",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Red and warm chickenpox spots with yellow pus and high fever",
+        "hpi": "The child has had chickenpox spots for 5 days, but now some spots are very red, warm, and have yellow pus, and he has a high fever of 40 degrees.",
+        "duration": "5 days",
+        "associated_symptoms": [
+          "high fever 40",
+          "sleepy"
+        ],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {
+          "temperature_c": 40
+        },
+        "exam_findings": [
+          "red and warm chickenpox spots with yellow pus"
+        ],
+        "red_flags": [
+          "high fever 40",
+          "sleepy"
+        ],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "fever 40"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "red",
+      "reasoning": "Signs suggest a secondary bacterial infection of chickenpox that may be systemic. The presence of a high fever (40\u00b0C) and lethargy (sleepiness) are critical red flags indicating a potential progression toward sepsis. Immediate clinical intervention is required to prevent severe complications.",
+      "red_flags_noted": [
+        "high fever 40",
+        "sleepy",
+        "yellow pus",
+        "warm skin"
+      ],
+      "patient_framing": "Your child has a high fever and is very sleepy, which means the skin infection is affecting his whole body. While the trip to the clinic is expensive, treating this today prevents a much more dangerous and costly emergency trip to the district hospital later.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y01",
+      "image_top3": [
+        {
+          "condition": "impetigo",
+          "confidence": 0.9
+        },
+        {
+          "condition": "herpes simplex",
+          "confidence": 0.07
+        },
+        {
+          "condition": "atopic dermatitis with secondary infection",
+          "confidence": 0.03
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Yellow crusted sores",
+        "hpi": "My daughter has yellow crusted sores around her mouth and nose since 3 days. They are spreading.",
+        "duration": "3 days",
+        "associated_symptoms": [
+          "no fever"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "yellow crusted sores around mouth and nose",
+          "sores spreading"
+        ],
+        "red_flags": [
+          "sores spreading"
+        ],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a contagious skin infection that is currently spreading. While there is no fever or systemic distress to warrant a RED level, the spreading nature of the sores requires clinical evaluation and likely antibiotics within 1-2 days to prevent further transmission.",
+      "red_flags_noted": [
+        "sores spreading"
+      ],
+      "patient_framing": "Your daughter's sores are spreading, so it is best to visit the clinic in the next day or two. Getting the free medicine now will prevent the infection from getting worse and save you from a more expensive, longer trip to the district hospital later.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y02",
+      "image_top3": [
+        {
+          "condition": "tinea corporis",
+          "confidence": 0.9
+        },
+        {
+          "condition": "nummular eczema",
+          "confidence": 0.07
+        },
+        {
+          "condition": "granuloma annulare",
+          "confidence": 0.03
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Itchy round patch on chest",
+        "hpi": "A round, ring-shaped, itchy patch started small two weeks ago and is now larger than a 2 rupees coin. The center is clear while the edge is red.",
+        "duration": "2 weeks",
+        "associated_symptoms": [],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "round patch",
+          "ring shape",
+          "itchy",
+          "bigger than 2 rupees coin",
+          "center is clear",
+          "edge is red"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a localized skin infection that is expanding but currently lacks systemic symptoms. While not an emergency, clinical evaluation is needed within 1-2 days to prevent further spread and receive appropriate treatment.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a skin infection that needs a clinic's medicine to stop it from growing. It is better to spend the travel money now than to let it spread and be forced to miss more harvest days later.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y03",
+      "image_top3": [
+        {
+          "condition": "irritant contact dermatitis",
+          "confidence": 0.6
+        },
+        {
+          "condition": "allergic contact dermatitis",
+          "confidence": 0.3
+        },
+        {
+          "condition": "dyshidrotic eczema",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Red, itchy hands with small bumps",
+        "hpi": "Both hands are red, itchy, and have small bumps since buying new soap last week. Symptoms worsen after washing.",
+        "duration": "1 week",
+        "associated_symptoms": [
+          "no fever",
+          "no spread to other areas"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "redness",
+          "itching",
+          "small bumps"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a localized skin reaction likely linked to a new soap. There are no systemic symptoms, no fever, and no signs of spreading infection. Given the high cost of transport and active harvest, home monitoring is appropriate.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a mild reaction to the new soap. It is safer and cheaper to stop using that soap and watch it at home for now rather than losing a day's pay to travel to the clinic.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y04",
+      "image_top3": [
+        {
+          "condition": "erysipelas",
+          "confidence": 0.6
+        },
+        {
+          "condition": "cellulitis",
+          "confidence": 0.3
+        },
+        {
+          "condition": "stasis dermatitis",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Red area on shin",
+        "hpi": "Small red area on my shin, warm, and a little bit tender since 2 days. The size of my palm.",
+        "duration": "2 days",
+        "associated_symptoms": [
+          "no fever",
+          "no streaks going up"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "small red area",
+          "warm",
+          "tender"
+        ],
+        "red_flags": [],
+        "patient_concerns": [
+          "walking is okay"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [
+        "lymphangitic"
+      ],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a localized skin infection such as cellulitis or erysipelas. While there are currently no systemic red flags like fever or spreading streaks, the warmth and tenderness indicate an active infection that requires clinical evaluation and potential antibiotics to prevent worsening.",
+      "red_flags_noted": [],
+      "patient_framing": "It is best to visit the clinic in the next day or two to get this treated now. This will prevent the infection from spreading, which would cause you to miss much more work during the harvest later.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y05",
+      "image_top3": [
+        {
+          "condition": "nodulocystic acne",
+          "confidence": 0.7
+        },
+        {
+          "condition": "acne vulgaris",
+          "confidence": 0.2
+        },
+        {
+          "condition": "hidradenitis suppurativa",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Painful pustular pimples",
+        "hpi": "Pimples on face and back since teenage years, now some have become large, yellow, with pus, and painful. About 5-6 of them.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "no fever"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "pustular pimples"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a localized inflammatory skin condition with pustules. While there is no fever or systemic illness, the presence of painful, pus-filled lesions requires a clinical evaluation to prevent further spreading or scarring.",
+      "red_flags_noted": [],
+      "patient_framing": "These spots are painful and need a proper check-up to get the right medicine and stop them from getting worse. It is better to spend the travel cost now than to risk a larger infection that would keep you out of the fields for longer.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y06",
+      "image_top3": [
+        {
+          "condition": "scabies",
+          "confidence": 0.9
+        },
+        {
+          "condition": "dyshidrotic eczema",
+          "confidence": 0.07
+        },
+        {
+          "condition": "papular urticaria",
+          "confidence": 0.03
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Severe itching",
+        "hpi": "The patient experiences severe itching, particularly at night, in the finger webs and waist. They also notice small lines and bumps, and their wife is experiencing similar symptoms.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "small lines",
+          "bumps",
+          "wife also itching"
+        ],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "itching",
+          "small lines",
+          "bumps"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a contagious skin condition affecting multiple household members. While not an immediate emergency, clinical evaluation is needed to prevent further spread within the family and community.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like something that can spread to others in your home. It is worth the trip to the clinic in the next day or two so you can get the right cream and stop the itching before it gets worse.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y07",
+      "image_top3": [
+        {
+          "condition": "atopic dermatitis",
+          "confidence": 0.8
+        },
+        {
+          "condition": "impetiginization",
+          "confidence": 0.15
+        },
+        {
+          "condition": "staphylococcal skin infection",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Red, weeping eczema",
+        "hpi": "Eczema patches on elbows and behind knees have become very red, weeping, and more itchy than usual over the last 4 days.",
+        "duration": "4 days",
+        "associated_symptoms": [
+          "itchy"
+        ],
+        "past_medical_history": [
+          "long-time eczema"
+        ],
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "red",
+          "weeping",
+          "itchy"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a localized skin infection or flare-up, indicated by the weeping and increased redness. While there are no systemic red flags like fever, the progression over 4 days warrants a clinical evaluation to prevent further spread. A visit within 1-2 days is appropriate to secure treatment before the condition worsens.",
+      "red_flags_noted": [],
+      "patient_framing": "Your skin is showing signs of a possible infection that needs a check-up. It is better to spend a small amount of money and time to visit the clinic now than to risk a worse infection that could keep you out of the fields for much longer.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y08",
+      "image_top3": [
+        {
+          "condition": "insufficient data for assessment",
+          "confidence": 0.9
+        },
+        {
+          "condition": "undetermined skin lesion",
+          "confidence": 0.05
+        },
+        {
+          "condition": "undetermined rash",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "White scaly patches between toes",
+        "hpi": "I have white scaly patches between my toes, peeling skin, and itching. I also notice a smell. I work in wet fields all day.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "itching",
+          "smell"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "white scaly patches",
+          "peeling skin",
+          "itching"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a localized fungal or bacterial skin infection common in wet-field work. While not an immediate emergency, the presence of a smell and peeling skin indicates an active infection that requires clinical evaluation to prevent spreading.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a common skin issue from working in the wet fields, but it needs a clinic check to get the right cream. It is better to spend the travel money now than to let it get worse and be forced to miss more harvest days later.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y09",
+      "image_top3": [
+        {
+          "condition": "varicella",
+          "confidence": 0.9
+        },
+        {
+          "condition": "disseminated herpes simplex",
+          "confidence": 0.07
+        },
+        {
+          "condition": "hand-foot-and-mouth disease",
+          "confidence": 0.03
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Itchy spots all over body",
+        "hpi": "Itchy spots started yesterday on the chest and have spread. Some spots are blistering.",
+        "duration": "1 day",
+        "associated_symptoms": [
+          "slight fever 38"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "itchy spots",
+          "blistering spots"
+        ],
+        "red_flags": [
+          "fever"
+        ],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a contagious skin condition with a mild fever. While not an immediate emergency, the rapid spread of blistering spots requires a clinical evaluation to confirm the cause and prevent further transmission.",
+      "red_flags_noted": [
+        "fever"
+      ],
+      "patient_framing": "These spots are spreading and signs suggest a fever, so it is important to see a nurse in the next day or two. It is better to spend the travel money now to get the right treatment than to risk getting sicker and missing more days of harvest later.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-Y10",
+      "image_top3": [
+        {
+          "condition": "herpes zoster",
+          "confidence": 0.95
+        },
+        {
+          "condition": "herpes simplex",
+          "confidence": 0.03
+        },
+        {
+          "condition": "contact dermatitis",
+          "confidence": 0.02
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Painful red rash on left side of chest",
+        "hpi": "Burning pain started 2 days before the rash appeared, and now there are small blisters.",
+        "duration": "2 days",
+        "associated_symptoms": [
+          "burning pain",
+          "small blisters"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "painful red rash on left side of chest",
+          "small blisters"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "yellow",
+      "reasoning": "Signs suggest a localized viral infection with characteristic burning pain and blistering. While not an immediate emergency, clinical evaluation is needed within 1-2 days to start antiviral treatment, which is most effective when started early.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a condition that needs medicine from the clinic to heal faster and reduce the pain. It is worth the trip to the PHC tomorrow so it doesn't get worse and keep you out of the fields longer.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G01",
+      "image_top3": [
+        {
+          "condition": "miliaria rubra",
+          "confidence": 0.8
+        },
+        {
+          "condition": "folliculitis",
+          "confidence": 0.15
+        },
+        {
+          "condition": "contact dermatitis",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Red bumps on neck and chest",
+        "hpi": "Patient noticed tiny red bumps on the neck and chest after working in the sun. The bumps are itchy but improve at night.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "itchy",
+          "no fever"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "tiny red bumps on neck and chest"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a mild heat-related skin reaction, likely miliaria rubra, given the association with sun exposure and lack of systemic symptoms. There are no red flags such as fever or spreading infection that would justify the high cost and loss of income associated with travel to the PHC.",
+      "red_flags_noted": [],
+      "patient_framing": "These bumps look like a common heat rash and should improve with cooling and keeping the skin dry. It is better to stay and work the harvest now, but please come back to see me if you develop a fever or if the rash starts spreading quickly.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G02",
+      "image_top3": [
+        {
+          "condition": "healing abrasion",
+          "confidence": 0.8
+        },
+        {
+          "condition": "superficial wound",
+          "confidence": 0.15
+        },
+        {
+          "condition": "mild localized inflammation",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Scratch on arm",
+        "hpi": "Small scratch on my arm from yesterday while cutting vegetables. It is healing with a scab forming and some redness around it.",
+        "duration": "1 day",
+        "associated_symptoms": [
+          "no spreading"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "small scratch",
+          "scab forming",
+          "little redness"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a superficial wound that is already healing with a scab. There are no red flags such as spreading redness, fever, or systemic symptoms. Given the high cost of transport and harvest pressure, home monitoring is appropriate.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a simple scratch that is already healing on its own. It is safer and cheaper to keep it clean at home rather than spending your daily wage and time traveling to the clinic today.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G03",
+      "image_top3": [
+        {
+          "condition": "insect bite reactions",
+          "confidence": 0.8
+        },
+        {
+          "condition": "papular urticaria",
+          "confidence": 0.15
+        },
+        {
+          "condition": "folliculitis",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Itchy mosquito bites",
+        "hpi": "Patient has many mosquito bites on their legs from last evening and feels itchy.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "feeling hot all day"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "itchy mosquito bites on legs"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a common reaction to insect bites without evidence of systemic infection or allergic reaction. There are no red flags such as spreading redness, high fever, or respiratory distress. The patient's report of \"feeling hot\" is non-specific and does not currently indicate a medical emergency.",
+      "red_flags_noted": [],
+      "patient_framing": "These look like normal mosquito bites that can be managed at home. It is better to stay and work the harvest today rather than spending your wages and time on a long trip to the clinic, unless the swelling spreads or you develop a high fever.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G04",
+      "image_top3": [
+        {
+          "condition": "first-degree sunburn",
+          "confidence": 0.9
+        },
+        {
+          "condition": "contact dermatitis",
+          "confidence": 0.07
+        },
+        {
+          "condition": "rosacea flare",
+          "confidence": 0.03
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Redness on face after sun exposure",
+        "hpi": "Red on my face after being in the sun for one hour without a scarf.",
+        "duration": "one hour",
+        "associated_symptoms": [
+          "no blister"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "redness"
+        ],
+        "red_flags": [],
+        "patient_concerns": [
+          "cannot afford to miss work"
+        ]
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a mild, first-degree sunburn without blistering or systemic symptoms. There are no red flags present that would justify the high cost of transport and loss of daily wages during harvest. The condition can be managed with home care and monitoring.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a mild sun burn that can be treated at home. It is not necessary to spend your money or miss work today, but please come back if you see blisters or develop a fever.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G05",
+      "image_top3": [
+        {
+          "condition": "non-diagnostic / image quality insufficient",
+          "confidence": 0.0
+        }
+      ],
+      "image_parse_ok": false,
+      "soap_fields": {
+        "chief_complaint": "Dry skin",
+        "hpi": "Patient reports dry skin, particularly on legs and arms with some flaking and mild itching, worse in cold weather.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "itching"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "dry skin",
+          "flaking",
+          "itching"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest mild dry skin and itching related to weather conditions. There are no systemic symptoms, fever, or signs of infection present in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.",
+      "red_flags_noted": [],
+      "patient_framing": "Your skin is just very dry from the cold, which is common. It is better to stay in the fields and use moisturizer at home rather than spending a day's wage to travel to the clinic.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G06",
+      "image_top3": [
+        {
+          "condition": "post-inflammatory hyperpigmentation",
+          "confidence": 0.7
+        },
+        {
+          "condition": "hypertrophic scar",
+          "confidence": 0.2
+        },
+        {
+          "condition": "stable surgical scar",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Itchy, red old scar",
+        "hpi": "The patient has an old scar on their belly that sometimes feels itchy and is slightly red.",
+        "duration": "unknown",
+        "associated_symptoms": [
+          "no swelling",
+          "no pus",
+          "no fever"
+        ],
+        "past_medical_history": [
+          "old scar from surgery 5 years back"
+        ],
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "itchy",
+          "slightly red"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a stable, old surgical scar with mild irritation. There are no systemic symptoms, no pus, and no fever to indicate an active infection. Given the high cost of transport and active harvest, home monitoring is appropriate.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like an old scar that is just a bit irritated. Since you feel well otherwise, it is better to stay and work the harvest now and only visit the clinic if you see pus or develop a fever.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G07",
+      "image_top3": [
+        {
+          "condition": "acne vulgaris",
+          "confidence": 0.8
+        },
+        {
+          "condition": "comedonal acne",
+          "confidence": 0.15
+        },
+        {
+          "condition": "perioral dermatitis",
+          "confidence": 0.05
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Pimples on forehead",
+        "hpi": "Few pimples on the forehead since this week, no pus, just bumps. Worsens before her periods.",
+        "duration": "this week",
+        "associated_symptoms": [],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "pimples on forehead"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a mild, cyclical skin eruption without systemic symptoms. There are no red flags such as fever, spreading infection, or pain that would justify the high cost and loss of income associated with travel to the PHC.",
+      "red_flags_noted": [],
+      "patient_framing": "These bumps look mild and are likely linked to your cycle. It is better to stay and work the harvest now and just keep an eye on them; if they become painful or spread, we can then plan a trip to the clinic.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G08",
+      "image_top3": [
+        {
+          "condition": "abrasion",
+          "confidence": 0.9
+        },
+        {
+          "condition": "superficial wound",
+          "confidence": 0.07
+        },
+        {
+          "condition": "excoriation",
+          "confidence": 0.03
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Scratched knee",
+        "hpi": "Scraped my knee yesterday while playing with my kid. It looks okay today after cleaning it with water.",
+        "duration": "1 day",
+        "associated_symptoms": [],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "small graze"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a superficial abrasion that is healing well after basic cleaning. There are no reported red flags such as fever, spreading redness, or pus. Given the high cost of transport and active harvest, home monitoring is appropriate.",
+      "red_flags_noted": [],
+      "patient_framing": "Your scrape looks like it is healing well on its own. It is safer and cheaper to keep it clean at home and keep working, rather than spending your daily wage to travel to the clinic today.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G09",
+      "image_top3": [
+        {
+          "condition": "seborrheic dermatitis",
+          "confidence": 0.7
+        },
+        {
+          "condition": "psoriasis",
+          "confidence": 0.2
+        },
+        {
+          "condition": "tinea capitis",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Itchy scalp with white flaky scales",
+        "hpi": "The patient has had white flaky scales on their scalp for many years, which is more noticeable when they do not oil their hair. It is itchy sometimes.",
+        "duration": "many years",
+        "associated_symptoms": [
+          "itchy sometimes"
+        ],
+        "past_medical_history": [
+          "none stated"
+        ],
+        "medications": [
+          "none stated"
+        ],
+        "vitals": {},
+        "exam_findings": [
+          "white flaky scales on scalp"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a chronic, long-term condition with no acute progression or systemic symptoms. There are no red flags such as fever, spreading infection, or severe inflammation that would justify the high cost of travel during harvest.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a long-term skin irritation that is not dangerous. Since it has been this way for years, it is better to stay and work the harvest now and visit the clinic later if it becomes more uncomfortable.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    },
+    {
+      "case_id": "P2C-G10",
+      "image_top3": [
+        {
+          "condition": "lichen simplex chronicus",
+          "confidence": 0.7
+        },
+        {
+          "condition": "atopic dermatitis",
+          "confidence": 0.2
+        },
+        {
+          "condition": "psoriasis",
+          "confidence": 0.1
+        }
+      ],
+      "image_parse_ok": true,
+      "soap_fields": {
+        "chief_complaint": "Dry patch on elbow",
+        "hpi": "There is a small dry rough patch on my elbow that has been present for many years. It sometimes gets red when scratched but does not spread or bleed.",
+        "duration": "many years",
+        "associated_symptoms": [
+          "no redness",
+          "no spreading",
+          "no bleeding",
+          "no fever"
+        ],
+        "past_medical_history": "none stated",
+        "medications": "none stated",
+        "vitals": {},
+        "exam_findings": [
+          "dry patch",
+          "redness when scratched"
+        ],
+        "red_flags": [],
+        "patient_concerns": []
+      },
+      "soap_parse_ok": true,
+      "cross_check_red_flags": [],
+      "village_blurb": "PHC is 18 km away; round-trip transport is \u20b9180 (\u224851.4% of a daily wage of \u20b9350). District hospital is 65 km. Harvest is active \u2014 leaving the field costs visible income today. Antibiotics typically free at PHC if in stock; antivenom only at district hospital.",
+      "urgency": "green",
+      "reasoning": "Signs suggest a chronic, stable skin condition that has been present for years without progression. There are no systemic symptoms, no spreading, and no signs of acute infection. Given the high cost of transport and active harvest, immediate travel is not clinically indicated.",
+      "red_flags_noted": [],
+      "patient_framing": "This looks like a long-term skin irritation that isn't dangerous. It is better to stay and work the harvest now, but please come back to see me if the patch starts spreading quickly or begins to leak fluid.",
+      "triage_parse_ok": true,
+      "safety_escalation": false
+    }
+  ]
+}
