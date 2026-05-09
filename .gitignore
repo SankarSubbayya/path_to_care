@@ -4,11 +4,15 @@
 !.env.example
 
 # Tool / IDE state
-.claude/
 .cursor/
 .rocketride/
 .vscode/
 .idea/
+
+# Long-running-agents harness: commit config, ignore transient state and operator files
+.claude/.evidence-reads
+AGENT_STOP
+STEER.md
 
 # Python
 __pycache__/
@@ -34,3 +38,10 @@ Thumbs.db
 *.safetensors
 *.ckpt
 data/raw/
+data/images/
+
+# LoRA: keep adapter_config.json (proof of training), ignore weight blobs
+adapters/*/*.safetensors
+adapters/*/*.bin
+adapters/*/optimizer.pt
+adapters/*/scheduler.pt

@@ -1,0 +1,50 @@
+{
+  "_meta": {
+    "deadline": "2026-05-10 mid-afternoon",
+    "plan": "CLAUDE.md 24-hour table",
+    "rule": "A feature flips to true ONLY after the verify-gate has seen the named evidence file opened. Plausibility is not correctness."
+  },
+
+  "phase_1_env_and_smoke": {
+    "env_torch_rocm":            { "passing": false, "evidence": "evidence/env_torch_check.txt" },
+    "env_packages_installed":    { "passing": false, "evidence": "evidence/env_pip_freeze.txt" },
+    "gemma3_12b_smoke":          { "passing": false, "evidence": "evidence/gemma_smoke.txt" },
+    "qwen25_7b_smoke":           { "passing": false, "evidence": "evidence/qwen_smoke.txt" },
+    "repo_skeleton_built":       { "passing": false, "evidence": "evidence/repo_tree.txt" }
+  },
+
+  "phase_2_harness_and_adversary": {
+    "reward_fn_unit_tests":      { "passing": false, "evidence": "evidence/reward_unit_tests.txt" },
+    "adversary_generates_30":    { "passing": false, "evidence": "data/cases.jsonl" },
+    "test_set_balanced_RYG":     { "passing": false, "evidence": "evidence/test_set_distribution.txt" }
+  },
+
+  "phase_3_zero_shot_baseline": {
+    "mcp_servers_respond":       { "passing": false, "evidence": "evidence/mcp_smoke.txt" },
+    "orchestrator_e2e":          { "passing": false, "evidence": "evidence/orchestrator_smoke.txt" },
+    "baseline_metrics_recorded": { "passing": false, "evidence": "results/baseline_metrics.json" }
+  },
+
+  "phase_4_stub_hf_space": {
+    "hf_space_stub_live":        { "passing": false, "evidence": "evidence/hf_space_url.txt" }
+  },
+
+  "phase_5_lora_train": {
+    "lora_train_completes":      { "passing": false, "evidence": "logs/lora_train.log" },
+    "adapter_saved":             { "passing": false, "evidence": "adapters/triage-gemma-lora/adapter_config.json" }
+  },
+
+  "phase_6_reeval_and_delta": {
+    "tuned_metrics_recorded":    { "passing": false, "evidence": "results/tuned_metrics.json" },
+    "delta_positive":            { "passing": false, "evidence": "evidence/delta_report.txt" }
+  },
+
+  "phase_7_ship": {
+    "gradio_demo_runs_locally":  { "passing": false, "evidence": "evidence/gradio_smoke.txt" },
+    "hf_space_final_deployed":   { "passing": false, "evidence": "evidence/hf_space_final.txt" },
+    "readme_published":          { "passing": false, "evidence": "evidence/readme_check.txt" },
+    "bip_post_drafted":          { "passing": false, "evidence": "docs/BIP_POST.md" },
+    "repo_pushed_public":        { "passing": false, "evidence": "evidence/git_remote.txt" },
+    "lablab_submitted":          { "passing": false, "evidence": "evidence/lablab_confirmation.txt" }
+  }
+}
