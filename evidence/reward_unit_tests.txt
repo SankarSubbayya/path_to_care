@@ -1,0 +1,19 @@
+== reward exact / adjacent / off-by-2 ==
+  OK  R(red, red): got=1.0 want=1.0
+  OK  R(yellow, yellow): got=1.0 want=1.0
+  OK  R(green, green): got=1.0 want=1.0
+  OK  R(yellow, red) adjacent: got=0.5 want=0.5
+  OK  R(red, yellow) adjacent: got=0.5 want=0.5
+  OK  R(green, yellow) adjacent: got=0.5 want=0.5
+  OK  R(yellow, green) adjacent: got=0.5 want=0.5
+  OK  R(green, red) off-by-2: got=0.0 want=0.0
+  OK  R(red, green) off-by-2: got=0.0 want=0.0
+== case insensitivity / whitespace ==
+  OK  R('Red', 'RED'): got=1.0 want=1.0
+  OK  R(' yellow ', 'red'): got=0.5 want=0.5
+== false-negative Red->Green flag ==
+  OK  FN(green, red) is True: got=True want=True
+  OK  FN(yellow, red) is False: got=False want=False
+  OK  FN(green, green) is False: got=False want=False
+
+verdict: PASS (14/14 tests passing)

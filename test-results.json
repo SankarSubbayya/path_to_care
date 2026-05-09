@@ -6,17 +6,17 @@
   },
 
   "phase_1_env_and_smoke": {
-    "env_torch_rocm":            { "passing": false, "evidence": "evidence/env_torch_check.txt" },
-    "env_packages_installed":    { "passing": false, "evidence": "evidence/env_pip_freeze.txt" },
-    "gemma3_12b_smoke":          { "passing": false, "evidence": "evidence/gemma_smoke.txt" },
-    "qwen25_7b_smoke":           { "passing": false, "evidence": "evidence/qwen_smoke.txt" },
+    "env_torch_rocm":            { "passing": true,  "evidence": "evidence/env_torch_check.txt" },
+    "env_packages_installed":    { "passing": true,  "evidence": "evidence/env_pip_freeze.txt" },
+    "gemma4_31b_smoke":          { "passing": false, "evidence": "evidence/gemma4_smoke.txt" },
+    "qwen25_7b_smoke":           { "passing": true,  "evidence": "evidence/qwen_smoke.txt" },
     "repo_skeleton_built":       { "passing": false, "evidence": "evidence/repo_tree.txt" }
   },
 
   "phase_2_harness_and_adversary": {
-    "reward_fn_unit_tests":      { "passing": false, "evidence": "evidence/reward_unit_tests.txt" },
-    "adversary_generates_30":    { "passing": false, "evidence": "data/cases.jsonl" },
-    "test_set_balanced_RYG":     { "passing": false, "evidence": "evidence/test_set_distribution.txt" }
+    "reward_fn_unit_tests":      { "passing": true,  "evidence": "evidence/reward_unit_tests.txt" },
+    "adversary_generates_30":    { "passing": true,  "evidence": "data/cases.jsonl" },
+    "test_set_balanced_RYG":     { "passing": true,  "evidence": "evidence/test_set_distribution.txt" }
   },
 
   "phase_3_zero_shot_baseline": {
@@ -31,7 +31,7 @@
 
   "phase_5_lora_train": {
     "lora_train_completes":      { "passing": false, "evidence": "logs/lora_train.log" },
-    "adapter_saved":             { "passing": false, "evidence": "adapters/triage-gemma-lora/adapter_config.json" }
+    "adapter_saved":             { "passing": false, "evidence": "adapters/triage-gemma4-lora/adapter_config.json" }
   },
 
   "phase_6_reeval_and_delta": {

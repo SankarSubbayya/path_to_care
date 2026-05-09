@@ -1,0 +1,6 @@
+verdict: PASS
+model: Qwen/Qwen2.5-7B-Instruct
+prompt: "Extract the chief complaint from this narrative as one short phrase: 'My foot hurts and is swollen, started two days ago after I cut it on a rusty nail.'"
+load_seconds: 12.0
+generate_seconds: 2.60
+output: 'Foot pain and swelling since cutting it on a rusty nail two days ago.'

@@ -1,0 +1,8 @@
+verdict: PASS
+torch.__version__: 2.9.1+rocm6.3
+torch.version.hip: 6.3.42134-a9a80e791
+torch.cuda.is_available(): True
+torch.cuda.device_count(): 1
+torch.cuda.get_device_name(0): AMD Instinct MI300X VF
+torch.cuda.get_device_properties(0).total_memory: 205822885888
+sample matmul on GPU OK: shape=(1024, 1024), dtype=torch.float32, device=cuda:0

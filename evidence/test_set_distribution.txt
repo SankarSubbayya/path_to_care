@@ -1,0 +1,6 @@
+verdict: PASS
+total_cases: 30
+by_urgency: {'red': 10, 'yellow': 10, 'green': 10}
+expected_by_urgency: {'red': 10, 'yellow': 10, 'green': 10}
+cases_with_adversarial_features: 25
+unique_case_ids: 30

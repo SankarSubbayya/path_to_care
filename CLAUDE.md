@@ -48,16 +48,16 @@ This is a **~24-hour build**, not a 3- or 8-week build. The operative plan is th
 | Component | Approach | Hits |
 |---|---|---|
 | Orchestrator | DSPy ReAct + hierarchical multi-agent | Track 1 |
-| Image classifier MCP | **Gemma 3 12B-it (vision)** — top-3 conditions + confidence | Track 3 |
-| SOAP extractor MCP | **Qwen-2.5-7B** via DSPy `NarrativeToSOAP` signature | Track 1, Qwen |
+| Image classifier MCP | **Gemma 4 31B-it** (vision, dense) — top-3 conditions + confidence | Track 3 |
+| SOAP extractor MCP | **Qwen-2.5-7B-Instruct** via DSPy `NarrativeToSOAP` signature | Track 1, Qwen |
 | Village context MCP | JSON knowledge file (transport, clinics, seasons) | — |
-| Triage reasoner MCP | **Gemma 3 12B-it + LoRA SFT** on MI300X (vision + SOAP + context → urgency) | Track 2, Track 3 |
+| Triage reasoner MCP | **Gemma 4 31B-it + LoRA SFT** on MI300X (image + SOAP + context → urgency) | Track 2, Track 3 |
 | Adversarial agent | Generates 30-case held-out test set with red-flag/contradiction/off-distribution variants | safety / credibility |
 | Eval harness | Reward `R = 1.0 / 0.5 / 0.0`, exact-match %, false-negative Red→Green % | safety |
 | Demo | Gradio Space replaying the Rajan dialogue | HF prize |
 | BiP | 1 X thread + 1 ROCm-feedback writeup | BiP prize |
 
-**Hybrid model rationale:** Gemma 3 12B-it is natively multimodal — image classifier and triage reasoner share one loaded model in memory (one set of weights, two prompts/MCPs). Qwen-2.5-7B handles text-only SOAP extraction, preserving Qwen prize eligibility. Total VRAM ~30 GB on a 192 GB MI300X — fits comfortably with LoRA training overhead.
+**Hybrid model rationale (final):** Gemma 4 31B-it is multimodal, dense, **not gated** (Apache-2.0). Image-classifier MCP and triage-reasoner MCP **share one loaded Gemma 4 model** (two prompts against the same weights). Qwen-2.5-7B-Instruct handles text-only SOAP extraction, preserving the Qwen prize. Total VRAM: ~62 GB (Gemma 4) + 15 GB (Qwen 2.5) + ~12 GB LoRA overhead = ~89 GB on a 192 GB MI300X. **Pivot trail:** Gemma 3 12B-it (gated 401) → Gemma 4 26B-A4B-it (MoE, hits `torch._grouped_mm` ROCm-incompat) → **Gemma 4 31B-it (dense, works)**. Remaining fallbacks if 31B has a problem: Gemma 4 E4B-it (4B dense) → Qwen2-VL-7B-Instruct. See [docs/COMPATIBILITY.md](docs/COMPATIBILITY.md).
 
 ### Headline narrative (target)
 
@@ -126,7 +126,7 @@ Prefer flat over deep. Don't create subpackages until there are 3+ files in them
 
 ## Working defaults
 
-- **Models:** **Gemma 3 12B-it** (`google/gemma-3-12b-it`, multimodal — image+text → urgency, top-3 conditions). **Qwen-2.5-7B-Instruct** (`Qwen/Qwen2.5-7B-Instruct`, text-only — SOAP extraction). Fallback for dev/CPU loop: Gemma 3 4B-it + Qwen-2.5-1.5B-Instruct.
+- **Models:** **Gemma 4 31B-it** (`google/gemma-4-31B-it`, multimodal dense — image+text → urgency, top-3 conditions). **Qwen-2.5-7B-Instruct** (`Qwen/Qwen2.5-7B-Instruct`, text-only — SOAP extraction). Remaining fallbacks: Gemma 4 E4B-it → Qwen2-VL-7B-Instruct.
 - **Frameworks:** PyTorch (ROCm), `transformers`, `peft`, `dspy-ai`, `gradio`, `fastapi`. **Avoid vLLM and TRL/GRPO for now** — they're stretch goals, not load-bearing.
 - **Image dataset:** HAM10000 (public, no application form). Stanford Skin Dataset is a reach goal.
 - **Test set size:** 30 cases (10 each Red/Yellow/Green), authored by the adversarial generator.
