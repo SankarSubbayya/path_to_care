@@ -124,6 +124,26 @@ Prefer flat over deep. Don't create subpackages until there are 3+ files in them
 
 ---
 
+## Python environment (uv + venv)
+
+This project uses **`uv`** with a **`pyproject.toml`** and a local **`.venv`** — not system Python. Reasons: reproducible builds, clean dep graph, ROCm wheels routed via `[tool.uv.sources]` to avoid the "PyPI torch clobbers ROCm torch" footgun we hit early in Phase 1.
+
+```bash
+# First-time setup (one-shot):
+curl -LsSf https://astral.sh/uv/install.sh | sh   # if uv missing
+uv sync                                            # creates .venv and installs from pyproject.toml
+
+# Run anything Python:
+.venv/bin/python scripts/smoke_torch.py            # explicit
+# or
+source .venv/bin/activate && python scripts/smoke_torch.py
+```
+
+Notes:
+- `pyproject.toml` pins `torch==2.9.1+rocm6.3` and routes `torch`, `torchvision`, `torchaudio`, `pytorch-triton-rocm` through `[tool.uv.sources] pytorch-rocm` → `https://download.pytorch.org/whl/rocm6.3`. uv will not silently pull a CPU/CUDA wheel from PyPI.
+- Python is pinned to `>=3.12,<3.13` because the ROCm wheels for `torch 2.9.1` are cp312-only.
+- HF model weights live in `~/.cache/huggingface` (venv-independent — survives a `rm -rf .venv`).
+
 ## Working defaults
 
 - **Models:** **Gemma 4 31B-it** (`google/gemma-4-31B-it`, multimodal dense — image+text → urgency, top-3 conditions). **Qwen-2.5-7B-Instruct** (`Qwen/Qwen2.5-7B-Instruct`, text-only — SOAP extraction). Remaining fallbacks: Gemma 4 E4B-it → Qwen2-VL-7B-Instruct.

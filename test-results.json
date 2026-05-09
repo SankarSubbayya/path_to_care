@@ -8,7 +8,7 @@
   "phase_1_env_and_smoke": {
     "env_torch_rocm":            { "passing": true,  "evidence": "evidence/env_torch_check.txt" },
     "env_packages_installed":    { "passing": true,  "evidence": "evidence/env_pip_freeze.txt" },
-    "gemma4_31b_smoke":          { "passing": false, "evidence": "evidence/gemma4_smoke.txt" },
+    "gemma4_31b_smoke":          { "passing": true,  "evidence": "evidence/gemma4_smoke.txt" },
     "qwen25_7b_smoke":           { "passing": true,  "evidence": "evidence/qwen_smoke.txt" },
     "repo_skeleton_built":       { "passing": false, "evidence": "evidence/repo_tree.txt" }
   },

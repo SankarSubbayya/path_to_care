@@ -24,8 +24,12 @@ Handoff log between sessions. Every session ends by updating this; every session
 
 ## In progress
 
-- Phase 1 wrap: Gemma 4 smoke + repo skeleton.
-- Phase 3 prep: scaffold harness/run.py, orchestrator/agent.py, the 4 MCP modules.
+- **Phase 1 — closing out:**
+  - ✅ `gemma4_31b_smoke` — Gemma 4 31B-it loaded in 65s, generated top-3 with confidence in 3.7s. Output: "Cellulitis: 0.7 / Localized skin infection: 0.6 / Contact dermatitis: 0.3". `evidence/gemma4_smoke.txt`.
+  - ✅ uv venv + pyproject.toml — pinned `torch==2.9.1+rocm6.3` via `[tool.uv.sources]`. `.venv/bin/python scripts/smoke_torch.py` PASS.
+  - ⏳ `repo_skeleton_built` — core/, mcp/{image,soap,village,triage}, orchestrator/, training/, frontend/ in place; harness/run.py + orchestrator/agent.py + training/lora_sft.py still pending.
+
+- **Phase 3 prep:** scaffold harness/run.py, orchestrator/agent.py.
 
 ## Next
 

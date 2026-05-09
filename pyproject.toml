@@ -1,0 +1,67 @@
+[project]
+name = "path-to-care"
+version = "0.1.0"
+description = "Multimodal, agentic decision-support system for rural healthcare. Built for the AMD Developer Hackathon (May 2026). Never diagnoses; ranks possibilities, assesses urgency, contextualizes barriers."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+license = { text = "Apache-2.0" }
+authors = [{ name = "sankara68" }]
+
+dependencies = [
+    # Core ML stack — torch from the ROCm 6.3 wheel index; see [tool.uv.sources].
+    # Local-version identifier (+rocm6.3) is required so uv matches the wheel.
+    "torch==2.9.1+rocm6.3",
+    "torchvision==0.24.1+rocm6.3",
+    "torchaudio==2.9.1+rocm6.3",
+    "pytorch-triton-rocm==3.5.1",  # transitive dep of torch+rocm; declared explicit so uv routes it
+    # Hugging Face stack — transformers 5.x is required for Gemma 4.
+    "transformers>=5.8.0",
+    "accelerate>=1.13",
+    "peft>=0.19",
+    "datasets>=4.8",
+    "huggingface-hub>=1.14",
+    "safetensors>=0.7",
+    "sentencepiece>=0.2",
+    "protobuf>=7",
+    "einops>=0.8",
+    # Agentic orchestration
+    "dspy-ai>=3.2",
+    # Service / UI shells (FastAPI is documented architecture; in-process is the
+    # 24h pragmatic path. Gradio for HF Space.)
+    "fastapi>=0.136",
+    "uvicorn>=0.46",
+    "gradio>=6.14",
+    # Image utilities (CLIP fallback / image preprocessing)
+    "open-clip-torch>=3.3",
+    "pillow>=11",
+    "pydantic>=2.13",
+    "httpx>=0.27",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "ruff>=0.7",
+]
+
+# Use the AMD ROCm 6.3 PyTorch index for torch* — uv understands this and won't
+# accidentally pull a CPU/CUDA torch from PyPI. (We hit that exact bug earlier
+# with `pip install --ignore-installed transformers`; documented in
+# docs/COMPATIBILITY.md.)
+[tool.uv.sources]
+torch = { index = "pytorch-rocm" }
+torchvision = { index = "pytorch-rocm" }
+torchaudio = { index = "pytorch-rocm" }
+pytorch-triton-rocm = { index = "pytorch-rocm" }
+
+[[tool.uv.index]]
+name = "pytorch-rocm"
+url = "https://download.pytorch.org/whl/rocm6.3"
+explicit = true
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["core", "harness", "adversary", "mcp", "orchestrator", "training", "frontend"]
