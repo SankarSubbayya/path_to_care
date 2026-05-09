@@ -30,8 +30,8 @@
   },
 
   "phase_5_lora_train": {
-    "lora_train_completes":      { "passing": false, "evidence": "logs/lora_train.log" },
-    "adapter_saved":             { "passing": false, "evidence": "adapters/triage-gemma4-lora/adapter_config.json" }
+    "lora_train_completes":      { "passing": true,  "evidence": "logs/lora_train.log" },
+    "adapter_saved":             { "passing": true,  "evidence": "adapters/triage-gemma4-lora/adapter_config.json" }
   },
 
   "phase_6_reeval_and_delta": {

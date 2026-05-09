@@ -80,6 +80,25 @@ While running smoke tests, two breaking changes from 4.x → 5.x bit us:
 
 Fixed in [scripts/smoke_models.py](../scripts/smoke_models.py). Mention this in the BiP / ROCm-feedback writeup as a transformers 5.x ROCm-stack observation.
 
+## peft + Gemma 4: `Gemma4ClippableLinear` (verified live)
+
+Gemma 4's **vision tower** wraps each projection in `Gemma4ClippableLinear` — a thin clipping wrapper around `torch.nn.Linear`. peft 0.19's `_create_new_module` validates the target is one of `(nn.Linear, nn.Embedding, ...)` and raises `ValueError: Target module Gemma4ClippableLinear(...) is not supported.`
+
+The **language model** projections are plain `nn.Linear`, so the workaround is to regex-target only the language-model self-attention:
+
+```python
+LoraConfig(
+    target_modules=r".*language_model.*self_attn\.(q_proj|k_proj|v_proj|o_proj)$",
+    task_type="CAUSAL_LM",
+    ...
+)
+```
+
+Trade-off: we don't tune the vision tower. For triage-urgency calibration that's fine — the urgency decision is reasoning-driven once the vision encoder produces tokens. If we wanted to tune the vision tower we would need to teach peft to handle `Gemma4ClippableLinear` (subclass `LoraLayer` to wrap the inner `linear`). v2 work.
+
+Loss curve from the tune (10 optimizer steps, 21 train rows, 2 epochs):
+`3.90 → 3.27 → 2.78 → 2.21 → 1.67 → 1.48 → 1.00 → 1.11 → 0.83 → 0.58`. Clean convergence in 32 seconds on MI300X.
+
 ## Cardinal-rule enforcement (programmatic, not just prompt)
 
 The cardinal rule (`docs/PROJECT.md`) says the system never produces diagnostic statements and the image classifier outputs top-3 with confidence. Prompts can drift. Therefore each MCP enforces the rule in code:

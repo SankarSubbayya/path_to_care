@@ -76,14 +76,17 @@ def main() -> int:
     model.gradient_checkpointing_enable()
     model.enable_input_require_grads()
 
+    # Gemma 4 wraps the **vision-tower** projections in `Gemma4ClippableLinear`,
+    # which peft 0.19 doesn't recognize as a Linear. The **language-model**
+    # projections are plain `nn.Linear`. Restricting target_modules to the
+    # language model with a regex avoids the wrapper entirely and keeps the
+    # adapter small (we only need to tune urgency reasoning, not vision).
     lora = LoraConfig(
         r=args.lora_r,
         lora_alpha=args.lora_alpha,
         lora_dropout=args.lora_dropout,
         bias="none",
-        # Target attention projections in language layers; safe across
-        # dense decoder transformers. Avoid touching vision tower.
-        target_modules=["q_proj", "k_proj", "v_proj", "o_proj"],
+        target_modules=r".*language_model.*self_attn\.(q_proj|k_proj|v_proj|o_proj)$",
         task_type="CAUSAL_LM",
     )
     model = get_peft_model(model, lora)

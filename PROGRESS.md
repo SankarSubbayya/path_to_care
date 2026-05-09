@@ -29,14 +29,26 @@ Handoff log between sessions. Every session ends by updating this; every session
 
 **Important context for the LoRA story:** baseline is essentially at the ceiling of this 30-case test set. The LoRA fine-tune's job is now (a) demonstrate the training infrastructure works on AMD MI300X, (b) maintain or improve the score, (c) potentially fix P2C-Y03. The headline pivots from "+X% from tuning" to "tuning runs reliably on MI300X without regressing a 96.7%-accurate baseline." Honest framing.
 
+**Phase 4 — Stub HF Space (deferred)** — skipped to keep momentum on Phases 5-6. Deploy script ready (`scripts/deploy_hf_space.sh`); awaiting `HF_TOKEN` for the actual push. Bundle layout in `frontend/`.
+
+**Phase 5 — LoRA SFT on Gemma 4 31B-it (2/2 features passing — DONE)**
+- ✅ `lora_train_completes` — **trained in 32 seconds on MI300X**. 21 train rows × 2 epochs / grad_accum 4 = 10 optimizer steps. **Loss curve: 3.90 → 0.58** (clean convergence). 45,015,040 trainable params (0.1437% of 31B base). target_modules regex: `.*language_model.*self_attn\.(q_proj|k_proj|v_proj|o_proj)$` (avoiding the vision tower's `Gemma4ClippableLinear` wrapper). `logs/lora_train.log`.
+- ✅ `adapter_saved` — `adapters/triage-gemma4-lora/adapter_config.json` + `adapter_model.safetensors` (180 MB). `peft_version=0.19.1`, base=`google/gemma-4-31B-it`.
+
+**Compatibility lessons from Phase 5 (added to docs/COMPATIBILITY.md):**
+- `Gemma4ClippableLinear` is a transformers wrapper around `nn.Linear` used in the **vision tower** (not language model). peft 0.19 doesn't recognize it as a Linear-class module. Workaround: regex-target only the language-model self_attn projections, which are plain `nn.Linear`.
+- Gradient checkpointing + `use_cache=True` warns; transformers auto-disables `use_cache` for training. No action needed.
+
 ## In progress
 
-- **Phase 1 — closing out:**
-  - ✅ `gemma4_31b_smoke` — Gemma 4 31B-it loaded in 65s, generated top-3 with confidence in 3.7s. Output: "Cellulitis: 0.7 / Localized skin infection: 0.6 / Contact dermatitis: 0.3". `evidence/gemma4_smoke.txt`.
-  - ✅ uv venv + pyproject.toml — pinned `torch==2.9.1+rocm6.3` via `[tool.uv.sources]`. `.venv/bin/python scripts/smoke_torch.py` PASS.
-  - ⏳ `repo_skeleton_built` — core/, mcp/{image,soap,village,triage}, orchestrator/, training/, frontend/ in place; harness/run.py + orchestrator/agent.py + training/lora_sft.py still pending.
+- **Phase 6 — re-eval + delta** running NOW (background ID: b0hk3n8y0). Same 30 cases with LoRA adapter loaded; ~7 min wall time expected. After:
+  - `tuned_metrics_recorded` — `results/tuned_metrics.json`
+  - `delta_positive` — `evidence/delta_report.txt` (built by `scripts/build_delta_report.py`)
 
-- **Phase 3 prep:** scaffold harness/run.py, orchestrator/agent.py.
+- **Phase 7 — ship** prep done; pending:
+  - HF Space deploy (needs `HF_TOKEN` from user; `scripts/deploy_hf_space.sh` ready)
+  - README.md numbers fill-in (template ready, waiting on tuned metrics)
+  - Final commit + git push
 
 ## Next
 

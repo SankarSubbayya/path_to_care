@@ -1,0 +1,8 @@
+gradio>=6.14
+torch
+transformers>=5.8
+peft>=0.19
+huggingface_hub>=1.14
+accelerate
+sentencepiece
+pillow
