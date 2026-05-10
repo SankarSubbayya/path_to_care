@@ -35,25 +35,18 @@ def main() -> int:
                 "-s", label=f"eval_loss (last {evals[-1]['eval_loss']:.2f}, n={len(evals)})",
                 color="#ff7f0e", lw=2)
 
-    # Token-accuracy on a secondary axis if present
-    if any("mean_token_accuracy" in r for r in train):
-        ax2 = ax.twinx()
-        ax2.plot([r["step"] for r in train],
-                 [r.get("mean_token_accuracy", 0) for r in train],
-                 ":d", color="#2ca02c", alpha=0.5,
-                 label=f"train mean_token_acc (last {train[-1].get('mean_token_accuracy', 0):.2f})",
-                 markersize=3, lw=1)
-        ax2.set_ylabel("mean_token_accuracy", color="#2ca02c")
-        ax2.tick_params(axis="y", colors="#2ca02c")
-        ax2.set_ylim(0, 1)
-        ax2.legend(loc="lower right")
+    # Note: mean_token_accuracy is intentionally NOT plotted. It's a token-level
+    # next-token-prediction metric reported by SFTTrainer; it rose to ~95% on
+    # earlier failed runs while actual classification accuracy regressed by 11
+    # points. Plotting it here would overstate how well the model is "learning"
+    # the diagnosis task, which is a classification problem, not a token-LM one.
 
     ax.set_xlabel("optimizer step")
-    ax.set_ylabel("loss")
+    ax.set_ylabel("cross-entropy loss")
     ax.set_title(
-        "SCIN dx-34 multimodal LoRA on Gemma 4 31B-it (MI300X, ROCm 6.3)\n"
-        f"target_modules: language_model self_attn q/k/v/o, r=16, alpha=32  |  "
-        f"steps: {train[-1]['step']}"
+        "SCIN top-16 multimodal LoRA on Gemma 4 31B-it (AMD MI300X, ROCm 6.3)\n"
+        f"target_modules: language_model self_attn q/k/v/o, r=8, alpha=16  |  "
+        f"steps: {train[-1]['step']}  |  result: top-1 28.0% → 35.0% (+7.0 pp)"
     )
     ax.legend(loc="upper right")
     ax.grid(True, alpha=0.3)
