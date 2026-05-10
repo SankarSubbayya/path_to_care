@@ -13,23 +13,23 @@ export function Tabs({ tabs, initial = 0 }: { tabs: TabSpec[]; initial?: number 
   const [active, setActive] = useState(initial);
   return (
     <div>
-      <div className="flex gap-1 border-b border-gray-200">
+      <div className="flex gap-1 rounded-2xl border border-slate-200/70 bg-white/70 p-1 backdrop-blur-sm shadow-sm">
         {tabs.map((t, i) => (
           <button
             key={t.id}
             onClick={() => setActive(i)}
-            className={`px-4 py-2 text-sm font-medium transition border-b-2 -mb-px ${
+            className={`flex-1 rounded-xl px-4 py-2 text-sm font-medium transition ${
               active === i
-                ? "border-blue-600 text-blue-700"
-                : "border-transparent text-gray-500 hover:text-gray-800"
+                ? "bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-md shadow-cyan-500/20"
+                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
             }`}
           >
-            {t.icon && <span className="mr-1">{t.icon}</span>}
+            {t.icon && <span className="mr-1.5">{t.icon}</span>}
             {t.label}
           </button>
         ))}
       </div>
-      <div className="pt-5">{tabs[active]?.content}</div>
+      <div className="pt-6">{tabs[active]?.content}</div>
     </div>
   );
 }

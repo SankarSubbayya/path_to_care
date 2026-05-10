@@ -1,4 +1,24 @@
-"""DSPy-style orchestrator that wires the 4 MCPs into the 7-stage Rajan flow.
+"""DSPy-style orchestrator that wires the in-process MCPs into the Rajan flow.
+
+The system has **5 MCPs** total:
+
+  1. `mcp.camera_capture`     — frame ingestion (browser → server). Invoked at
+                                the API-route boundary in `frontend-next/src/app/
+                                api/triage/route.ts`, BEFORE `run_case` is
+                                called. By the time bytes reach the orchestrator
+                                they're already a PIL.Image (or text proxy via
+                                `image_description`), so `run_case` does NOT
+                                import or call camera_capture directly. The
+                                tool invocation is recorded in the audit trail
+                                returned to the UI.
+  2. `mcp.image_classifier`   — top-3 conditions + confidence (Gemma 4 31B-it).
+  3. `mcp.soap_extractor`     — narrative → structured SOAP (Qwen-2.5-7B).
+  4. `mcp.village_context`    — deterministic JSON knowledge → barriers blurb.
+  5. `mcp.triage_reasoner`    — fuses image + SOAP + barriers → urgency
+                                (Gemma 4 31B-it + LoRA).
+
+`run_case` below wires MCPs 2-5 (the inference path); MCP 1 is API-route-only
+because frame-capture is a browser/edge concern, not an in-process Python one.
 
 For the 24-hour build the orchestrator is a plain Python coordinator with the
 same shape DSPy would impose — clean module boundaries, structured I/O.

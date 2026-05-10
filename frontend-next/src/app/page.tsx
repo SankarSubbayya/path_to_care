@@ -24,54 +24,78 @@ function PatientView({ r }: { r: TriageResult }) {
     <div className="space-y-5">
       <UrgencyBadge urgency={r.urgency} escalated={r.safety_escalation} />
 
-      <section className="rounded-xl border border-gray-200 bg-white p-5">
-        <h3 className="text-base font-semibold text-gray-900">What this likely is</h3>
-        <p className="mt-2 text-sm leading-relaxed text-gray-700">{r.reasoning}</p>
+      <section className="ptc-card rounded-2xl p-5">
+        <div className="flex items-center gap-2">
+          <span className="text-xl">🩹</span>
+          <h3 className="text-base font-semibold text-slate-900">What this likely is</h3>
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-slate-700">{r.reasoning}</p>
       </section>
 
-      <section className="rounded-xl border border-gray-200 bg-white p-5">
-        <h3 className="text-base font-semibold text-gray-900">Should you go to the clinic?</h3>
-        <p className="mt-2 text-sm leading-relaxed text-gray-700">{r.patient_framing}</p>
-        <p className="mt-3 rounded-md bg-blue-50 p-3 text-xs text-blue-900">{r.village.blurb}</p>
+      <section className="ptc-card rounded-2xl p-5">
+        <div className="flex items-center gap-2">
+          <span className="text-xl">💸</span>
+          <h3 className="text-base font-semibold text-slate-900">Should you go to the clinic?</h3>
+        </div>
+        <p className="mt-2 text-sm leading-relaxed text-slate-700">{r.patient_framing}</p>
+        <p className="mt-3 rounded-lg border border-cyan-100 bg-cyan-50/80 p-3 text-xs text-cyan-900">
+          <span className="mr-1">📍</span>{r.village.blurb}
+        </p>
       </section>
 
-      <section className="rounded-xl border border-gray-200 bg-white p-5">
-        <h3 className="text-base font-semibold text-gray-900">Watch for these signs</h3>
-        <p className="mt-1 text-xs text-gray-500">If any of these happen, return immediately.</p>
-        <ul className="mt-3 list-disc list-inside text-sm text-gray-800">
+      <section className="ptc-card rounded-2xl p-5">
+        <div className="flex items-center gap-2">
+          <span className="text-xl">⚠️</span>
+          <h3 className="text-base font-semibold text-slate-900">Watch for these signs</h3>
+        </div>
+        <p className="mt-1 text-xs text-slate-500">If any of these happen, return immediately.</p>
+        <ul className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
           {(r.red_flags_noted.length > 0
             ? r.red_flags_noted
             : ["spreading redness", "high fever", "severe pain", "breathing trouble"]
-          ).map((f, i) => <li key={i}>{f}</li>)}
+          ).map((f, i) => (
+            <li key={i} className="flex items-start gap-2 rounded-lg bg-rose-50/80 px-3 py-2 text-sm text-rose-900">
+              <span className="mt-0.5 text-rose-500">●</span>
+              <span>{f}</span>
+            </li>
+          ))}
         </ul>
       </section>
 
-      <p className="rounded-md bg-gray-100 p-3 text-xs text-gray-600">{PATIENT_DISCLAIMER}</p>
+      <p className="rounded-lg border border-slate-200/60 bg-slate-100/70 p-3 text-xs text-slate-600">
+        <span className="mr-1">ℹ️</span>{PATIENT_DISCLAIMER}
+      </p>
     </div>
   );
 }
 
 function ClinicianView({ r }: { r: TriageResult }) {
+  const urgColor =
+    r.urgency === "red"
+      ? "from-red-500 to-rose-600"
+      : r.urgency === "yellow"
+        ? "from-amber-400 to-orange-500"
+        : "from-emerald-500 to-teal-600";
   return (
     <div className="space-y-5">
       <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         <div className="lg:col-span-1">
-          <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700">
-            Image — top-3 differential
+          <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-700">
+            <span>🖼️</span> Image — top-3 differential
           </h3>
           <ConditionList items={r.image_top3} />
         </div>
         <div className="lg:col-span-2">
-          <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700">
-            Pre-visit SOAP
+          <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-700">
+            <span>📋</span> Pre-visit SOAP
           </h3>
           <SoapCard soap={r.soap} />
         </div>
       </div>
 
       <div>
-        <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700">
-          Red flags — rule-based vs. model
+        <h3 className="mb-2 flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-700">
+          <span>🚩</span> Red flags — rule-based vs. model
         </h3>
         <RedFlagPanels
           ruleBased={r.cross_check_red_flags}
@@ -79,26 +103,28 @@ function ClinicianView({ r }: { r: TriageResult }) {
         />
       </div>
 
-      <div className="rounded-xl border border-gray-200 bg-white p-5">
-        <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-700">Triage</h3>
+      <div className="ptc-card rounded-2xl p-5">
+        <h3 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wide text-slate-700">
+          <span>⚖️</span> Triage
+        </h3>
         <div className="mt-3 grid grid-cols-1 gap-4 md:grid-cols-3">
-          <div>
-            <div className="text-xs font-medium uppercase tracking-wide text-gray-500">Urgency</div>
-            <div className="mt-1 text-2xl font-semibold uppercase">{r.urgency}</div>
+          <div className={`rounded-xl bg-gradient-to-br ${urgColor} p-4 text-white shadow-md`}>
+            <div className="text-xs font-medium uppercase tracking-wide opacity-90">Urgency</div>
+            <div className="mt-1 text-3xl font-bold uppercase tracking-wide">{r.urgency}</div>
             {r.safety_escalation && (
-              <div className="mt-1 text-xs text-amber-700">↑ escalated by safety net</div>
+              <div className="mt-1 text-xs opacity-95">↑ escalated by safety net</div>
             )}
           </div>
           <div className="md:col-span-2">
-            <div className="text-xs font-medium uppercase tracking-wide text-gray-500">
-              Reasoning
-            </div>
-            <p className="mt-1 text-sm text-gray-800">{r.reasoning}</p>
+            <div className="text-xs font-medium uppercase tracking-wide text-slate-500">Reasoning</div>
+            <p className="mt-1 text-sm leading-relaxed text-slate-800">{r.reasoning}</p>
           </div>
         </div>
       </div>
 
-      <p className="rounded-md bg-gray-100 p-3 text-xs text-gray-600">{CLINICIAN_DISCLAIMER}</p>
+      <p className="rounded-lg border border-slate-200/60 bg-slate-100/70 p-3 text-xs text-slate-600">
+        <span className="mr-1">ℹ️</span>{CLINICIAN_DISCLAIMER}
+      </p>
     </div>
   );
 }
@@ -107,10 +133,10 @@ function AuditView({ r }: { r: TriageResult }) {
   return (
     <div className="space-y-4">
       <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
-        <Stat label="Wall time" value={`${r.wall_seconds.toFixed(1)} s`} />
-        <Stat label="Parse OK" value={r.parse_ok ? "yes" : "no"} />
-        <Stat label="Cardinal-rule rewrites" value={String(r.cardinal_rule_rewrites)} />
-        <Stat label="Safety escalation" value={r.safety_escalation ? "yes" : "no"} />
+        <Stat label="Wall time" value={`${r.wall_seconds.toFixed(1)} s`} accent="cyan" />
+        <Stat label="Parse OK" value={r.parse_ok ? "yes" : "no"} accent={r.parse_ok ? "green" : "red"} />
+        <Stat label="Cardinal-rule rewrites" value={String(r.cardinal_rule_rewrites)} accent="amber" />
+        <Stat label="Safety escalation" value={r.safety_escalation ? "yes" : "no"} accent={r.safety_escalation ? "amber" : "slate"} />
       </div>
       <div>
         <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-gray-700">
@@ -152,11 +178,28 @@ function AuditView({ r }: { r: TriageResult }) {
   );
 }
 
-function Stat({ label, value }: { label: string; value: string }) {
+function Stat({
+  label,
+  value,
+  accent = "slate",
+}: {
+  label: string;
+  value: string;
+  accent?: "slate" | "cyan" | "green" | "red" | "amber";
+}) {
+  const accentMap: Record<string, string> = {
+    slate: "before:bg-slate-300",
+    cyan: "before:bg-cyan-500",
+    green: "before:bg-emerald-500",
+    red: "before:bg-rose-500",
+    amber: "before:bg-amber-500",
+  };
   return (
-    <div className="rounded-md border border-gray-200 bg-white p-3">
-      <div className="text-xs font-medium uppercase tracking-wide text-gray-500">{label}</div>
-      <div className="mt-1 font-mono text-sm text-gray-900">{value}</div>
+    <div
+      className={`relative overflow-hidden rounded-xl border border-slate-200/70 bg-white/80 p-3 shadow-sm transition hover:shadow-md before:absolute before:left-0 before:top-0 before:h-full before:w-1 ${accentMap[accent]}`}
+    >
+      <div className="text-xs font-medium uppercase tracking-wide text-slate-500">{label}</div>
+      <div className="mt-1 font-mono text-sm font-semibold text-slate-900">{value}</div>
     </div>
   );
 }
@@ -167,21 +210,45 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
 
   return (
-    <main className="mx-auto max-w-5xl px-4 pb-12 pt-8">
-      <header className="mb-6">
-        <div className="flex items-center gap-3">
-          <span className="text-3xl">🩺</span>
-          <h1 className="text-2xl font-bold text-gray-900">Path to Care</h1>
+    <main className="mx-auto max-w-5xl px-4 pb-16 pt-10">
+      <header className="mb-8">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="ptc-pill"><span className="dot" />vLLM live</span>
+          <span className="ptc-pill">⚡ AMD MI300X · 192 GB</span>
+          <span className="ptc-pill">🧠 Gemma 4 31B-it</span>
+          <span className="ptc-pill">🔬 SCIN top-16 LoRA · +7.0 pp</span>
+          <a
+            href="https://github.com/SankarSubbayya/path_to_care"
+            className="ptc-pill hover:bg-white"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>★</span> GitHub
+          </a>
         </div>
-        <p className="mt-2 text-sm leading-relaxed text-gray-600">
+
+        <div className="mt-5 flex items-start gap-4">
+          <div className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-600 text-3xl shadow-lg shadow-cyan-500/30">
+            🩺
+          </div>
+          <div className="min-w-0">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
+              <span className="ptc-gradient-text">Path to Care</span>
+            </h1>
+            <p className="mt-1 text-sm font-medium uppercase tracking-widest text-slate-500">
+              Rural healthcare triage decision-support · never diagnoses
+            </p>
+          </div>
+        </div>
+
+        <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-700">
           Multimodal, agentic decision-support for rural healthcare. The system{" "}
-          <strong>never diagnoses.</strong> It (1) ranks plausible skin conditions, (2) assesses
-          urgency Red / Yellow / Green, (3) flags red signs, and (4) frames the cost-benefit of
-          travelling to the clinic.
-        </p>
-        <p className="mt-2 text-xs text-gray-500">
-          Built for the AMD Developer Hackathon · Gemma 4 31B-it on MI300X via vLLM ·{" "}
-          <a className="text-blue-600 hover:underline" href="https://github.com/SankarSubbayya/path_to_care">GitHub</a>
+          <strong className="text-slate-900">never diagnoses.</strong> It (1) ranks plausible skin
+          conditions as top-3 with confidence, (2) assesses urgency{" "}
+          <span className="font-semibold text-rose-600">Red</span> /{" "}
+          <span className="font-semibold text-amber-600">Yellow</span> /{" "}
+          <span className="font-semibold text-emerald-600">Green</span>, (3) flags red signs, and
+          (4) frames the cost-benefit of travelling to the clinic.
         </p>
       </header>
 
@@ -193,13 +260,13 @@ export default function Home() {
       />
 
       {error && (
-        <div className="mt-4 rounded-md border border-red-200 bg-red-50 p-3 text-sm text-red-900">
-          {error}
+        <div className="mt-4 rounded-xl border border-rose-200/70 bg-rose-50/80 p-4 text-sm text-rose-900 shadow-sm backdrop-blur-sm">
+          <span className="mr-1.5 font-semibold">⚠️ Error:</span>{error}
         </div>
       )}
 
       {result && (
-        <div className="mt-8">
+        <div className="mt-10">
           <Tabs
             tabs={[
               { id: "patient", label: "For the patient", icon: "👤", content: <PatientView r={result} /> },
@@ -209,6 +276,11 @@ export default function Home() {
           />
         </div>
       )}
+
+      <footer className="mt-16 border-t border-slate-200/70 pt-6 text-center text-xs text-slate-500">
+        Built in 24 hrs for the <span className="font-semibold text-slate-700">AMD Developer Hackathon</span>{" "}
+        · Inference on AMD MI300X via vLLM ROCm Docker · The clinician diagnoses; the patient decides.
+      </footer>
     </main>
   );
 }

@@ -71,9 +71,20 @@ export function InputForm({ onResult, onError, onLoading, loading }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+    <form
+      onSubmit={handleSubmit}
+      className="ptc-card relative space-y-5 overflow-hidden rounded-2xl p-6"
+    >
+      {/* decorative accent strip */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-500 via-cyan-500 to-amber-500" />
+
+      <div className="flex items-center gap-2">
+        <span className="text-lg">📝</span>
+        <h2 className="text-base font-semibold text-slate-900">New triage request</h2>
+      </div>
+
       <div>
-        <label className="block text-sm font-medium text-gray-700" htmlFor="narrative">
+        <label className="block text-sm font-medium text-slate-700" htmlFor="narrative">
           Patient narrative (typed or dictated)
         </label>
         <textarea

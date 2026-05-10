@@ -38,7 +38,7 @@ The 30-case urgency test set was at ceiling, so we ran a second fine-tune on a r
 | Metric                       | Zero-shot Gemma 4 31B | + SCIN top-16 LoRA   | Δ           |
 |------------------------------|-----------------------|----------------------|-------------|
 | Top-1 primary-condition acc  | 28.0%                 | **35.0%**            | **+7.0 pp** |
-| Top-3 set-match (SCIN paper) | 41.0%                 | 39.0%                | −2.0 pp     |
+| Top-3 set-match (SCIN paper) | 71.0%                 | 68.0%                | −3.0 pp     |
 
 **~239 training steps, single MI300X, ~38 min, r=8 LoRA (90 MB adapter).** First positive delta after a sequence of negatives that taught us the lesson: per-class sample count matters more than total epochs. Loss curve in [docs/figures/scin_top16_lora_loss.png](docs/figures/scin_top16_lora_loss.png); full write-up in [docs/SCIN_DIFF_DX.md](docs/SCIN_DIFF_DX.md) and [docs/SUBMISSION_REPORT.md](docs/SUBMISSION_REPORT.md). Adapter served live alongside base via vLLM `--enable-lora` (model id `scin-top16` on the droplet); in-process inference path in [scripts/infer_scin_top16.py](scripts/infer_scin_top16.py).
 
@@ -118,7 +118,7 @@ Hardware target: **AMD Instinct MI300X** (192 GB VRAM, ROCm 6.3). Should also ru
 
 | Track / prize | How it's hit |
 |---|---|
-| **Track 1 — Agents** | Multi-agent (4 MCP modules + orchestrator); cardinal-rule code-level enforcement; safety-net cross-checks. |
+| **Track 1 — Agents** | Multi-agent (5 MCP modules + orchestrator); cardinal-rule code-level enforcement; safety-net cross-checks. |
 | **Track 2 — Fine-tuning on AMD GPUs** | LoRA SFT on Gemma 4 31B-it on a single MI300X via ROCm 6.3 + peft 0.19. |
 | **Track 3 — Vision & Multimodal** | Gemma 4 multimodal (image + text → urgency); two MCPs share weights. |
 | **Qwen prize** | Qwen-2.5-7B-Instruct does the SOAP extraction — meaningful structural contribution to the pipeline. |

@@ -2,9 +2,9 @@
 
 **AMD Developer Hackathon, May 2026**
 GitHub: https://github.com/SankarSubbayya/path_to_care
-HF Space: https://huggingface.co/spaces/sankara68/path-to-care
+HF Space: https://huggingface.co/spaces/sankara68/path-to-care-react
 LoRA adapter (Phase-5 triage): https://huggingface.co/sankara68/path-to-care-triage-gemma4-lora
-LoRA adapter (Phase-8 SCIN dx-16): `adapters/scin-top16-gemma4-lora/` (180 MB safetensors, ready to push)
+LoRA adapter (Phase-8 SCIN top-16): `adapters/scin-top16-gemma4-lora/` (90 MB safetensors; LoRA weights only — base Gemma 4 31B-it pulled separately from HF)
 
 ## 1. Project description
 
@@ -51,8 +51,8 @@ The image-classifier MCP and triage-reasoner MCP **share one loaded Gemma 4 31B 
 
 | Track / prize | Deliverable |
 |---|---|
-| **Track 1 — Agents** | DSPy-style orchestrator + 4 MCP modules; cardinal-rule code-level enforcement; safety-net cross-checks; both in-process and HTTP backends |
-| **Track 2 — Fine-tuning on AMD GPUs** | LoRA SFT on Gemma 4 31B-it on a single MI300X via ROCm 6.3 + peft 0.19. Two adapters: triage (Phase 5) + SCIN dx-16 (Phase 8, +7.0 pp top-1) |
+| **Track 1 — Agents** | DSPy-style orchestrator + 5 MCP modules; cardinal-rule code-level enforcement; safety-net cross-checks; both in-process and HTTP backends |
+| **Track 2 — Fine-tuning on AMD GPUs** | LoRA SFT on Gemma 4 31B-it on a single MI300X via ROCm 6.3 + peft 0.19. Two adapters: triage (Phase 5) + SCIN top-16 (Phase 8, +7.0 pp top-1) |
 | **Track 3 — Vision & Multimodal** | Gemma 4 multimodal (image + text → urgency); two MCPs share weights to halve VRAM |
 | **Qwen prize** | Qwen-2.5-7B-Instruct does the SOAP extraction — meaningful structural contribution to the pipeline |
 | **HuggingFace prize** | Live Gradio Space + LoRA adapters on HF Hub |
@@ -180,7 +180,7 @@ PYTHONPATH=. .venv/bin/python scripts/eval_scin_dx_topk.py \
 
 End-to-end on a single MI300X: ~45 min including model download.
 
-## 7. Inference paths for the SCIN dx-16 adapter
+## 7. Inference paths for the SCIN top-16 adapter
 
 ### 7.1 Path A — in-process Python (always works)
 
@@ -207,7 +207,7 @@ topk, raw = predict(handle, "image.png", symptoms_text="itchy", fitzpatrick="III
 ## 8. Honest caveats
 
 - **Holdout n=100** for the SCIN comparison. Wide-ish confidence intervals on the per-class numbers; the +7.0 pp aggregate top-1 lift is the only finding I'd call confidently real.
-- **Eval set is a single random sample** of the SCIN dx-16 holdout. We didn't run k-fold; +7.0 pp could be 4–10 pp on a different fold.
+- **Eval set is a single random sample** of the SCIN top-16 holdout. We didn't run k-fold; +7.0 pp could be 4–10 pp on a different fold.
 - **No clinician validation** — labels are SCIN's own dermatologist confidence-weighted distributions, never reviewed by us. The cardinal rule prevents the system from claiming diagnoses regardless.
 - **No real fieldwork**. The 30-case Phase-5 set is hand-built. The Phase-8 SCIN set is consumer-uploaded photos with known dataset bias toward US contributors.
 - **Skin-tone Fitzpatrick V-VI is intrinsically sparse in SCIN** (8/100 holdout). Per-Fitzpatrick numbers on V-VI are illustrative, not statistically robust.
@@ -225,8 +225,8 @@ topk, raw = predict(handle, "image.png", symptoms_text="itchy", fitzpatrick="III
 ## 10. What gets shipped
 
 - Open-source code: https://github.com/SankarSubbayya/path_to_care
-- Live demo: https://huggingface.co/spaces/sankara68/path-to-care
-- Two LoRA adapters (Phase 5 triage + Phase 8 SCIN dx-16); `adapters/` directory committed
+- Live demo: https://huggingface.co/spaces/sankara68/path-to-care-react (Next.js · Patient / Clinician / Audit tabs · camera capture · voice dictation)
+- Two LoRA adapters (Phase 5 triage + Phase 8 SCIN top-16); `adapters/` directory committed
 - This report, `docs/SCIN_DIFF_DX.md` design rationale, `docs/COMPATIBILITY.md` model-selection trail, `docs/EVALUATION.md` reward + stratification framework
 - 68 unit + integration tests (`pytest tests/` — verified passing)
 - BiP / ROCm feedback writeup at `docs/BIP_POST.md`
