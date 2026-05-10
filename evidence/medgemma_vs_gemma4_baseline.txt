@@ -1,0 +1,25 @@
+verdict: PASS
+eval_set: data/scin/dx34_trl_topk_holdout.jsonl (n=100)
+
+=== zero-shot baselines on SCIN dx-34 (100-case holdout) ===
+  model                           top1   top3_set_match  wall
+  google/gemma-4-31B-it           0.260  0.710            177s
+  google/medgemma-27b-it          0.230  0.690            173s
+  delta (medgemma - gemma4):   -0.030  -0.020
+
+=== by Fitzpatrick — top-3 set match ===
+  bucket      n     gemma4    medgemma   Δpp
+  I-II         45    0.778     0.711      -6.7
+  III-IV       48    0.625     0.625      +0.0
+  V-VI          7    0.857     1.000      +14.3
+
+Headline:
+  Switching base model from Gemma 4 31B-it (general) to MedGemma 27B-it (medical-domain pretrained)
+  did NOT meaningfully improve SCIN dx-34 zero-shot accuracy on this 100-case holdout.
+  Both models cap around 70% top-3 set-match — that is the ceiling of the base prior on this task.
+  The one genuine signal is V-VI Fitzpatrick (n=7), where MedGemma reaches 100% top-3 vs Gemma 4 86%,
+  but n=7 is too small to be conclusive.
+
+Implication for fine-tuning: the lever is training-data scale (or coarser label space),
+not the base model. Path to Care v2 should pursue the 16-coarse-class scheme from the
+patient_advocacy_agent repo (~175 samples/class) rather than swap models.

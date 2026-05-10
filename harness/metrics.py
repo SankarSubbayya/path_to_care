@@ -13,6 +13,9 @@ from __future__ import annotations
 from dataclasses import dataclass, field, asdict
 from typing import Iterable
 
+from collections import defaultdict
+from typing import Callable
+
 from harness.reward import reward, is_false_negative_red_to_green, normalize, URGENCY_ORDER
 
 
@@ -85,3 +88,43 @@ def aggregate(scores: Iterable[CaseScore]) -> AggregateMetrics:
         confusion=confusion,
         per_case=[asdict(s) for s in scores],
     )
+
+
+def stratified_aggregate(
+    scores: Iterable[CaseScore],
+    cases_by_id: dict[str, dict],
+    key_fn: Callable[[dict], str | tuple[str, ...]],
+) -> dict:
+    """Group scores by `key_fn(case_dict)` and compute per-stratum metrics.
+
+    `cases_by_id` maps case_id -> the original case dict from cases.jsonl.
+    `key_fn` is a function that takes the case dict and returns a string (or
+    tuple) bucket label. E.g.:
+
+      stratified_aggregate(scores, cases_by_id, lambda c: c['ground_truth_urgency'])
+        -> {'red': {...metrics...}, 'yellow': {...}, 'green': {...}}
+
+      stratified_aggregate(scores, cases_by_id,
+                          lambda c: 'perturbed' if c.get('adversarial_features') else 'clean')
+        -> {'perturbed': {...}, 'clean': {...}}
+
+    Returns a dict of stratum -> AggregateMetrics.to_dict() (sans per_case to
+    keep the report compact)."""
+    buckets: dict[str, list[CaseScore]] = defaultdict(list)
+    for s in scores:
+        case = cases_by_id.get(s.case_id)
+        if case is None:
+            continue
+        bucket = key_fn(case)
+        # tuple keys -> string for JSON friendliness
+        if isinstance(bucket, tuple):
+            bucket = "+".join(map(str, bucket))
+        buckets[bucket].append(s)
+
+    out = {}
+    for bucket, bucket_scores in buckets.items():
+        agg = aggregate(bucket_scores)
+        d = agg.to_dict()
+        d.pop("per_case", None)  # keep stratified report compact
+        out[bucket] = d
+    return out

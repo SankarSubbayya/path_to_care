@@ -45,3 +45,13 @@ adapters/*/*.safetensors
 adapters/*/*.bin
 adapters/*/optimizer.pt
 adapters/*/scheduler.pt
+
+# SCIN raw images (~13 GB) — download via scripts/sample_scin.py + scripts/curate_scin.py
+data/scin/images/
+
+# LoRA adapter weights and tokenizer dumps (push to HF Hub, not GitHub)
+# Keep adapter_config.json, README.md, processor_config.json — small + descriptive.
+adapters/**/adapter_model.safetensors
+adapters/**/tokenizer.json
+adapters/**/checkpoint-*/
+*.safetensors

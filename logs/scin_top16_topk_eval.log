@@ -1,0 +1,58 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loading processor + base model (~30s)...
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1188 [00:00<02:04,  9.52it/s]Loading weights:   0%|          | 2/1188 [00:01<12:29,  1.58it/s]Loading weights:   0%|          | 3/1188 [00:01<09:03,  2.18it/s]Loading weights:   1%|          | 11/1188 [00:01<02:19,  8.45it/s]Loading weights:   3%|▎         | 34/1188 [00:02<00:39, 28.89it/s]Loading weights:   3%|▎         | 40/1188 [00:02<00:44, 25.60it/s]Loading weights:   4%|▍         | 53/1188 [00:02<00:37, 29.94it/s]Loading weights:   6%|▌         | 67/1188 [00:03<00:33, 33.63it/s]Loading weights:   7%|▋         | 84/1188 [00:03<00:26, 41.21it/s]Loading weights:   8%|▊         | 95/1188 [00:03<00:30, 36.11it/s]Loading weights:  10%|▉         | 116/1188 [00:03<00:20, 51.75it/s]Loading weights:  10%|█         | 123/1188 [00:04<00:22, 47.00it/s]Loading weights:  11%|█         | 129/1188 [00:04<00:31, 33.44it/s]Loading weights:  11%|█▏        | 136/1188 [00:04<00:29, 35.47it/s]Loading weights:  13%|█▎        | 152/1188 [00:04<00:25, 40.44it/s]Loading weights:  14%|█▍        | 164/1188 [00:05<00:28, 36.20it/s]Loading weights:  15%|█▌        | 183/1188 [00:06<00:49, 20.21it/s]Loading weights:  21%|██        | 245/1188 [00:07<00:19, 48.51it/s]Loading weights:  23%|██▎       | 268/1188 [00:07<00:17, 52.67it/s]Loading weights:  23%|██▎       | 276/1188 [00:07<00:17, 52.78it/s]Loading weights:  24%|██▍       | 283/1188 [00:08<00:20, 45.15it/s]Loading weights:  25%|██▌       | 298/1188 [00:08<00:16, 53.08it/s]Loading weights:  26%|██▌       | 310/1188 [00:08<00:25, 33.87it/s]Loading weights:  28%|██▊       | 336/1188 [00:09<00:16, 51.48it/s]Loading weights:  29%|██▉       | 345/1188 [00:09<00:19, 42.35it/s]Loading weights:  30%|███       | 357/1188 [00:10<00:24, 34.19it/s]Loading weights:  32%|███▏      | 386/1188 [00:10<00:17, 45.57it/s]Loading weights:  34%|███▎      | 400/1188 [00:10<00:18, 41.52it/s]Loading weights:  35%|███▌      | 420/1188 [00:11<00:20, 38.14it/s]Loading weights:  37%|███▋      | 442/1188 [00:11<00:17, 41.92it/s]Loading weights:  39%|███▉      | 463/1188 [00:12<00:13, 53.26it/s]Loading weights:  40%|███▉      | 475/1188 [00:12<00:18, 39.13it/s]Loading weights:  42%|████▏     | 496/1188 [00:13<00:15, 44.43it/s]Loading weights:  43%|████▎     | 511/1188 [00:13<00:20, 32.95it/s]Loading weights:  46%|████▌     | 546/1188 [00:14<00:14, 44.52it/s]Loading weights:  48%|████▊     | 565/1188 [00:15<00:16, 37.15it/s]Loading weights:  51%|█████     | 600/1188 [00:15<00:11, 53.40it/s]Loading weights:  51%|█████     | 608/1188 [00:15<00:12, 47.77it/s]Loading weights:  52%|█████▏    | 621/1188 [00:15<00:12, 45.80it/s]Loading weights:  54%|█████▎    | 636/1188 [00:16<00:09, 55.21it/s]Loading weights:  54%|█████▍    | 644/1188 [00:16<00:10, 52.81it/s]Loading weights:  55%|█████▌    | 656/1188 [00:16<00:09, 57.10it/s]Loading weights:  56%|█████▌    | 663/1188 [00:16<00:14, 36.69it/s]Loading weights:  57%|█████▋    | 683/1188 [00:17<00:10, 48.14it/s]Loading weights:  58%|█████▊    | 690/1188 [00:17<00:17, 28.59it/s]Loading weights:  61%|██████    | 719/1188 [00:18<00:10, 43.76it/s]Loading weights:  62%|██████▏   | 731/1188 [00:18<00:10, 41.97it/s]Loading weights:  63%|██████▎   | 747/1188 [00:18<00:08, 49.41it/s]Loading weights:  63%|██████▎   | 754/1188 [00:18<00:08, 48.74it/s]Loading weights:  64%|██████▍   | 761/1188 [00:19<00:14, 29.95it/s]Loading weights:  66%|██████▋   | 788/1188 [00:19<00:08, 47.73it/s]Loading weights:  68%|██████▊   | 802/1188 [00:19<00:06, 56.93it/s]Loading weights:  68%|██████▊   | 811/1188 [00:20<00:08, 45.34it/s]Loading weights:  69%|██████▉   | 823/1188 [00:20<00:07, 51.47it/s]Loading weights:  70%|██████▉   | 830/1188 [00:20<00:07, 46.68it/s]Loading weights:  78%|███████▊  | 923/1188 [00:20<00:01, 177.78it/s]Loading weights:  85%|████████▌ | 1014/1188 [00:20<00:00, 300.06it/s]Loading weights:  93%|█████████▎| 1105/1188 [00:20<00:00, 412.06it/s]Loading weights:  99%|█████████▉| 1181/1188 [00:20<00:00, 482.41it/s]Loading weights: 100%|██████████| 1188/1188 [00:20<00:00, 56.60it/s] 
+  base loaded in 25.7s
+
+=== BASELINE pass (no adapter) ===
+  [base] [005/100] SCIN--3709809055383318696      truth=Acne                      pred1=Folliculitis              X1 V3 acc1=0.400 acc3=0.800 (1.6s/case)
+  [base] [010/100] SCIN-5373485488810311376       truth=Acne                      pred1=Pigmented purpuric erupti X1 X3 acc1=0.400 acc3=0.700 (1.7s/case)
+  [base] [015/100] SCIN--6768039405201694865      truth=Acute dermatitis, NOS     pred1=Allergic Contact Dermatit X1 V3 acc1=0.267 acc3=0.600 (1.7s/case)
+  [base] [020/100] SCIN--6343783873341382806      truth=Acute dermatitis, NOS     pred1=Insect Bite               X1 X3 acc1=0.200 acc3=0.550 (1.5s/case)
+  [base] [025/100] SCIN--7206039626315740792      truth=Allergic Contact Dermatit pred1=Eczema                    X1 V3 acc1=0.160 acc3=0.640 (1.8s/case)
+  [base] [030/100] SCIN--1502911455314184658      truth=Allergic Contact Dermatit pred1=Acute dermatitis, NOS     X1 V3 acc1=0.167 acc3=0.667 (1.8s/case)
+  [base] [035/100] SCIN--6776518044035331491      truth=Allergic Contact Dermatit pred1=Insect Bite               X1 X3 acc1=0.171 acc3=0.686 (1.6s/case)
+  [base] [040/100] SCIN--6012562319822542066      truth=Allergic Contact Dermatit pred1=Insect Bite               X1 V3 acc1=0.225 acc3=0.725 (1.6s/case)
+  [base] [045/100] SCIN-7347419344161762585       truth=Allergic Contact Dermatit pred1=Allergic Contact Dermatit V1 V3 acc1=0.244 acc3=0.756 (1.9s/case)
+  [base] [050/100] SCIN--4431962068713879149      truth=Drug Rash                 pred1=Urticaria                 X1 X3 acc1=0.260 acc3=0.740 (1.7s/case)
+  [base] [055/100] SCIN--9190247622747939061      truth=Drug Rash                 pred1=Drug Rash                 V1 V3 acc1=0.273 acc3=0.709 (1.7s/case)
+  [base] [060/100] SCIN--2219827066341789081      truth=Eczema                    pred1=Eczema                    V1 V3 acc1=0.283 acc3=0.717 (1.6s/case)
+  [base] [065/100] SCIN--3053256628485862140      truth=Eczema                    pred1=Herpes Simplex            X1 V3 acc1=0.277 acc3=0.723 (1.7s/case)
+  [base] [070/100] SCIN-1345721193150322031       truth=Eczema                    pred1=Eczema                    V1 V3 acc1=0.271 acc3=0.729 (1.7s/case)
+  [base] [075/100] SCIN--2079383910052664228      truth=Eczema                    pred1=Insect Bite               X1 X3 acc1=0.280 acc3=0.733 (1.7s/case)
+  [base] [080/100] SCIN--5376888133703495985      truth=Eczema                    pred1=Drug Rash                 X1 V3 acc1=0.287 acc3=0.738 (1.7s/case)
+  [base] [085/100] SCIN--8018705038614693970      truth=Folliculitis              pred1=Folliculitis              V1 V3 acc1=0.282 acc3=0.729 (1.6s/case)
+  [base] [090/100] SCIN--5675058813348276029      truth=Folliculitis              pred1=Folliculitis              V1 V3 acc1=0.278 acc3=0.711 (1.5s/case)
+  [base] [095/100] SCIN--7130314863872132543      truth=Folliculitis              pred1=Insect Bite               X1 V3 acc1=0.284 acc3=0.705 (1.6s/case)
+  [base] [100/100] SCIN--114959561601268372       truth=Folliculitis              pred1=Insect Bite               X1 X3 acc1=0.280 acc3=0.710 (1.6s/case)
+  wrote results/scin_top16_topk_baseline.json
+  baseline.top1=0.280  top3_set_match=0.710
+
+=== Attaching LoRA adapter ===
+  attached in 0.3s
+
+=== TUNED pass (with adapter) ===
+  [tuned] [005/100] SCIN--3709809055383318696      truth=Acne                      pred1=Folliculitis              X1 V3 acc1=0.400 acc3=0.800 (1.5s/case)
+  [tuned] [010/100] SCIN-5373485488810311376       truth=Acne                      pred1=Pigmented purpuric erupti X1 X3 acc1=0.400 acc3=0.600 (1.2s/case)
+  [tuned] [015/100] SCIN--6768039405201694865      truth=Acute dermatitis, NOS     pred1=Allergic Contact Dermatit X1 V3 acc1=0.400 acc3=0.667 (2.0s/case)
+  [tuned] [020/100] SCIN--6343783873341382806      truth=Acute dermatitis, NOS     pred1=Insect Bite               X1 X3 acc1=0.300 acc3=0.600 (1.7s/case)
+  [tuned] [025/100] SCIN--7206039626315740792      truth=Allergic Contact Dermatit pred1=Eczema                    X1 V3 acc1=0.280 acc3=0.600 (1.8s/case)
+  [tuned] [030/100] SCIN--1502911455314184658      truth=Allergic Contact Dermatit pred1=Urticaria                 X1 X3 acc1=0.267 acc3=0.600 (1.6s/case)
+  [tuned] [035/100] SCIN--6776518044035331491      truth=Allergic Contact Dermatit pred1=Impetigo                  X1 X3 acc1=0.229 acc3=0.571 (1.6s/case)
+  [tuned] [040/100] SCIN--6012562319822542066      truth=Allergic Contact Dermatit pred1=Insect Bite               X1 V3 acc1=0.225 acc3=0.625 (0.9s/case)
+  [tuned] [045/100] SCIN-7347419344161762585       truth=Allergic Contact Dermatit pred1=Herpes Simplex            X1 V3 acc1=0.244 acc3=0.667 (1.7s/case)
+  [tuned] [050/100] SCIN--4431962068713879149      truth=Drug Rash                 pred1=Urticaria                 X1 X3 acc1=0.280 acc3=0.680 (1.0s/case)
+  [tuned] [055/100] SCIN--9190247622747939061      truth=Drug Rash                 pred1=Drug Rash                 V1 V3 acc1=0.327 acc3=0.691 (1.7s/case)
+  [tuned] [060/100] SCIN--2219827066341789081      truth=Eczema                    pred1=Eczema                    V1 V3 acc1=0.333 acc3=0.700 (1.8s/case)
+  [tuned] [065/100] SCIN--3053256628485862140      truth=Eczema                    pred1=Herpes Simplex            X1 V3 acc1=0.323 acc3=0.692 (1.7s/case)
+  [tuned] [070/100] SCIN-1345721193150322031       truth=Eczema                    pred1=Eczema                    V1 V3 acc1=0.314 acc3=0.671 (1.8s/case)
+  [tuned] [075/100] SCIN--2079383910052664228      truth=Eczema                    pred1=Folliculitis              X1 X3 acc1=0.333 acc3=0.680 (1.6s/case)
+  [tuned] [080/100] SCIN--5376888133703495985      truth=Eczema                    pred1=Drug Rash                 X1 V3 acc1=0.325 acc3=0.688 (0.9s/case)
+  [tuned] [085/100] SCIN--8018705038614693970      truth=Folliculitis              pred1=Folliculitis              V1 V3 acc1=0.341 acc3=0.682 (1.6s/case)
+  [tuned] [090/100] SCIN--5675058813348276029      truth=Folliculitis              pred1=Folliculitis              V1 V3 acc1=0.344 acc3=0.667 (1.6s/case)
+  [tuned] [095/100] SCIN--7130314863872132543      truth=Folliculitis              pred1=Insect Bite               X1 V3 acc1=0.337 acc3=0.663 (1.6s/case)
+  [tuned] [100/100] SCIN--114959561601268372       truth=Folliculitis              pred1=Folliculitis              V1 V3 acc1=0.350 acc3=0.680 (1.6s/case)
+  wrote results/scin_top16_topk_tuned.json
+  tuned.top1=0.350  top3_set_match=0.680
+
+DELTA top1:  +7.0 pp  (0.280 -> 0.350)
+DELTA top3:  -3.0 pp  (0.710 -> 0.680)

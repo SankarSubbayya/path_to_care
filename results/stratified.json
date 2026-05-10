@@ -1,0 +1,598 @@
+{
+  "results/baseline_metrics.json": {
+    "by ground-truth urgency": {
+      "red": {
+        "n": 10,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 10
+          }
+        }
+      },
+      "yellow": {
+        "n": 10,
+        "mean_reward": 0.95,
+        "exact_match_rate": 0.9,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 9,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      },
+      "green": {
+        "n": 10,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 10,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      }
+    },
+    "by perturbation (clean vs. perturbed)": {
+      "perturbed": {
+        "n": 25,
+        "mean_reward": 0.98,
+        "exact_match_rate": 0.96,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 8,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 7,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 9
+          }
+        }
+      },
+      "clean": {
+        "n": 5,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 2,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 2,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 1
+          }
+        }
+      }
+    },
+    "by perturbation subtype": {
+      "dialect_noise": {
+        "n": 5,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 1,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 2,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 2
+          }
+        }
+      },
+      "contradicted_narrative": {
+        "n": 4,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 1,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 1,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 2
+          }
+        }
+      },
+      "clean_or_minor": {
+        "n": 19,
+        "mean_reward": 0.9736842105263158,
+        "exact_match_rate": 0.9473684210526315,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 7,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 5,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 6
+          }
+        }
+      },
+      "off_distribution_image": {
+        "n": 2,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 1,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 1,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      }
+    },
+    "by red-flag severity": {
+      "high (>=3 red flags)": {
+        "n": 10,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 10
+          }
+        }
+      },
+      "low (1-2 red flags)": {
+        "n": 7,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 7,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      },
+      "none": {
+        "n": 13,
+        "mean_reward": 0.9615384615384616,
+        "exact_match_rate": 0.9230769230769231,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 10,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 2,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      }
+    }
+  },
+  "results/tuned_metrics.json": {
+    "by ground-truth urgency": {
+      "red": {
+        "n": 10,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 10
+          }
+        }
+      },
+      "yellow": {
+        "n": 10,
+        "mean_reward": 0.95,
+        "exact_match_rate": 0.9,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 9,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      },
+      "green": {
+        "n": 10,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 10,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      }
+    },
+    "by perturbation (clean vs. perturbed)": {
+      "perturbed": {
+        "n": 25,
+        "mean_reward": 0.98,
+        "exact_match_rate": 0.96,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 8,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 7,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 9
+          }
+        }
+      },
+      "clean": {
+        "n": 5,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 2,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 2,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 1
+          }
+        }
+      }
+    },
+    "by perturbation subtype": {
+      "dialect_noise": {
+        "n": 5,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 1,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 2,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 2
+          }
+        }
+      },
+      "contradicted_narrative": {
+        "n": 4,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 1,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 1,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 2
+          }
+        }
+      },
+      "clean_or_minor": {
+        "n": 19,
+        "mean_reward": 0.9736842105263158,
+        "exact_match_rate": 0.9473684210526315,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 7,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 5,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 6
+          }
+        }
+      },
+      "off_distribution_image": {
+        "n": 2,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 1,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 1,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      }
+    },
+    "by red-flag severity": {
+      "high (>=3 red flags)": {
+        "n": 10,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 10
+          }
+        }
+      },
+      "low (1-2 red flags)": {
+        "n": 7,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 0,
+            "yellow": 7,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      },
+      "none": {
+        "n": 13,
+        "mean_reward": 0.9615384615384616,
+        "exact_match_rate": 0.9230769230769231,
+        "within_one_rate": 1.0,
+        "fn_red_to_green_rate": 0.0,
+        "confusion": {
+          "green": {
+            "green": 10,
+            "yellow": 0,
+            "red": 0
+          },
+          "yellow": {
+            "green": 1,
+            "yellow": 2,
+            "red": 0
+          },
+          "red": {
+            "green": 0,
+            "yellow": 0,
+            "red": 0
+          }
+        }
+      }
+    }
+  }
+}

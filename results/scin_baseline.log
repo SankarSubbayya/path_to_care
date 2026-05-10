@@ -1,0 +1,200 @@
+[001/200] SCIN-2867448971802595955 truth=red     pred=red     R=1.0 cond=Urticaria                fst=unknown  t=2.2s
+[002/200] SCIN--3743597917991084521 truth=red     pred=yellow  R=0.5 cond=Urticaria                fst=V-VI     t=2.0s
+[003/200] SCIN-6438118055576497978 truth=red     pred=yellow  R=0.5 cond=Impetigo                 fst=unknown  t=2.2s
+[004/200] SCIN--3345002177565292187 truth=red     pred=yellow  R=0.5 cond=Tinea                    fst=I-II     t=2.4s
+[005/200] SCIN-4163743239541170511 truth=red     pred=yellow  R=0.5 cond=Eczema                   fst=I-II     t=2.3s
+[006/200] SCIN--3313654553366162946 truth=red     pred=yellow  R=0.5 cond=Folliculitis             fst=V-VI     t=2.4s
+[007/200] SCIN-8941724831820638000 truth=red     pred=yellow  R=0.5 cond=Urticaria                fst=unknown  t=2.3s
+[008/200] SCIN-1589466904862954952 truth=red     pred=yellow  R=0.5 cond=Eczema                   fst=V-VI     t=2.3s
+[009/200] SCIN-773968196160186704  truth=red     pred=green   R=0.0 cond=Allergic Contact Dermatitis fst=III-IV   t=2.3s
+[010/200] SCIN-8887454391702181267 truth=red     pred=yellow  R=0.5 cond=Allergic Contact Dermatitis fst=III-IV   t=2.1s
+[011/200] SCIN--6415511650285516007 truth=red     pred=green   R=0.0 cond=Folliculitis             fst=V-VI     t=2.1s
+[012/200] SCIN-2698648866798676998 truth=red     pred=yellow  R=0.5 cond=Psoriasis                fst=unknown  t=2.2s
+[013/200] SCIN-4851798629512515375 truth=red     pred=yellow  R=0.5 cond=Eczema                   fst=I-II     t=2.4s
+[014/200] SCIN-6893125526720205465 truth=red     pred=green   R=0.0 cond=Folliculitis             fst=unknown  t=2.3s
+[015/200] SCIN--7343857484856629879 truth=red     pred=red     R=1.0 cond=Eczema                   fst=I-II     t=2.2s
+[016/200] SCIN-8185817949093870006 truth=red     pred=yellow  R=0.5 cond=Eczema                   fst=V-VI     t=2.3s
+[017/200] SCIN--495867650501344143 truth=red     pred=yellow  R=0.5 cond=Urticaria                fst=unknown  t=2.4s
+[018/200] SCIN--5259460570876140361 truth=red     pred=yellow  R=0.5 cond=Eczema                   fst=III-IV   t=2.5s
+[019/200] SCIN--4323073538068791362 truth=red     pred=red     R=1.0 cond=Psoriasis                fst=I-II     t=2.2s
+[020/200] SCIN-64481137734789825   truth=red     pred=green   R=0.0 cond=Folliculitis             fst=V-VI     t=2.4s
+[021/200] SCIN-12608478152982826   truth=red     pred=yellow  R=0.5 cond=Tinea                    fst=unknown  t=2.3s
+[022/200] SCIN--1542593210179870498 truth=red     pred=yellow  R=0.5 cond=Impetigo                 fst=unknown  t=2.1s
+[023/200] SCIN--568039900165942102 truth=red     pred=green   R=0.0 cond=Allergic Contact Dermatitis fst=unknown  t=2.3s
+[024/200] SCIN-5707702831794028166 truth=red     pred=yellow  R=0.5 cond=Allergic Contact Dermatitis fst=unknown  t=2.1s
+[025/200] SCIN-3703025959306724787 truth=red     pred=green   R=0.0 cond=Folliculitis             fst=unknown  t=2.3s
+[026/200] SCIN--4676568845416213475 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.0s
+[027/200] SCIN-4336168799610000274 truth=yellow  pred=green   R=0.5 cond=Tinea                    fst=unknown  t=2.2s
+[028/200] SCIN-1345721193150322031 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.3s
+[029/200] SCIN-8703075882165822765 truth=yellow  pred=yellow  R=1.0 cond=Folliculitis             fst=III-IV   t=2.2s
+[030/200] SCIN-439315396122354873  truth=yellow  pred=yellow  R=1.0 cond=Allergic Contact Dermatitis fst=III-IV   t=2.1s
+[031/200] SCIN--8733132539249310652 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.2s
+[032/200] SCIN-6393890911061112990 truth=yellow  pred=green   R=0.5 cond=Tinea                    fst=unknown  t=2.3s
+[033/200] SCIN-7766253481783555886 truth=yellow  pred=green   R=0.5 cond=Folliculitis             fst=III-IV   t=2.1s
+[034/200] SCIN--736839246514769800 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.3s
+[035/200] SCIN-8654329466547817737 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=V-VI     t=2.3s
+[036/200] SCIN--3841091253724337986 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.1s
+[037/200] SCIN-4860862531174713006 truth=yellow  pred=green   R=0.5 cond=Folliculitis             fst=unknown  t=2.4s
+[038/200] SCIN--7737567151272326815 truth=yellow  pred=yellow  R=1.0 cond=Urticaria                fst=III-IV   t=2.0s
+[039/200] SCIN-2084462406497898667 truth=yellow  pred=yellow  R=1.0 cond=Eczema                   fst=I-II     t=2.3s
+[040/200] SCIN--6445954516415456798 truth=yellow  pred=yellow  R=1.0 cond=Eczema                   fst=I-II     t=2.1s
+[041/200] SCIN-3199519649405390852 truth=yellow  pred=green   R=0.5 cond=Allergic Contact Dermatitis fst=unknown  t=2.1s
+[042/200] SCIN-4612431587689030172 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.0s
+[043/200] SCIN-588393340755112696  truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.3s
+[044/200] SCIN--7127148813102728120 truth=yellow  pred=green   R=0.5 cond=Folliculitis             fst=III-IV   t=2.1s
+[045/200] SCIN--106405243948208551 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.3s
+[046/200] SCIN--6825931676608812283 truth=yellow  pred=yellow  R=1.0 cond=Impetigo                 fst=unknown  t=2.5s
+[047/200] SCIN-8456900441247810900 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=III-IV   t=2.3s
+[048/200] SCIN-7870109801780410868 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=III-IV   t=2.3s
+[049/200] SCIN-7270064598218888944 truth=yellow  pred=yellow  R=1.0 cond=Allergic Contact Dermatitis fst=unknown  t=2.0s
+[050/200] SCIN--2825268606715146676 truth=yellow  pred=yellow  R=1.0 cond=Impetigo                 fst=unknown  t=2.4s
+[051/200] SCIN-6178225972489337883 truth=yellow  pred=yellow  R=1.0 cond=Eczema                   fst=I-II     t=2.6s
+[052/200] SCIN-3331028455841202440 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.2s
+[053/200] SCIN-6030765418480115554 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.0s
+[054/200] SCIN--4291551911510839745 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=unknown  t=2.0s
+[055/200] SCIN--8370388471688037375 truth=yellow  pred=yellow  R=1.0 cond=Eczema                   fst=III-IV   t=2.3s
+[056/200] SCIN--6190200459445824751 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=V-VI     t=2.4s
+[057/200] SCIN-5066409661869400714 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.1s
+[058/200] SCIN--8348443567838198812 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.1s
+[059/200] SCIN-6816620786682316431 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=III-IV   t=2.4s
+[060/200] SCIN-8334000853689515147 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.2s
+[061/200] SCIN-7002508655843923344 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.3s
+[062/200] SCIN--9080481193679353998 truth=yellow  pred=yellow  R=1.0 cond=Herpes Zoster            fst=unknown  t=2.1s
+[063/200] SCIN-8657197209682938293 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.1s
+[064/200] SCIN--1800345024210002541 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.2s
+[065/200] SCIN-6268951823845269617 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=V-VI     t=2.6s
+[066/200] SCIN--1698385877925393566 truth=yellow  pred=yellow  R=1.0 cond=Herpes Zoster            fst=unknown  t=2.1s
+[067/200] SCIN--6192376912121825255 truth=yellow  pred=green   R=0.5 cond=Folliculitis             fst=III-IV   t=2.3s
+[068/200] SCIN-1801354510756212900 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=III-IV   t=2.5s
+[069/200] SCIN--5715603038267691444 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=unknown  t=2.0s
+[070/200] SCIN-728144289746942042  truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=III-IV   t=2.4s
+[071/200] SCIN--6022620135219018228 truth=yellow  pred=yellow  R=1.0 cond=Psoriasis                fst=III-IV   t=2.2s
+[072/200] SCIN-7839050789133028498 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.5s
+[073/200] SCIN--7277514071091705587 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.3s
+[074/200] SCIN-5345993529885915940 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.1s
+[075/200] SCIN--5246245066034694334 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=I-II     t=2.3s
+[076/200] SCIN-4382102740591960808 truth=yellow  pred=yellow  R=1.0 cond=Folliculitis             fst=unknown  t=2.4s
+[077/200] SCIN-6628525833933575267 truth=yellow  pred=green   R=0.5 cond=Folliculitis             fst=III-IV   t=2.1s
+[078/200] SCIN-5866868960471089698 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.2s
+[079/200] SCIN--4931676201516783432 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.4s
+[080/200] SCIN-3907804873656496630 truth=yellow  pred=green   R=0.5 cond=Folliculitis             fst=unknown  t=2.2s
+[081/200] SCIN--2033066751549921721 truth=yellow  pred=yellow  R=1.0 cond=Eczema                   fst=III-IV   t=2.0s
+[082/200] SCIN--4917683400271006276 truth=yellow  pred=yellow  R=1.0 cond=Herpes Zoster            fst=unknown  t=2.2s
+[083/200] SCIN-3168026545757928619 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.2s
+[084/200] SCIN--22984583040455183  truth=yellow  pred=yellow  R=1.0 cond=Tinea                    fst=unknown  t=2.4s
+[085/200] SCIN-5218632832342500942 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.2s
+[086/200] SCIN-411296532269774614  truth=yellow  pred=yellow  R=1.0 cond=Impetigo                 fst=unknown  t=2.1s
+[087/200] SCIN--7424296109578760484 truth=yellow  pred=yellow  R=1.0 cond=Impetigo                 fst=unknown  t=2.3s
+[088/200] SCIN-8078665794653560810 truth=yellow  pred=yellow  R=1.0 cond=Folliculitis             fst=unknown  t=2.1s
+[089/200] SCIN-5069127474605540768 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.1s
+[090/200] SCIN--9168553883581693079 truth=yellow  pred=green   R=0.5 cond=Tinea                    fst=unknown  t=2.2s
+[091/200] SCIN--4343637859112366862 truth=yellow  pred=yellow  R=1.0 cond=Tinea                    fst=V-VI     t=2.3s
+[092/200] SCIN--6892134106113245039 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=unknown  t=2.2s
+[093/200] SCIN-5336018037169319124 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.3s
+[094/200] SCIN--8631687299829398206 truth=yellow  pred=yellow  R=1.0 cond=Urticaria                fst=unknown  t=2.3s
+[095/200] SCIN-8876878857268678510 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=III-IV   t=2.4s
+[096/200] SCIN--2375843028488783684 truth=yellow  pred=yellow  R=1.0 cond=Herpes Zoster            fst=III-IV   t=2.1s
+[097/200] SCIN-7120026547390926334 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.1s
+[098/200] SCIN--6289614905936431714 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=I-II     t=2.5s
+[099/200] SCIN--7350637768936675559 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=unknown  t=2.3s
+[100/200] SCIN--3643248167198411501 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=III-IV   t=2.1s
+[101/200] SCIN--568386322973258434 truth=yellow  pred=green   R=0.5 cond=Psoriasis                fst=unknown  t=2.3s
+[102/200] SCIN--6776518044035331491 truth=yellow  pred=green   R=0.5 cond=Allergic Contact Dermatitis fst=unknown  t=2.1s
+[103/200] SCIN--7961989933579874918 truth=yellow  pred=yellow  R=1.0 cond=Allergic Contact Dermatitis fst=III-IV   t=2.5s
+[104/200] SCIN-1017795787212437294 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.3s
+[105/200] SCIN--8299809889773574040 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.2s
+[106/200] SCIN--8269030899358756664 truth=yellow  pred=yellow  R=1.0 cond=Allergic Contact Dermatitis fst=III-IV   t=2.5s
+[107/200] SCIN-4554657738494117603 truth=yellow  pred=green   R=0.5 cond=Allergic Contact Dermatitis fst=unknown  t=2.4s
+[108/200] SCIN--5629003537657501292 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=I-II     t=2.4s
+[109/200] SCIN-7176461562946921192 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.1s
+[110/200] SCIN-6050019040579522081 truth=yellow  pred=yellow  R=1.0 cond=Herpes Zoster            fst=unknown  t=2.2s
+[111/200] SCIN--7901710788064822966 truth=yellow  pred=yellow  R=1.0 cond=Urticaria                fst=unknown  t=2.6s
+[112/200] SCIN--6172974054434578584 truth=yellow  pred=yellow  R=1.0 cond=Allergic Contact Dermatitis fst=I-II     t=2.1s
+[113/200] SCIN-4639578100401351922 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.0s
+[114/200] SCIN--4752985713674166359 truth=yellow  pred=yellow  R=1.0 cond=Herpes Zoster            fst=unknown  t=2.1s
+[115/200] SCIN-1237595093610148205 truth=yellow  pred=yellow  R=1.0 cond=Impetigo                 fst=unknown  t=2.3s
+[116/200] SCIN-5275181661240813075 truth=yellow  pred=yellow  R=1.0 cond=Eczema                   fst=unknown  t=2.4s
+[117/200] SCIN--3969569173710538759 truth=yellow  pred=yellow  R=1.0 cond=Impetigo                 fst=III-IV   t=2.1s
+[118/200] SCIN--5514159851754006416 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=unknown  t=2.0s
+[119/200] SCIN--7851195646036204419 truth=yellow  pred=yellow  R=1.0 cond=Eczema                   fst=III-IV   t=2.0s
+[120/200] SCIN--8561049931128520858 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=III-IV   t=2.1s
+[121/200] SCIN-6675143408858735444 truth=yellow  pred=green   R=0.5 cond=Eczema                   fst=III-IV   t=2.3s
+[122/200] SCIN-7636687047776991161 truth=yellow  pred=green   R=0.5 cond=Tinea                    fst=unknown  t=2.3s
+[123/200] SCIN-3623323873565698897 truth=yellow  pred=green   R=0.5 cond=Urticaria                fst=I-II     t=2.3s
+[124/200] SCIN-9076222836036925266 truth=yellow  pred=green   R=0.5 cond=Allergic Contact Dermatitis fst=unknown  t=2.2s
+[125/200] SCIN--4550841138827406706 truth=yellow  pred=green   R=0.5 cond=Allergic Contact Dermatitis fst=III-IV   t=2.3s
+[126/200] SCIN--736680390960982157 truth=green   pred=green   R=1.0 cond=Insect Bite              fst=unknown  t=2.1s
+[127/200] SCIN--8717214960305771044 truth=green   pred=green   R=1.0 cond=Insect Bite              fst=unknown  t=2.0s
+[128/200] SCIN--4606009793409551660 truth=green   pred=yellow  R=0.5 cond=Insect Bite              fst=III-IV   t=2.7s
+[129/200] SCIN-1519975931025758567 truth=green   pred=green   R=1.0 cond=Pigmented purpuric eruption fst=III-IV   t=2.6s
+[130/200] SCIN-2774822906299888049 truth=green   pred=yellow  R=0.5 cond=Insect Bite              fst=unknown  t=2.4s
+[131/200] SCIN-3914859093772206420 ERROR APIConnectionError: Connection error.
+[132/200] SCIN-865490754577119373 ERROR APIConnectionError: Connection error.
+[133/200] SCIN--2618609792423828453 ERROR APIConnectionError: Connection error.
+[134/200] SCIN-6355469165466318386 ERROR APIConnectionError: Connection error.
+[135/200] SCIN--7999991740162950505 ERROR APIConnectionError: Connection error.
+[136/200] SCIN-7978747053447862871 ERROR APIConnectionError: Connection error.
+[137/200] SCIN--4128905480190900218 ERROR APIConnectionError: Connection error.
+[138/200] SCIN-7992099817197638769 ERROR APIConnectionError: Connection error.
+[139/200] SCIN-4088138694893149839 ERROR APIConnectionError: Connection error.
+[140/200] SCIN--8714014630063136316 ERROR APIConnectionError: Connection error.
+[141/200] SCIN--3753220776898215006 ERROR APIConnectionError: Connection error.
+[142/200] SCIN--4892781362024578938 ERROR APIConnectionError: Connection error.
+[143/200] SCIN-2126547957554095009 ERROR APIConnectionError: Connection error.
+[144/200] SCIN--545007797193276281 ERROR APIConnectionError: Connection error.
+[145/200] SCIN-6651883265161294231 ERROR APIConnectionError: Connection error.
+[146/200] SCIN-8662153452056460124 ERROR APIConnectionError: Connection error.
+[147/200] SCIN-2551255942474416458 ERROR APIConnectionError: Connection error.
+[148/200] SCIN--1710683267759148357 ERROR APIConnectionError: Connection error.
+[149/200] SCIN--871000789648050928 ERROR APIConnectionError: Connection error.
+[150/200] SCIN-6809243309702270506 ERROR APIConnectionError: Connection error.
+[151/200] SCIN--2091950744963898567 ERROR APIConnectionError: Connection error.
+[152/200] SCIN--6229433733209363727 ERROR APIConnectionError: Connection error.
+[153/200] SCIN-912700613781949239 ERROR APIConnectionError: Connection error.
+[154/200] SCIN-123018484144067727 ERROR APIConnectionError: Connection error.
+[155/200] SCIN-3016253320150390940 ERROR APIConnectionError: Connection error.
+[156/200] SCIN-7969479584628963549 ERROR APIConnectionError: Connection error.
+[157/200] SCIN--8348498902094393408 ERROR APIConnectionError: Connection error.
+[158/200] SCIN-5206521494202002386 ERROR APIConnectionError: Connection error.
+[159/200] SCIN--5259170744103459236 ERROR APIConnectionError: Connection error.
+[160/200] SCIN--4495950094362909099 ERROR APIConnectionError: Connection error.
+[161/200] SCIN--6990753820375520856 ERROR APIConnectionError: Connection error.
+[162/200] SCIN--8425933059055994650 ERROR APIConnectionError: Connection error.
+[163/200] SCIN-7184684249603937869 ERROR APIConnectionError: Connection error.
+[164/200] SCIN--1388057736180861488 ERROR APIConnectionError: Connection error.
+[165/200] SCIN-6060334855367071181 ERROR APIConnectionError: Connection error.
+[166/200] SCIN-8517515112307434630 ERROR APIConnectionError: Connection error.
+[167/200] SCIN--3990231191768619319 ERROR APIConnectionError: Connection error.
+[168/200] SCIN-4667087707045961077 ERROR APIConnectionError: Connection error.
+[169/200] SCIN--5048121674534375075 ERROR APIConnectionError: Connection error.
+[170/200] SCIN--6326437324680204662 ERROR APIConnectionError: Connection error.
+[171/200] SCIN-8067582930685511187 ERROR APIConnectionError: Connection error.
+[172/200] SCIN-7230755869642234629 ERROR APIConnectionError: Connection error.
+[173/200] SCIN-864969376606488572 ERROR APIConnectionError: Connection error.
+[174/200] SCIN--2538491294281447306 ERROR APIConnectionError: Connection error.
+[175/200] SCIN--1213387482804414270 ERROR APIConnectionError: Connection error.
+[176/200] SCIN-2883286840345609843 ERROR APIConnectionError: Connection error.
+[177/200] SCIN-4735748123656222129 ERROR APIConnectionError: Connection error.
+[178/200] SCIN--4503897366378370087 ERROR APIConnectionError: Connection error.
+[179/200] SCIN-4336240504062881387 ERROR APIConnectionError: Connection error.
+[180/200] SCIN-325284060839949957 ERROR APIConnectionError: Connection error.
+[181/200] SCIN-1132535085816432291 ERROR APIConnectionError: Connection error.
+[182/200] SCIN-5383278245398537608 ERROR APIConnectionError: Connection error.
+[183/200] SCIN-5607945186462654031 ERROR APIConnectionError: Connection error.
+[184/200] SCIN--7711091231416269014 ERROR APIConnectionError: Connection error.
+[185/200] SCIN-1861601422455627001 ERROR APIConnectionError: Connection error.
+[186/200] SCIN-5328649673855199414 ERROR APIConnectionError: Connection error.
+[187/200] SCIN-7235439692769072121 ERROR APIConnectionError: Connection error.
+[188/200] SCIN-4168671109103152917 ERROR APIConnectionError: Connection error.
+[189/200] SCIN--4516438110978983282 ERROR APIConnectionError: Connection error.
+[190/200] SCIN--3245549247380873817 ERROR APIConnectionError: Connection error.
+[191/200] SCIN--8722194535323438165 ERROR APIConnectionError: Connection error.
+[192/200] SCIN--422726985230604591 ERROR APIConnectionError: Connection error.
+[193/200] SCIN-318786810547984125 ERROR APIConnectionError: Connection error.
+[194/200] SCIN-3958546394143844695 ERROR APIConnectionError: Connection error.
+[195/200] SCIN--5983320270847607538 ERROR APIConnectionError: Connection error.
+[196/200] SCIN--2025662459941441200 ERROR APIConnectionError: Connection error.
+[197/200] SCIN-7960457666530672586 ERROR APIConnectionError: Connection error.
+[198/200] SCIN-3023415219850652814 ERROR APIConnectionError: Connection error.
+[199/200] SCIN-5515455349045471891 ERROR APIConnectionError: Connection error.
+[200/200] SCIN-5461287862238262172 ERROR APIConnectionError: Connection error.

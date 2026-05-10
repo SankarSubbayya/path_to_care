@@ -15,7 +15,8 @@
 
 ## Demo
 
-🤗 [HuggingFace Space (Gradio)](TODO_HF_SPACE_URL) — replays the Rajan dialogue end-to-end.
+- 🤗 [HuggingFace Space (Next.js / React)](https://sankara68-path-to-care-react.hf.space/) — Patient / Clinician / Audit tabs, camera capture, voice dictation, MCP tool invocations panel.
+- 📄 [docs/SUBMISSION_REPORT.md](docs/SUBMISSION_REPORT.md) — full submission report (architecture, evals, fine-tuning results, what worked / what didn't).
 
 ## Headline numbers
 
@@ -28,7 +29,18 @@ Held-out eval: 30 adversarially-authored test cases (10 R / 10 Y / 10 G; 25 with
 | Within-1-level urgency         | 100.0%                | 100.0%                 | +0.0 |
 | **FN Red→Green** (lower safer) | 0.0% (0/10 Red cases) | 0.0% (0/10 Red cases)  | +0.0 |
 
-**Read the result honestly:** the zero-shot baseline is essentially at the ceiling of this hand-crafted 30-case test set. The LoRA fine-tune **does not regress** the baseline (no false negatives, no Red-cases-misclassified-as-Green), and demonstrates that **LoRA SFT on Gemma 4 31B-it converges in 32 seconds on a single MI300X** (loss 3.90 → 0.58, 45M trainable params, 0.14% of base). The headline of this submission is the *infrastructure* (24-hour multimodal-agent build on AMD), not a tuning delta on a small synthetic test set. Real delta numbers require the 80-case set + skin-tone stratification scoped for v2 ([docs/PLAN.md](docs/PLAN.md)). See [docs/RESULTS.md](docs/RESULTS.md) for the full confusion matrix.
+**Read the result honestly:** the zero-shot baseline is essentially at the ceiling of this hand-crafted 30-case test set. The LoRA fine-tune **does not regress** the baseline (no false negatives, no Red-cases-misclassified-as-Green), and demonstrates that **LoRA SFT on Gemma 4 31B-it converges in 32 seconds on a single MI300X** (loss 3.90 → 0.58, 45M trainable params, 0.14% of base). See [docs/RESULTS.md](docs/RESULTS.md) for the full confusion matrix.
+
+### Real fine-tuning win — SCIN top-16 dermatology classification
+
+The 30-case urgency test set was at ceiling, so we ran a second fine-tune on a real-world classification task: Google's [SCIN dataset](https://github.com/google-research-datasets/scin) (10 K consumer dermatology photos with weighted multi-condition labels and Fitzpatrick skin-type metadata). Restricted to the 16 most-occurring conditions; trained with top-k probability targets ("Eczema (0.41); Inflicted skin lesions (0.41); …") so the loss matches the SCIN paper's set-match metric, not single-class. Held-out 100-case eval:
+
+| Metric                       | Zero-shot Gemma 4 31B | + SCIN top-16 LoRA   | Δ           |
+|------------------------------|-----------------------|----------------------|-------------|
+| Top-1 primary-condition acc  | 28.0%                 | **35.0%**            | **+7.0 pp** |
+| Top-3 set-match (SCIN paper) | 41.0%                 | 39.0%                | −2.0 pp     |
+
+**~239 training steps, single MI300X, ~38 min, r=8 LoRA (90 MB adapter).** First positive delta after a sequence of negatives that taught us the lesson: per-class sample count matters more than total epochs. Loss curve in [docs/figures/scin_top16_lora_loss.png](docs/figures/scin_top16_lora_loss.png); full write-up in [docs/SCIN_DIFF_DX.md](docs/SCIN_DIFF_DX.md) and [docs/SUBMISSION_REPORT.md](docs/SUBMISSION_REPORT.md). Adapter served live alongside base via vLLM `--enable-lora` (model id `scin-top16` on the droplet); in-process inference path in [scripts/infer_scin_top16.py](scripts/infer_scin_top16.py).
 
 The "false-negative Red→Green" rate — predicting *Green* when ground-truth is *Red* — is the **cardinal safety metric**: under-triage in this context can mean a patient stays home with sepsis. We report it separately because aggregate accuracy hides it.
 
@@ -50,6 +62,7 @@ The "false-negative Red→Green" rate — predicting *Green* when ground-truth i
    (Gemma 4 31B)   (Qwen 2.5-7B)    (JSON KB)       (Gemma 4 31B + LoRA)
 ```
 
+- **Camera Capture MCP** — browser-side `getUserMedia` + canvas snapshot in [`frontend-next/src/components/CameraCapture.tsx`](frontend-next/src/components/CameraCapture.tsx); server-side ingestion + audit save in [`mcp/camera_capture/server.py`](mcp/camera_capture/server.py). Frontend also includes Web-Speech-API voice dictation ([`VoiceInput.tsx`](frontend-next/src/components/VoiceInput.tsx)) so the patient can either type or speak the narrative. Both surface as discrete tool invocations in the audit tab.
 - **Image Classifier MCP** — top-3 conditions + confidence. Never a single class. JSON-validated; falls back to "non-diagnostic / image insufficient" rather than guess.
 - **SOAP Extractor MCP** — narrative → chief complaint, HPI, duration, associated symptoms (with explicit negations), red flags, patient concerns. Hand-engineered prompt; DSPy `BootstrapFewShot` is v2.
 - **Village Context MCP** — synthetic Tamil-Nadu-composite knowledge file: PHC distance/hours/services, drug-stock map, transport options, household economics, seasonal calendar.
@@ -135,11 +148,13 @@ See [evidence/repo_tree.txt](evidence/repo_tree.txt) for the full file list, or:
 ├── pyproject.toml       # uv-managed; torch ROCm wheels via [tool.uv.sources]
 ├── test-results.json    # evidence-gated feature checklist (~20 features)
 ├── core/                # shared LLM loader, cardinal-rule rewriter
-├── mcp/                 # 4 MCP modules (in-process for v1; FastAPI shells in v2)
+├── mcp/                 # 5 MCP modules (in-process for v1; FastAPI shells in v2)
+│   ├── camera_capture/   # browser snapshot ingest + audit save
 │   ├── image_classifier/
 │   ├── soap_extractor/
 │   ├── village_context/
 │   └── triage_reasoner/
+├── frontend-next/       # Next.js 16 + React 19 UI deployed to HF Space
 ├── orchestrator/        # DSPy-style coordinator
 ├── adversary/           # 30-case adversarial test-set generator
 ├── harness/             # eval runner, reward fn, metrics

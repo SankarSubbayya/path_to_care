@@ -1,0 +1,10 @@
+verdict: PASS
+format: TRL chat (system + user[image+text] + assistant[condition])
+classes_listed_in_system_prompt: 34
+train_rows_built: 1203
+holdout_rows_built: 336
+first_train_image: data/scin/images/-1380203193145709903.png
+first_train_condition: Abrasion, scrape, or scab
+first_train_n_messages: 3
+first_train_roles: ['system', 'user', 'assistant']
+first_train_content_types: [['text'], ['image', 'text'], ['text']]

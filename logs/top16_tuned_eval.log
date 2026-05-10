@@ -1,0 +1,22 @@
+Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+loading processor + base model (~30s)...
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1188 [00:00<02:09,  9.19it/s]Loading weights:   0%|          | 2/1188 [00:01<12:26,  1.59it/s]Loading weights:   0%|          | 3/1188 [00:01<09:12,  2.15it/s]Loading weights:   0%|          | 4/1188 [00:02<15:55,  1.24it/s]Loading weights:   6%|▌         | 71/1188 [00:03<00:28, 39.33it/s]Loading weights:   7%|▋         | 83/1188 [00:04<00:47, 23.27it/s]Loading weights:  12%|█▏        | 140/1188 [00:05<00:29, 35.24it/s]Loading weights:  15%|█▍        | 177/1188 [00:05<00:21, 46.12it/s]Loading weights:  16%|█▌        | 188/1188 [00:06<00:22, 44.48it/s]Loading weights:  18%|█▊        | 213/1188 [00:07<00:31, 31.14it/s]Loading weights:  23%|██▎       | 268/1188 [00:07<00:18, 50.28it/s]Loading weights:  24%|██▎       | 281/1188 [00:07<00:17, 53.24it/s]Loading weights:  24%|██▍       | 290/1188 [00:08<00:16, 53.34it/s]Loading weights:  25%|██▌       | 298/1188 [00:08<00:17, 49.63it/s]Loading weights:  26%|██▌       | 305/1188 [00:08<00:21, 41.35it/s]Loading weights:  27%|██▋       | 324/1188 [00:08<00:17, 50.25it/s]Loading weights:  28%|██▊       | 330/1188 [00:09<00:18, 45.61it/s]Loading weights:  28%|██▊       | 337/1188 [00:09<00:21, 39.63it/s]Loading weights:  29%|██▉       | 346/1188 [00:09<00:22, 36.93it/s]Loading weights:  30%|███       | 357/1188 [00:10<00:30, 27.47it/s]Loading weights:  32%|███▏      | 385/1188 [00:10<00:18, 43.08it/s]Loading weights:  34%|███▎      | 399/1188 [00:10<00:18, 43.06it/s]Loading weights:  35%|███▍      | 415/1188 [00:11<00:15, 49.96it/s]Loading weights:  35%|███▌      | 421/1188 [00:12<00:30, 24.92it/s]Loading weights:  39%|███▉      | 463/1188 [00:12<00:17, 41.91it/s]Loading weights:  41%|████      | 484/1188 [00:12<00:14, 48.30it/s]Loading weights:  42%|████▏     | 497/1188 [00:13<00:13, 50.88it/s]Loading weights:  43%|████▎     | 505/1188 [00:13<00:13, 51.02it/s]Loading weights:  43%|████▎     | 511/1188 [00:14<00:22, 29.62it/s]Loading weights:  46%|████▌     | 542/1188 [00:14<00:13, 46.39it/s]Loading weights:  47%|████▋     | 555/1188 [00:14<00:14, 44.81it/s]Loading weights:  48%|████▊     | 572/1188 [00:15<00:20, 29.72it/s]Loading weights:  52%|█████▏    | 613/1188 [00:16<00:15, 36.36it/s]Loading weights:  55%|█████▍    | 651/1188 [00:16<00:10, 50.41it/s]Loading weights:  56%|█████▌    | 663/1188 [00:17<00:11, 46.74it/s]Loading weights:  57%|█████▋    | 676/1188 [00:17<00:11, 45.30it/s]Loading weights:  58%|█████▊    | 690/1188 [00:18<00:13, 36.37it/s]Loading weights:  60%|██████    | 715/1188 [00:18<00:10, 43.92it/s]Loading weights:  62%|██████▏   | 738/1188 [00:19<00:10, 42.93it/s]Loading weights:  64%|██████▍   | 759/1188 [00:20<00:13, 32.05it/s]Loading weights:  68%|██████▊   | 802/1188 [00:20<00:09, 42.34it/s]Loading weights:  70%|██████▉   | 829/1188 [00:20<00:06, 54.92it/s]Loading weights:  77%|███████▋  | 911/1188 [00:21<00:02, 115.16it/s]Loading weights:  84%|████████▍ | 1001/1188 [00:21<00:00, 192.29it/s]Loading weights:  90%|█████████ | 1075/1188 [00:21<00:00, 260.51it/s]Loading weights:  98%|█████████▊| 1168/1188 [00:21<00:00, 355.77it/s]Loading weights: 100%|██████████| 1188/1188 [00:21<00:00, 55.56it/s] 
+  base loaded in 26.0s
+attaching LoRA from adapters/scin-top16-gemma4-lora ...
+  attached in 0.4s
+Traceback (most recent call last):
+  File "/root/path_to_care/scripts/eval_scin_dx_tuned_only.py", line 77, in main
+    correct = (pred == r["condition"])
+                       ~^^^^^^^^^^^^^
+KeyError: 'condition'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/root/path_to_care/scripts/eval_scin_dx_tuned_only.py", line 109, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/root/path_to_care/scripts/eval_scin_dx_tuned_only.py", line 90, in main
+    per_case.append({"case_id": r["case_id"], "truth": r["condition"], "pred": None,
+                                                       ~^^^^^^^^^^^^^
+KeyError: 'condition'

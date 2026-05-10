@@ -1,0 +1,17 @@
+verdict: PASS
+total_scin_cases_with_labels: 3061
+top10_conditions:
+    488  Eczema  ->  yellow
+    270  Allergic Contact Dermatitis  ->  yellow
+    214  Urticaria  ->  yellow
+    185  Insect Bite  ->  green
+    142  Folliculitis  ->  yellow
+    109  Psoriasis  ->  yellow
+     93  Tinea  ->  yellow
+     69  Impetigo  ->  yellow
+     68  Herpes Zoster  ->  yellow
+     62  Pigmented purpuric eruption  ->  green
+
+curated_after_top10_and_urgency_map: 1700
+by_urgency: {'yellow': 1344, 'red': 126, 'green': 230}
+by_fitzpatrick: {'unknown': 910, 'I-II': 290, 'III-IV': 363, 'V-VI': 137}

@@ -1,0 +1,12 @@
+verdict: PASS
+script: scripts/lora_dx_multimodal.py
+parses: yes (--help works, module imports cleanly)
+recipe_source: /shared-docker/fine_tuning_lora_qwen2vl.ipynb (AMD-modified TRL+PEFT cookbook)
+adapted_for: google/gemma-4-31B-it (AutoProcessor + AutoModelForImageTextToText)
+lora_target_modules: r'.*language_model.*self_attn\.(q_proj|k_proj|v_proj|o_proj)$' (avoids vision tower's Gemma4ClippableLinear)
+optim: adamw_torch_fused
+dtype: bf16 (matched Phase 5 working config)
+gradient_checkpointing: true (use_reentrant=False)
+trainer: trl.SFTTrainer + trl.SFTConfig
+collate_fn: applies chat_template, processor() with images, masks pad+image-token positions to -100
+status: ready to run; baseline eval runs first

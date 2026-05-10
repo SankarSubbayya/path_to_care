@@ -1,0 +1,6 @@
+verdict: PASS
+images_on_disk: 11129
+total_size_gb: 12.61
+train_rows_with_image_present: 1203/1204
+holdout_rows_with_image_present: 336/336
+source: gs://dx-scin-public-data/dataset/images/ (public, no auth)

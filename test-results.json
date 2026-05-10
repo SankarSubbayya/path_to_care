@@ -26,7 +26,7 @@
   },
 
   "phase_4_stub_hf_space": {
-    "hf_space_stub_live":        { "passing": false, "evidence": "evidence/hf_space_url.txt" }
+    "hf_space_stub_live":        { "passing": true,  "evidence": "evidence/hf_space_url.txt" }
   },
 
   "phase_5_lora_train": {
@@ -41,10 +41,27 @@
 
   "phase_7_ship": {
     "gradio_demo_runs_locally":  { "passing": true,  "evidence": "evidence/gradio_smoke.txt" },
-    "hf_space_final_deployed":   { "passing": false, "evidence": "evidence/hf_space_final.txt" },
+    "hf_space_final_deployed":   { "passing": true,  "evidence": "evidence/hf_space_final.txt" },
     "readme_published":          { "passing": true,  "evidence": "evidence/readme_check.txt" },
     "bip_post_drafted":          { "passing": true,  "evidence": "docs/BIP_POST.md" },
-    "repo_pushed_public":        { "passing": false, "evidence": "evidence/git_remote.txt" },
+    "repo_pushed_public":        { "passing": true,  "evidence": "evidence/git_remote.txt" },
     "lablab_submitted":          { "passing": false, "evidence": "evidence/lablab_confirmation.txt" }
+  },
+
+  "phase_8_scin_diff_dx": {
+    "scin_dataset_curated_34":   { "passing": true,  "evidence": "evidence/scin_curation.txt" },
+    "scin_train_holdout_split":  { "passing": true,  "evidence": "evidence/scin_split.txt" },
+    "scin_images_downloaded":    { "passing": true,  "evidence": "evidence/scin_images_count.txt" },
+    "scin_trl_chat_built":       { "passing": true,  "evidence": "evidence/scin_trl_built.txt" },
+    "scin_lora_script_ready":    { "passing": true,  "evidence": "evidence/scin_lora_script_smoke.txt" },
+    "scin_baseline_eval":        { "passing": true,  "evidence": "results/scin_dx34_baseline.json" },
+    "scin_lora_train_completes": { "passing": true,  "evidence": "logs/lora_dx_multimodal.log" },
+    "scin_adapter_saved":        { "passing": true,  "evidence": "adapters/scin-dx34-gemma4-lora/adapter_config.json" },
+    "scin_tuned_eval":           { "passing": false, "evidence": "results/scin_dx34_tuned.json" },
+    "scin_delta_positive":       { "passing": false, "evidence": "evidence/scin_delta_report.txt" },
+    "scin_fitzpatrick_strat":    { "passing": false, "evidence": "evidence/scin_fitzpatrick_report.txt" },
+    "scin_loss_curve_plot":      { "passing": true,  "evidence": "evidence/scin_loss_curve.txt" },
+    "scin_confusion_plot":       { "passing": false, "evidence": "docs/figures/scin_confusion.png" },
+    "scin_pr_curve_plot":        { "passing": false, "evidence": "docs/figures/scin_pr_curve.png" }
   }
 }

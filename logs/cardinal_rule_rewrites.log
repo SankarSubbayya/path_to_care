@@ -4,3 +4,171 @@
 [2026-05-09T20:34:58+00:00] case_id=P2C-Y09 patterns=['\\byou\\s+have\\b']
   before: 'URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition with a mild fever. While not an immediate emergency, the rapid spread of blistering spots requires a clinical evaluation to confirm the cause and prevent further transmission.\nRED_FLAGS_NOTED: fever\nPATIENT_FRAMING: These spots are spreading and you have a fever, so it is important to see a nurse in the next day or two. It is better to spend the travel money now to get the right treatment than to risk getting sicker and missing more days of harvest later.'
   after:  'URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition with a mild fever. While not an immediate emergency, the rapid spread of blistering spots requires a clinical evaluation to confirm the cause and prevent further transmission.\nRED_FLAGS_NOTED: fever\nPATIENT_FRAMING: These spots are spreading and signs suggest a fever, so it is important to see a nurse in the next day or two. It is better to spend the travel money now to get the right treatment than to risk getting sicker and missing more days of harvest later.'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'You have a fever'
+  after:  'signs suggest a fever'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'YOU   HAVE  high fever'
+  after:  'signs suggest  high fever'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bthe\\s+diagnosis\\s+is\\b']
+  before: 'the diagnosis is sepsis'
+  after:  'a possibility is sepsis'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bdiagnosis\\s+is\\b']
+  before: 'Diagnosis is contact dermatitis'
+  after:  'a possibility is contact dermatitis'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bdiagnosed\\s+with\\b']
+  before: 'diagnosed with impetigo'
+  after:  'showing signs of impetigo'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bI\\s+confirm\\b']
+  before: 'I confirm the rash'
+  after:  'appearances suggest the rash'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely an infection'
+  after:  'signs are consistent with likely an infection'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b']
+  before: 'This is clearly cellulitis'
+  after:  'signs are consistent with clearly cellulitis'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely cellulitis'
+  after:  'signs are consistent with likely cellulitis'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\bcertainly\\b']
+  before: 'certainly an infection'
+  after:  'likely an infection'
+[2026-05-09T23:09:44+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:09:44+00:00] case_id=P2C-Y09 patterns=['\\byou\\s+have\\b']
+  before: 'These spots are spreading and you have a fever, so it is important to see a nurse in the next day or two.'
+  after:  'These spots are spreading and signs suggest a fever, so it is important to see a nurse in the next day or two.'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'You have a fever'
+  after:  'signs suggest a fever'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'YOU   HAVE  high fever'
+  after:  'signs suggest  high fever'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bthe\\s+diagnosis\\s+is\\b']
+  before: 'the diagnosis is sepsis'
+  after:  'a possibility is sepsis'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bdiagnosis\\s+is\\b']
+  before: 'Diagnosis is contact dermatitis'
+  after:  'a possibility is contact dermatitis'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bdiagnosed\\s+with\\b']
+  before: 'diagnosed with impetigo'
+  after:  'showing signs of impetigo'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bI\\s+confirm\\b']
+  before: 'I confirm the rash'
+  after:  'appearances suggest the rash'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely an infection'
+  after:  'signs are consistent with likely an infection'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b']
+  before: 'This is clearly cellulitis'
+  after:  'signs are consistent with clearly cellulitis'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely cellulitis'
+  after:  'signs are consistent with likely cellulitis'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\bcertainly\\b']
+  before: 'certainly an infection'
+  after:  'likely an infection'
+[2026-05-09T23:10:09+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:10:09+00:00] case_id=P2C-Y09 patterns=['\\byou\\s+have\\b']
+  before: 'These spots are spreading and you have a fever, so it is important to see a nurse in the next day or two.'
+  after:  'These spots are spreading and signs suggest a fever, so it is important to see a nurse in the next day or two.'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'You have a fever'
+  after:  'signs suggest a fever'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'YOU   HAVE  high fever'
+  after:  'signs suggest  high fever'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bthe\\s+diagnosis\\s+is\\b']
+  before: 'the diagnosis is sepsis'
+  after:  'a possibility is sepsis'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bdiagnosis\\s+is\\b']
+  before: 'Diagnosis is contact dermatitis'
+  after:  'a possibility is contact dermatitis'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bdiagnosed\\s+with\\b']
+  before: 'diagnosed with impetigo'
+  after:  'showing signs of impetigo'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bI\\s+confirm\\b']
+  before: 'I confirm the rash'
+  after:  'appearances suggest the rash'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely an infection'
+  after:  'signs are consistent with likely an infection'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b']
+  before: 'This is clearly cellulitis'
+  after:  'signs are consistent with clearly cellulitis'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely cellulitis'
+  after:  'signs are consistent with likely cellulitis'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\bcertainly\\b']
+  before: 'certainly an infection'
+  after:  'likely an infection'
+[2026-05-09T23:16:05+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:16:05+00:00] case_id=P2C-Y09 patterns=['\\byou\\s+have\\b']
+  before: 'These spots are spreading and you have a fever, so it is important to see a nurse in the next day or two.'
+  after:  'These spots are spreading and signs suggest a fever, so it is important to see a nurse in the next day or two.'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'You have a fever'
+  after:  'signs suggest a fever'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'YOU   HAVE  high fever'
+  after:  'signs suggest  high fever'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bthe\\s+diagnosis\\s+is\\b']
+  before: 'the diagnosis is sepsis'
+  after:  'a possibility is sepsis'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bdiagnosis\\s+is\\b']
+  before: 'Diagnosis is contact dermatitis'
+  after:  'a possibility is contact dermatitis'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bdiagnosed\\s+with\\b']
+  before: 'diagnosed with impetigo'
+  after:  'showing signs of impetigo'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bI\\s+confirm\\b']
+  before: 'I confirm the rash'
+  after:  'appearances suggest the rash'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely an infection'
+  after:  'signs are consistent with likely an infection'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b']
+  before: 'This is clearly cellulitis'
+  after:  'signs are consistent with clearly cellulitis'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bthis\\s+is\\s+(definitely|clearly)\\b', '\\bdefinitely\\b']
+  before: 'This is definitely cellulitis'
+  after:  'signs are consistent with likely cellulitis'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\bcertainly\\b']
+  before: 'certainly an infection'
+  after:  'likely an infection'
+[2026-05-09T23:38:12+00:00] case_id=None patterns=['\\byou\\s+have\\b']
+  before: 'you have cellulitis'
+  after:  'signs suggest cellulitis'
+[2026-05-09T23:38:12+00:00] case_id=P2C-Y09 patterns=['\\byou\\s+have\\b']
+  before: 'These spots are spreading and you have a fever, so it is important to see a nurse in the next day or two.'
+  after:  'These spots are spreading and signs suggest a fever, so it is important to see a nurse in the next day or two.'
+[2026-05-10T00:20:56+00:00] case_id=P2C-Y09 patterns=['\\byou\\s+have\\b']
+  before: 'URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition with a mild fever and rapid spread. While not an immediate emergency, clinical evaluation is needed within 1-2 days to confirm the cause and prevent further transmission in the community.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: These spots are spreading and you have a fever, so it is important to see a nurse soon to get the right care. It is better to spend the travel cost now than to risk the illness getting worse and keeping you out of the harvest for longer.'
+  after:  'URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition with a mild fever and rapid spread. While not an immediate emergency, clinical evaluation is needed within 1-2 days to confirm the cause and prevent further transmission in the community.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: These spots are spreading and signs suggest a fever, so it is important to see a nurse soon to get the right care. It is better to spend the travel cost now than to risk the illness getting worse and keeping you out of the harvest for longer.'
+[2026-05-10T00:21:09+00:00] case_id=P2C-G01 patterns=['\\byou\\s+have\\b']
+  before: 'URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction, likely heat-related, without systemic involvement. There is no fever or spreading infection to indicate a need for urgent clinical intervention. The symptoms are localized and improving during the night.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: These bumps look like a common reaction to the heat and sun. Since you have no fever and they are not spreading, it is better to stay in the fields and keep the skin cool rather than spending your wages and a full day of work to travel to the clinic.'
+  after:  'URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction, likely heat-related, without systemic involvement. There is no fever or spreading infection to indicate a need for urgent clinical intervention. The symptoms are localized and improving during the night.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: These bumps look like a common reaction to the heat and sun. Since signs suggest no fever and they are not spreading, it is better to stay in the fields and keep the skin cool rather than spending your wages and a full day of work to travel to the clinic.'
+[2026-05-10T00:22:40+00:00] case_id=P2C-H-R05 patterns=['\\byou\\s+have\\b']
+  before: "URGENCY: RED\nREASONING: Signs suggest a systemic infection, as indicated by the fever (38.2°C) and localized warmth and hardness. The patient's pregnancy increases the risk of complications for both mother and fetus if an infection spreads. Immediate clinical evaluation is necessary to prevent sepsis.\nRED_FLAGS_NOTED: fever, pregnancy, warm area, hard area\nPATIENT_FRAMING: Because you have a fever and are pregnant, it is very important to see the doctor today to make sure the infection doesn't spread. While the trip is expensive, treating this now prevents a much more costly and dangerous emergency trip to the district hospital later."
+  after:  "URGENCY: RED\nREASONING: Signs suggest a systemic infection, as indicated by the fever (38.2°C) and localized warmth and hardness. The patient's pregnancy increases the risk of complications for both mother and fetus if an infection spreads. Immediate clinical evaluation is necessary to prevent sepsis.\nRED_FLAGS_NOTED: fever, pregnancy, warm area, hard area\nPATIENT_FRAMING: Because signs suggest a fever and are pregnant, it is very important to see the doctor today to make sure the infection doesn't spread. While the trip is expensive, treating this now prevents a much more costly and dangerous emergency trip to the district hospital later."
+[2026-05-10T00:23:52+00:00] case_id=P2C-H-Y05 patterns=['\\byou\\s+have\\b']
+  before: "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection with multiple drainage points. While there is no fever, the patient's history of diabetes increases the risk of the infection spreading or failing to heal. Clinical evaluation is needed within 1-2 days to prevent progression to cellulitis.\nRED_FLAGS_NOTED: drainage of pus, diabetes\nPATIENT_FRAMING: Because you have diabetes, this skin infection is harder for your body to fight alone. It is better to spend the travel money now for a check-up than to risk a worse infection that would keep you out of the harvest for many days."
+  after:  "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection with multiple drainage points. While there is no fever, the patient's history of diabetes increases the risk of the infection spreading or failing to heal. Clinical evaluation is needed within 1-2 days to prevent progression to cellulitis.\nRED_FLAGS_NOTED: drainage of pus, diabetes\nPATIENT_FRAMING: Because signs suggest diabetes, this skin infection is harder for your body to fight alone. It is better to spend the travel money now for a check-up than to risk a worse infection that would keep you out of the harvest for many days."

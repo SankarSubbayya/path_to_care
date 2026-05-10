@@ -1,0 +1,19 @@
+verdict: REGRESSION
+delta_top1_pp: -11.0
+
+Headline:
+  baseline.top1: 0.240  (24/100)
+  tuned.top1:    0.130  (13/100)
+  delta:         -11.0 pp
+
+Per-class (sorted by tuned F1):
+  class                                   n   base.P  base.R  base.F1   tuned.P tuned.R tuned.F1   ΔF1
+  --------------------------------------------------------------------------------------------------------------
+  Acne                                     12  1.00    0.25    0.40      1.00    0.50    0.67      +0.27
+  Folliculitis                             15  1.00    0.27    0.42      0.43    0.40    0.41      -0.01
+  Acute dermatitis, NOS                     9  0.00    0.00    0.00      0.17    0.11    0.13      +0.13
+  Abrasion, scrape, or scab                 5  0.33    0.20    0.25      0.00    0.00    0.00      -0.25
+  Allergic Contact Dermatitis              20  0.46    0.25    0.32      0.00    0.00    0.00      -0.32
+  CD - Contact dermatitis                   7  0.00    0.00    0.00      0.00    0.00    0.00      +0.00
+  Drug Rash                                12  0.67    0.17    0.27      0.00    0.00    0.00      -0.27
+  Eczema                                   20  0.64    0.45    0.53      0.00    0.00    0.00      -0.53

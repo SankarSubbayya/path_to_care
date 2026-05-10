@@ -1,0 +1,46 @@
+verdict: PASS
+train_rows: 1204
+holdout_rows: 336
+unique_train_case_ids: 1204
+unique_holdout_case_ids: 336
+overlap_train_holdout: 0
+classes_train: 34
+classes_holdout: 34
+train_fitzpatrick: {'I-II': 509, 'III-IV': 483, 'V-VI': 151, 'unknown': 61}
+holdout_fitzpatrick: {'I-II': 159, 'III-IV': 170, 'V-VI': 7}
+
+per-class train/holdout sizes (sorted):
+  Abrasion, scrape, or scab               train= 18  hold=  5
+  Acne                                    train= 49  hold= 12
+  Acute dermatitis, NOS                   train= 37  hold=  9
+  Allergic Contact Dermatitis             train= 60  hold= 20
+  CD - Contact dermatitis                 train= 29  hold=  7
+  Drug Rash                               train= 46  hold= 12
+  Eczema                                  train= 60  hold= 20
+  Folliculitis                            train= 60  hold= 20
+  Granuloma annulare                      train= 22  hold=  5
+  Herpes Simplex                          train= 44  hold= 11
+  Herpes Zoster                           train= 54  hold= 14
+  Hypersensitivity                        train= 19  hold=  5
+  Impetigo                                train= 55  hold= 14
+  Insect Bite                             train= 60  hold= 20
+  Irritant Contact Dermatitis             train= 31  hold=  8
+  Keratosis pilaris                       train= 26  hold=  6
+  Leukocytoclastic Vasculitis             train= 20  hold=  5
+  Lichen Simplex Chronicus                train= 26  hold=  6
+  Lichen planus/lichenoid eruption        train= 22  hold=  6
+  O/E - ecchymoses present                train= 22  hold=  6
+  Photodermatitis                         train= 18  hold=  5
+  Pigmented purpuric eruption             train= 50  hold= 12
+  Pityriasis rosea                        train= 35  hold=  9
+  Prurigo nodularis                       train= 18  hold=  4
+  Psoriasis                               train= 60  hold= 20
+  Purpura                                 train= 17  hold=  4
+  Rosacea                                 train= 23  hold=  6
+  Scabies                                 train= 17  hold=  4
+  Stasis Dermatitis                       train= 17  hold=  4
+  Tinea                                   train= 60  hold= 20
+  Tinea Versicolor                        train= 30  hold=  7
+  Urticaria                               train= 60  hold= 20
+  Verruca vulgaris                        train= 16  hold=  4
+  Viral Exanthem                          train= 23  hold=  6

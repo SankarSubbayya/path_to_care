@@ -1,0 +1,2185 @@
+{
+  "_meta": {
+    "in": "data/scin/holdout_prompts.jsonl",
+    "out": "results/scin_baseline.json",
+    "model": "google/gemma-4-31B-it",
+    "base_url": "http://localhost:8000/v1",
+    "n": 200,
+    "wall_seconds": 383.2
+  },
+  "metrics": {
+    "n": 200,
+    "mean_reward": 0.4075,
+    "exact_match_rate": 0.195,
+    "within_one_rate": 0.62,
+    "fn_red_to_green_rate": 0.24,
+    "parse_fail_rate": 0.35,
+    "confusion": {
+      "red->red": 3,
+      "red->yellow": 16,
+      "red->green": 6,
+      "yellow->green": 67,
+      "yellow->yellow": 33,
+      "green->green": 73,
+      "green->yellow": 2
+    },
+    "by_fitzpatrick": {
+      "unknown": {
+        "n": 110,
+        "mean_reward": 0.39545454545454545,
+        "exact_match_rate": 0.18181818181818182,
+        "within_one_rate": 0.6090909090909091,
+        "fn_red_to_green_rate": 0.2727272727272727,
+        "n_red_in_bucket": 11
+      },
+      "V-VI": {
+        "n": 14,
+        "mean_reward": 0.32142857142857145,
+        "exact_match_rate": 0.07142857142857142,
+        "within_one_rate": 0.5714285714285714,
+        "fn_red_to_green_rate": 0.3333333333333333,
+        "n_red_in_bucket": 6
+      },
+      "I-II": {
+        "n": 32,
+        "mean_reward": 0.40625,
+        "exact_match_rate": 0.1875,
+        "within_one_rate": 0.625,
+        "fn_red_to_green_rate": 0.0,
+        "n_red_in_bucket": 5
+      },
+      "III-IV": {
+        "n": 44,
+        "mean_reward": 0.4659090909090909,
+        "exact_match_rate": 0.2727272727272727,
+        "within_one_rate": 0.6590909090909091,
+        "fn_red_to_green_rate": 0.3333333333333333,
+        "n_red_in_bucket": 3
+      }
+    },
+    "by_condition": {
+      "Urticaria": {
+        "n": 24,
+        "mean_reward": 0.5833333333333334,
+        "exact_match_rate": 0.16666666666666666
+      },
+      "Impetigo": {
+        "n": 8,
+        "mean_reward": 0.875,
+        "exact_match_rate": 0.75
+      },
+      "Tinea": {
+        "n": 8,
+        "mean_reward": 0.625,
+        "exact_match_rate": 0.25
+      },
+      "Eczema": {
+        "n": 38,
+        "mean_reward": 0.6052631578947368,
+        "exact_match_rate": 0.21052631578947367
+      },
+      "Folliculitis": {
+        "n": 14,
+        "mean_reward": 0.4642857142857143,
+        "exact_match_rate": 0.21428571428571427
+      },
+      "Allergic Contact Dermatitis": {
+        "n": 14,
+        "mean_reward": 0.6071428571428571,
+        "exact_match_rate": 0.35714285714285715
+      },
+      "Psoriasis": {
+        "n": 13,
+        "mean_reward": 0.5769230769230769,
+        "exact_match_rate": 0.15384615384615385
+      },
+      "Herpes Zoster": {
+        "n": 6,
+        "mean_reward": 1.0,
+        "exact_match_rate": 1.0
+      },
+      "Insect Bite": {
+        "n": 57,
+        "mean_reward": 0.05263157894736842,
+        "exact_match_rate": 0.03508771929824561
+      },
+      "Pigmented purpuric eruption": {
+        "n": 18,
+        "mean_reward": 0.05555555555555555,
+        "exact_match_rate": 0.05555555555555555
+      }
+    }
+  },
+  "per_case": [
+    {
+      "case_id": "SCIN-2867448971802595955",
+      "ground_truth": "red",
+      "predicted": "red",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: RED\nREASONING: Signs suggest a widespread systemic reaction involving almost every body region. The presence of a fever combined with a rapidly spreading rash indicates a potential systemic emergency or severe drug reaction that requires immediate stabilization.\nRED_FLAGS_NOTED: fever, widespread distribution, increasing size\nPATIENT_FRAMING: Because this rash is spreading quickly across your whole body and you have a fever, it is safer to go to the clinic today. Waiting could make the treatment much harder and more expensive if it becomes a severe emergency.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--3743597917991084521",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin reaction that is increasing in size and causing burning sensations. While there are no immediate signs of anaphylaxis, the progression across multiple body areas warrants a clinical evaluation to prevent further spread or complications.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This rash is spreading and needs a professional look to make sure it is treated correctly. It is better to spend the travel cost now than to risk it getting worse and missing more work days during the harvest.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-6438118055576497978",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection, likely impetigo, which requires clinical evaluation to prevent spread. There are no systemic red flags like fever or rapid spreading reported in the SOAP fields. A visit within 1-2 days is appropriate to secure treatment before the condition worsens.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin infection that needs a clinic's medicine to clear up. It is better to spend the travel money now for a short visit than to risk it spreading and losing more work days during the harvest.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--3345002177565292187",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic fungal or inflammatory skin condition that has persisted for months. While not an emergency, the presence of intermittent bleeding indicates the skin barrier is compromised, increasing the risk of secondary infection. Clinical evaluation is needed to ensure correct treatment and prevent further spread.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin issue that won't go away on its own and is starting to bleed. It is better to spend the travel money now for a proper check-up than to risk a worse infection that could keep you out of the fields for much longer.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-4163743239541170511",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic inflammatory skin condition that is progressing in size and causing bleeding. While not an immediate emergency, the reported darkening and expansion indicate a need for clinical evaluation to prevent secondary infection.\nRED_FLAGS_NOTED: bleeding, increasing size\nPATIENT_FRAMING: This skin issue is not an emergency today, but it is growing and bleeding, which means it needs a doctor's look soon. It is better to spend the travel cost now to get the right cream than to wait and risk a worse infection that would keep you out of the fields for longer.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--3313654553366162946",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin condition affecting multiple body areas with reports of burning and increasing size. While no systemic red flags like fever are noted, the progression and distribution require a clinical evaluation to rule out systemic infection or contagious conditions.\nRED_FLAGS_NOTED: increasing size, bleeding, widespread distribution\nPATIENT_FRAMING: This skin issue is spreading and needs a professional look to make sure it doesn't get worse. It is better to spend the travel cost and a few hours at the clinic now than to risk a more serious infection that could keep you out of the fields for much longer.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-8941724831820638000",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a spreading skin reaction across multiple body areas (arm, buttocks, leg). While no systemic red flags like fever or respiratory distress are noted, the increasing size and distribution require a clinical evaluation to rule out a severe allergic reaction or drug eruption.\nRED_FLAGS_NOTED: spreading rash\nPATIENT_FRAMING: This rash is spreading to different parts of your body, so it is important to have a nurse look at it in the next day or two. It is better to spend the travel cost now than to risk it getting worse and missing more days of harvest later.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-1589466904862954952",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic skin condition that is gradually increasing in size over several months. While there are no immediate red flags like fever or rapid spreading, the growth of the lesion warrants a clinical evaluation to prevent further spread or secondary infection.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This skin issue isn't an emergency today, but because it is getting larger, it is best to visit the clinic in the next day or two. It is better to spend a small amount on travel now than to let it grow and risk a more expensive or difficult treatment later.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-773968196160186704",
+      "ground_truth": "red",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a widespread but non-systemic allergic or irritant reaction. There are no reported red flags such as fever, difficulty breathing, or rapid spreading of infection. The symptoms are limited to itching and raised skin texture.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin irritation that can be managed at home for now. Since the clinic is far and harvest is busy, it is better to monitor it and only spend the money and time to travel if you develop a fever or if the rash starts to blister or spread rapidly.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-8887454391702181267",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic skin condition that is progressively increasing in size and causing bleeding. While not an immediate emergency, the progression and skin barrier breakdown require a clinical evaluation to prevent secondary infection.\nRED_FLAGS_NOTED: bleeding, increasing size\nPATIENT_FRAMING: This skin issue is getting larger and bleeding, which means it needs a doctor's look to stop it from getting worse. It is better to spend the travel money now than to risk a more serious infection that would keep you out of the fields for much longer.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--6415511650285516007",
+      "ground_truth": "red",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized, itchy skin eruption without systemic involvement. There are no red flags such as fever, spreading inflammation, or respiratory distress reported in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today, but please come back immediately if you develop a fever or if the bumps spread quickly.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-2698648866798676998",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic inflammatory or fungal condition that is spreading and causing skin breakdown (bleeding). While there are no immediate systemic red flags like fever, the increasing size and distribution across multiple limbs require a clinical evaluation to prevent further worsening.\nRED_FLAGS_NOTED: bleeding, spreading lesions\nPATIENT_FRAMING: This skin issue is spreading and needs a proper look by a nurse or doctor to get the right cream. It is better to spend the travel money now than to let it get worse and be forced to miss more harvest days later.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-4851798629512515375",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread inflammatory skin condition affecting multiple body areas. While there are no systemic red flags like fever, the presence of burning and intermittent bleeding indicates a breakdown of the skin barrier that requires clinical evaluation to prevent secondary infection.\nRED_FLAGS_NOTED: bleeding, widespread distribution\nPATIENT_FRAMING: This skin irritation is spread across your body and is breaking the skin, which could lead to a worse infection if left alone. It is better to spend the travel cost and a few hours at the clinic now than to risk a more severe infection that would keep you out of the fields for much longer.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-6893125526720205465",
+      "ground_truth": "red",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized skin irritation that has been stable for up to four weeks. There are no systemic symptoms, fever, or signs of spreading infection reported in the SOAP fields. Given the high cost of transport and active harvest, immediate travel is not clinically indicated.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous. Since the clinic is far and harvest is busy, it is better to keep an eye on it at home and only travel if it starts spreading or you develop a fever.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--7343857484856629879",
+      "ground_truth": "red",
+      "predicted": "red",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: RED\nREASONING: While the image suggests a chronic skin condition, the presence of a fever accompanying a skin issue signs suggest a systemic infection or spreading cellulitis. This combination requires immediate clinical evaluation to prevent sepsis, outweighing the cost of transport and harvest loss.\nRED_FLAGS_NOTED: fever with skin lesion\nPATIENT_FRAMING: Because you have a fever along with this skin rash, we need to get you to the clinic today. It is better to miss one day of harvest now than to risk a serious infection that could keep you out of the fields for weeks.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8185817949093870006",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic inflammatory skin condition, but the presence of fluid-filled bumps and intermittent bleeding indicates a risk of secondary infection. While not an immediate emergency, a clinical evaluation is needed to prevent worsening during the harvest.\nRED_FLAGS_NOTED: fluid-filled lesions, bleeding\nPATIENT_FRAMING: This looks like a skin irritation that needs a proper check to make sure it doesn't get infected. It is better to spend the travel money now for a quick clinic visit than to risk a worse infection that could keep you out of the fields for many days.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--495867650501344143",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin reaction that is increasing in size and causing skin breakdown (bleeding). While there are no immediate signs of anaphylaxis or sepsis, the distribution across multiple body areas requires a clinical evaluation to prevent further worsening.\nRED_FLAGS_NOTED: increasing size, intermittent bleeding\nPATIENT_FRAMING: This rash is spreading and breaking the skin, which could lead to a worse infection if left alone. It is better to spend the travel cost and a few hours at the clinic now than to risk a more serious illness that would keep you out of the harvest for many days.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--5259460570876140361",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized inflammatory or allergic reaction on the palm with fluid-filled bumps. While not an immediate emergency, the presence of burning and blistering warrants a clinical evaluation to prevent secondary infection. A 1-2 day window allows the patient to balance harvest needs while ensuring the condition does not worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin reaction that needs a professional check to make sure it doesn't get worse or infected. It is best to visit the clinic in the next day or two so you can get the right cream and get back to the harvest quickly.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--4323073538068791362",
+      "ground_truth": "red",
+      "predicted": "red",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: RED\nREASONING: Signs suggest a widespread skin eruption involving multiple extremities accompanied by a fever. The presence of fluid-filled lesions combined with systemic symptoms (fever) increases the risk of a severe infection or systemic reaction that requires immediate clinical assessment.\nRED_FLAGS_NOTED: fever, fluid-filled lesions, widespread distribution\nPATIENT_FRAMING: While I know the harvest is important and the trip is expensive, the fever and blisters mean we need to see a doctor today to prevent this from getting worse and keeping you out of the fields for much longer.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-64481137734789825",
+      "ground_truth": "red",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized skin irritation that has been stable for up to four weeks. There are no systemic symptoms, fever, or signs of spreading infection that would justify the high cost of travel during harvest. The patient can monitor the area for changes in redness or warmth.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't urgent. Since the clinic is far and harvest is busy, it is better to keep it clean and watch it at home; if it starts spreading or you get a fever, then we will make the trip to the clinic.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-12608478152982826",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a spreading skin condition that is becoming painful and bleeding, which may indicate a secondary infection. While not an immediate emergency, the increasing size and fluid-filled texture require a clinical evaluation to prevent further complications.\nRED_FLAGS_NOTED: bleeding, increasing size, fluid-filled lesions\nPATIENT_FRAMING: This skin issue is spreading and needs a professional look to make sure it doesn't get worse. It is better to spend the travel money and a few hours now than to risk a more serious infection that could keep you out of the fields for much longer.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--1542593210179870498",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection, such as impetigo, which requires clinical evaluation to prevent spreading. While there are no systemic red flags like fever, the risk of progression to cellulitis warrants a visit within 1-2 days.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get a proper cream or medicine. Treating this now is cheaper and faster than waiting for it to spread and missing more days of harvest later.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--568039900165942102",
+      "ground_truth": "red",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, long-term skin condition given the five-year duration. There are no systemic symptoms, fever, or signs of acute spreading infection that would justify immediate travel. The intermittent bleeding appears related to chronic itching rather than an acute emergency.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term skin issue that isn't an emergency. Since the clinic is far and harvest is busy, you can monitor this at home for now and we will plan a visit if it starts spreading quickly or you develop a fever.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-5707702831794028166",
+      "ground_truth": "red",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic inflammatory skin condition with intermittent bleeding and darkening. While not an immediate emergency, the presence of bleeding and the duration of several weeks warrant a clinical evaluation to prevent secondary infection.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin reaction that needs a professional check to make sure it heals properly and doesn't get infected. It is worth the trip to the clinic in the next day or two so you can get back to the harvest without it getting worse.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-3703025959306724787",
+      "ground_truth": "red",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, widespread skin irritation characterized by itching and flat textures without systemic symptoms. There are no red flags such as fever, spreading inflammation, or respiratory distress. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. Since the clinic is far and harvest is busy, it is better to stay in the field and return if you develop a fever or if the rash spreads quickly.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--4676568845416213475",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or mild inflammatory skin condition without systemic involvement. There are no reported red flags, fever, or signs of acute infection that would justify the high cost of travel during harvest.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. Since the clinic is far and harvest is busy, it is better to stay in the field and only travel if the area becomes painful, hot, or spreads quickly.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-4336168799610000274",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized skin condition without systemic involvement. There are no reported red flags, fever, or spreading infection in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate unless the condition worsens.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin issue that doesn't need a trip to the clinic right now. It is better to keep working the harvest and watch it; if it starts spreading or you get a fever, then we will make the trip to the PHC.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-1345721193150322031",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or mild inflammatory skin condition characterized by itching and raised texture. There are no systemic symptoms, fever, or signs of rapid spread that would justify the high cost of travel during harvest. The condition can be monitored at home for any worsening.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous. It is better to stay and work the harvest now, but please come back to see me if the skin starts to leak fluid, feels hot, or if you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8703075882165822765",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin eruption involving multiple body areas with associated pain and burning. While no systemic red flags like fever are noted, the distribution and symptoms require a clinical evaluation to differentiate between a localized infection and a more contagious condition.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like it needs a professional check to make sure it doesn't spread or get worse. It is better to spend the travel money and a few hours now than to risk a more serious infection that could keep you out of the fields for much longer.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-439315396122354873",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest an inflammatory skin reaction that is actively spreading and causing pain. While there are no systemic red flags like fever, the increasing size and burning sensation require a clinical evaluation to prevent further escalation.\nRED_FLAGS_NOTED: increasing size, pain\nPATIENT_FRAMING: This looks like a reaction that is spreading and needs a professional check to stop it from getting worse. It is better to spend the travel cost now than to risk a more severe infection that would keep you out of the fields for much longer.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--8733132539249310652",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized allergic reaction or skin irritation. There are no reported red flags, such as difficulty breathing or spreading fever, to justify the high cost and loss of income associated with travel to the PHC.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. Since the clinic is far and harvest is busy, it is better to stay and work, but please come back immediately if you develop a fever or have trouble breathing.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-6393890911061112990",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, stable skin condition that has been present for over five years without progression. There are no systemic symptoms, fever, or signs of acute infection reported in the SOAP fields. Given the long duration and lack of red flags, immediate travel is not clinically indicated.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term skin issue that isn't dangerous right now. Since it hasn't changed in years, it is better to stay and finish the harvest rather than spending your daily wage on a trip to the clinic today.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-7766253481783555886",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized skin irritation with itching and no systemic symptoms. There are no red flags such as fever, spreading redness, or rapid swelling that would justify the high cost of travel during harvest.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. Since the clinic is far and harvest is busy, it is better to monitor it and only spend the money on travel if it starts spreading or you develop a fever.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--736839246514769800",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, itchy skin condition without systemic involvement. There are no reported red flags such as fever, spreading infection, or pain. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields during harvest than to spend your wages on a trip to the clinic today, but please come back if it starts to spread or you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8654329466547817737",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-acute skin condition given the duration of three to twelve months. There are no systemic symptoms, fever, or signs of rapid spread that would justify immediate travel. The condition appears stable and manageable with monitoring.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term skin irritation that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to stay and work, but please come back if you see a fever or if the skin starts leaking pus.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--3841091253724337986",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or subacute skin condition without systemic involvement. There are no reported red flags, fever, or rapid spreading that would justify the high cost of transport during harvest. The condition can be monitored at home for changes.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous right now. It is better to stay and work the harvest today, but please come back to see me if it starts to spread quickly or if you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-4860862531174713006",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a widespread but mild skin irritation without systemic symptoms. There are no reported red flags, such as fever or rapid spreading, and the image classifier indicates low-risk conditions like folliculitis. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today and save your money, but please come back immediately if you develop a fever or if the spots start to blister or pain you.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--7737567151272326815",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a spreading, itchy skin reaction that is increasing in size. While there are no immediate systemic red flags like fever or breathing difficulty, the progression of the rash requires a clinical evaluation to prevent further spread or complications.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This rash is growing and needs a professional look to make sure it is treated correctly. It is better to spend the travel cost now than to risk it getting worse and missing more days of harvest later.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-2084462406497898667",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a spreading skin condition characterized by burning and increasing size. While there are no systemic red flags like fever, the progression of the lesion requires a clinical evaluation to differentiate between fungal and inflammatory causes. A visit within 1-2 days is recommended to prevent further spread.\nRED_FLAGS_NOTED: increasing size, burning sensation\nPATIENT_FRAMING: This skin issue is growing and needs a professional look to get the right medicine. It is better to spend the travel cost now than to let it spread and lose more work days during the harvest later.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--6445954516415456798",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic inflammatory skin condition that is expanding in size. While there are no immediate systemic red flags, the presence of fluid-filled areas and increasing size warrants a clinical evaluation to prevent secondary infection.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin irritation that is spreading. It is best to visit the clinic in the next day or two to get the right cream now, so it doesn't get worse and force you to miss more work during the harvest.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-3199519649405390852",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized skin reaction without systemic involvement. There are no reported red flags, fever, or spreading infection that would justify the high cost of travel during harvest. The condition appears stable and non-urgent.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today and save your money, but please come back if you see a fever or if the rash spreads quickly.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-4612431587689030172",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction such as hives. There are no reported red flags, respiratory distress, or systemic symptoms that would justify the high cost and loss of income associated with travel to the PHC.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin reaction that we can watch at home for now. It is better to stay in the fields today, but please come back immediately if you have any trouble breathing or if the swelling spreads to your face.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-588393340755112696",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized allergic reaction or mild skin irritation. There are no systemic symptoms, respiratory distress, or signs of rapid spreading infection reported in the SOAP fields. The condition appears stable enough to monitor at home given the high cost of transport and harvest pressure.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin reaction that we can watch at home for now so you don't miss work during the harvest. If you develop a fever or have trouble breathing, we must go to the clinic immediately regardless of the cost.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--7127148813102728120",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized skin irritation without systemic involvement. There are no reported red flags such as fever, spreading redness, or severe pain. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today and save your money, but please come back if you develop a fever or if the bumps spread quickly.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--106405243948208551",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized skin reaction characterized by itching and raised bumps. There are no reported red flags, such as fever, difficulty breathing, or rapid spreading, that would justify the high cost and loss of income associated with travel to the PHC.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. Since the clinic is far and harvest is busy, it is better to stay in the field and only travel if the rash spreads quickly or you start feeling unwell.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--6825931676608812283",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection, likely impetigo or early cellulitis. While there are no systemic red flags like fever or rapid spreading, these conditions require clinical evaluation and potential antibiotics to prevent worsening. A visit within 1-2 days is appropriate to avoid a more costly trip to the district hospital later.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get a proper treatment. Taking a small amount of time from the harvest now can prevent the infection from spreading, which would cost you much more in lost wages and travel later.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-8456900441247810900",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-acute skin condition that has been stable for up to four weeks. There are no reported red flags, such as fever or spreading infection, to justify the high cost and loss of income associated with travel during harvest.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't urgent. Since it's been there for a few weeks without getting worse, it is better to stay and work the harvest now and only visit the clinic if it starts to spread or becomes painful.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7870109801780410868",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, non-infectious skin irritation characterized by itching and flaking. There are no systemic symptoms, fever, or signs of rapid spread that would justify the high cost of travel during harvest. The condition can be monitored at home for any changes.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous. Since the clinic is far and harvest is busy, it is better to stay and work; just come back to see me if it starts spreading quickly or you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7270064598218888944",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest an inflammatory skin reaction that is actively spreading and darkening. While there are no systemic red flags like fever, the increasing size and burning sensation require a clinical evaluation to prevent further progression.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This rash is spreading and needs a professional look to stop it from getting worse. It is better to spend the travel cost now than to risk a more severe reaction that could keep you out of the fields for much longer.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--2825268606715146676",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection, likely impetigo, which requires clinical evaluation to prevent spreading. There are currently no systemic red flags like fever or rapid spreading that would necessitate an immediate trip today. Evaluation within 1-2 days is appropriate to secure treatment before the condition worsens.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get a proper cream or medicine. Treating this now is cheaper and faster than waiting for it to spread, which would keep you out of the fields for much longer.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-6178225972489337883",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a spreading skin condition characterized by burning and increasing size. While there are no systemic red flags like fever, the progression of the lesion requires a clinical evaluation to differentiate between inflammatory and fungal causes. A 1-2 day window allows for a planned trip to the PHC to avoid unnecessary immediate income loss during harvest.\nRED_FLAGS_NOTED: increasing size, burning sensation\nPATIENT_FRAMING: This skin issue is spreading and needs a professional look to get the right cream. It is not an emergency for today, but visiting the clinic in the next day or two will prevent it from getting worse and costing you more time away from the harvest later.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-3331028455841202440",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or mild inflammatory skin condition without systemic involvement. There are no reported red flags, fever, or signs of acute infection in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous. It is better to stay and work the harvest now, but please come back to see me if the area starts to leak fluid, spreads quickly, or if you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-6030765418480115554",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction such as hives. There are no reported red flags, respiratory distress, or systemic symptoms that would justify the high cost and loss of income associated with travel to the PHC.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin rash that can be watched at home for now. It is better to stay in the fields today, but please come back immediately if you have trouble breathing or if the swelling spreads to your face.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--4291551911510839745",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic skin condition without systemic involvement. There are no reported red flags, fever, or signs of acute infection that would justify the high cost of transport and loss of harvest income.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin condition that is not an emergency. Since the clinic is far and harvest is busy, it is better to monitor this at home for now and only travel if it starts to spread quickly or causes a fever.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--8370388471688037375",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin condition that is increasing in size and contains fluid-filled bumps. While there are no systemic red flags like fever, the progression of the lesion warrants a clinical evaluation to prevent further spread or secondary infection.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin irritation that is growing, so it is best to have a nurse look at it in the next day or two. It is better to spend a small amount on travel now than to risk a worse infection that would keep you out of the fields for much longer.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--6190200459445824751",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-acute skin condition that has been present for over a year. There are no reported red flags, fever, or signs of rapid spread. Given the high cost of transport and active harvest, immediate travel is not clinically indicated.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term skin issue that isn't an emergency. Since it has been there for a year without getting worse, it is better to stay and work the harvest now and visit the clinic in a few weeks when it is cheaper to travel.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-5066409661869400714",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction such as hives. There are no reported red flags, fever, or respiratory distress that would necessitate immediate travel. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin reaction that we can watch at home for now. It is better to stay in the fields today, but please come back immediately if you have trouble breathing or if the swelling spreads to your face.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--8348443567838198812",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction without systemic involvement. There are no reported red flags, fever, or respiratory distress in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today and save the travel cost, but please come back immediately if you develop a fever or have trouble breathing.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-6816620786682316431",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, itchy skin reaction that has been present for several weeks without systemic involvement. There are no reported red flags such as fever, difficulty breathing, or rapid spreading. Given the low clinical urgency and high cost of transport during harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to monitor it at home and only spend the money for a trip if you develop a fever or have trouble breathing.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-8334000853689515147",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, non-infectious skin irritation without systemic symptoms. There are no reported red flags such as fever, spreading warmth, or pain. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. It is better to stay in the fields today and save the travel cost, but please come back if the area becomes painful, hot, or starts to spread.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-7002508655843923344",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a non-urgent skin condition affecting multiple areas without systemic symptoms. There are no reported red flags such as fever, spreading warmth, or rapid progression. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. Since the clinic is far and harvest is busy, let's wait and see if it improves, but come back immediately if you develop a fever or if the rash spreads quickly.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--9080481193679353998",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a painful, blistering skin condition consistent with Herpes Zoster. Because the affected area is on the head or neck, clinical evaluation is needed within 1-2 days to prevent potential complications involving the eyes or nerves.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a condition that needs medicine soon to stop the pain and prevent it from getting worse. It is worth the trip to the clinic tomorrow so you can get back to the harvest quickly and avoid a longer illness.",
+      "condition": "Herpes Zoster",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-8657197209682938293",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, itchy skin condition without systemic involvement. There are no reported red flags such as fever, spreading infection, or respiratory distress. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. Since the clinic is far and harvest is busy, it is better to stay in the field unless you develop a fever or the rash spreads quickly.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--1800345024210002541",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a widespread itchy rash without systemic involvement. There are no reported red flags such as fever, difficulty breathing, or rapid swelling. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin reaction that we can watch at home for now. It is better to stay in the fields today and save your money, but please come back immediately if you feel any swelling in your throat or have trouble breathing.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-6268951823845269617",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-infectious skin condition given the duration of one to three months and lack of systemic symptoms. There are no red flags such as fever or rapid spreading that would justify the high cost of travel during harvest. The condition appears stable and can be monitored at home.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a slow-moving skin issue that isn't dangerous right now. Since it has been there for a while without getting worse, it is better to keep working the harvest and only spend the money to travel to the clinic if it starts spreading quickly or causes a fever.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--1698385877925393566",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition or viral eruption based on the image classifier and distribution across multiple body areas. While there are no immediate red flags like fever or sepsis, clinical evaluation is needed within 1-2 days to prevent complications or spread.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get the right medicine now. This will prevent the rash from getting worse and keep you from missing more work during the harvest later.",
+      "condition": "Herpes Zoster",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--6192376912121825255",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, low-grade skin condition that has been present for several months without progression. There are no reported systemic symptoms, fever, or acute inflammatory red flags. Given the long duration and lack of acute distress, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that has been there for a long time and isn't dangerous. It is better to keep working the harvest now and only spend the money and time to travel to the clinic if it starts spreading quickly or causes a fever.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-1801354510756212900",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, long-term skin condition that has been present for over a year. There are no systemic symptoms, fever, or signs of acute infection that would justify immediate travel during the harvest. The condition can be monitored at home and evaluated when the patient has more flexibility.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term skin issue that isn't an emergency. Since it has been there for a year and isn't spreading quickly, it is better to finish your harvest work first and visit the clinic in a few days to save on travel costs.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--5715603038267691444",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or inflammatory skin condition without systemic involvement. There are no reported red flags, fever, or signs of acute infection that would justify the high cost of transport and loss of harvest income.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin irritation that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to monitor it at home and only travel if it starts spreading quickly or you develop a fever.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-728144289746942042",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, low-acuity skin condition given the duration of one to three months. There are no systemic symptoms, fever, or rapid progression noted in the SOAP fields. The condition appears stable and does not currently justify the high transport cost and loss of harvest income.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that has been there for a while and isn't dangerous. It is better to stay and work the harvest now, but please come back to see me if it starts spreading quickly or if you develop a fever.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--6022620135219018228",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin condition that is expanding and causing discomfort. While there are no systemic red flags like fever, the increasing size of the lesion warrants a clinical evaluation to prevent further spread or secondary infection.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin issue that needs a proper check-up soon so it doesn't get larger or harder to treat. It is better to spend the travel cost now than to risk a worse infection that could keep you out of the fields for longer during harvest.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7839050789133028498",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, itchy skin condition affecting multiple body areas without systemic symptoms. There are no red flags such as fever, rapid spreading, or respiratory distress noted in the SOAP fields. The condition has been stable for up to four weeks, indicating it is not an acute emergency.\n\nRED_FLAGS_NOTED: none\n\nPATIENT_FRAMING: This looks like a common skin irritation that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to monitor this at home and only spend the money and time to travel if you develop a fever or if the skin starts to blister and ooze.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--7277514071091705587",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or mild inflammatory skin condition without systemic involvement. There are no reported red flags, fever, or signs of acute infection in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. It is better to stay in the fields during harvest than to spend your wages on a trip to the clinic today, but please come back if it starts to spread or becomes painful.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-5345993529885915940",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction without systemic involvement. There are no reported red flags such as fever, difficulty breathing, or rapid spreading. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today and save the travel cost, but please come back immediately if you develop a fever or have trouble breathing.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--5246245066034694334",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-acute skin condition that has been present for several months. There are no reported red flags such as fever, rapid spreading, or systemic illness. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a slow-moving skin issue that isn't dangerous right now. It is better to keep working the harvest today and only spend the money on the clinic trip if the rash spreads quickly or you develop a fever.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-4382102740591960808",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection or inflammatory condition in a sensitive area. While there are no immediate systemic red flags like fever, the location and duration (up to four weeks) warrant a clinical evaluation to prevent worsening. A professional exam is needed to differentiate between folliculitis and other contagious conditions.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to make sure this is treated correctly. Spending a small amount on travel now can prevent a more serious infection that would force you to miss many more days of harvest later.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-6628525833933575267",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized skin irritation with no systemic symptoms. There are no red flags such as fever, spreading redness, or rapid swelling that would justify the high cost of travel during harvest.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. Since the clinic is far and harvest is busy, it is better to monitor it and only spend the money on travel if it starts spreading or you develop a fever.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-5866868960471089698",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic inflammatory skin condition without acute complications. There are no reported red flags, fever, or signs of spreading infection in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a common skin irritation that isn't dangerous right now. It is better to stay and work the harvest today, but please come back to see me if the skin starts to leak fluid, feels hot, or if you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--4931676201516783432",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, itchy skin condition without systemic involvement. There are no red flags such as fever, spreading inflammation, or rapid progression noted in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields during harvest than to spend your wages on a trip to the clinic today, but please come back if it starts to spread or you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-3907804873656496630",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin condition without systemic involvement. There are no reported red flags, fever, or spreading inflammation that would justify the high cost of travel during harvest. The patient can be monitored at home for any changes.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that doesn't need a trip to the clinic right now. It is better to stay and work the harvest, but please come back to see me if you develop a fever or if the spots start spreading quickly.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--2033066751549921721",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin condition affecting multiple body areas with associated pain and itching. While no systemic red flags like fever are present, the extent of the distribution warrants a clinical evaluation to differentiate between inflammatory and fungal causes.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like it needs a professional check to get the right cream and stop the itching. It is better to spend the travel money now than to let it spread further and lose more work days during the harvest.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--4917683400271006276",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition or shingles, which requires clinical evaluation to prevent complications or spread. There are no immediate red flags like fever or systemic distress noted in the SOAP fields. Evaluation within 1-2 days is appropriate to start treatment before the condition worsens.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get the right medicine. Treating this now will prevent it from getting worse and keep you from missing more work during the harvest later.",
+      "condition": "Herpes Zoster",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-3168026545757928619",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, itchy skin condition without systemic involvement. There are no red flags such as fever, spreading infection, or rapid progression reported in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a common skin irritation that isn't dangerous right now. It is better to stay and work the harvest today, but please come back to see me if you develop a fever or if the rash starts spreading quickly.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--22984583040455183",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin condition, likely fungal or inflammatory, based on the image and reported itching. While not an immediate emergency, the presence of fluid-filled textures and burning warrants a clinical evaluation to prevent spread or secondary infection. A visit within 1-2 days is appropriate to ensure correct treatment before the condition worsens.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin issue that needs a proper check to get the right medicine. It is better to spend a small amount on travel now than to let it get worse and lose more work days during the harvest later.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-5218632832342500942",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a widespread but stable skin reaction without systemic involvement. There are no reported red flags such as fever, difficulty breathing, or rapid spreading of infection. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin reaction that we can watch at home for now so you don't miss work during the harvest. If you start feeling sick, get a fever, or have trouble breathing, we must go to the clinic immediately.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-411296532269774614",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition that is spreading across multiple body areas (arm, hand, and torso). While there are no immediate systemic red flags like fever, the increasing size and distribution require clinical evaluation to prevent further spread.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin infection that is spreading. It is best to visit the clinic in the next day or two to get treatment now, so it doesn't get worse and force you to miss more work during the harvest.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--7424296109578760484",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection, likely impetigo, which requires clinical evaluation to prevent spreading. There are no systemic red flags like fever or rapid spread reported in the SOAP fields. A visit within 1-2 days is appropriate to secure treatment before the condition worsens.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin infection that needs a clinic's medicine to clear up. It is better to spend the travel money now for a short visit than to risk it spreading and losing more work days during the harvest.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-8078665794653560810",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection that is actively spreading and causing pain. While not immediately life-threatening, the reported increase in size and burning sensation requires a clinical evaluation to prevent further progression.\nRED_FLAGS_NOTED: increasing size, pain, burning\nPATIENT_FRAMING: This looks like an infection that is growing and needs medicine to stop it. It is better to spend the travel money and miss a bit of work now than to let it get worse and be forced to miss many days of harvest later.",
+      "condition": "Folliculitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-5069127474605540768",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized skin irritation without systemic involvement. There are no reported red flags such as fever, spreading infection, or respiratory distress. The condition is currently limited to itching on the torso.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. Since the clinic is far and harvest is busy, it is better to stay in the field and only travel if the rash spreads quickly or you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--9168553883581693079",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized skin condition without systemic involvement. There are no reported red flags, fever, or spreading infection that would justify the high cost of transport and loss of harvest income. The condition can be monitored at home for any worsening.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin issue that isn't dangerous right now. It is better to stay and work the harvest today, but please come back to see me if it starts to spread quickly or if you develop a fever.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--4343637859112366862",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a chronic, spreading skin condition affecting multiple body areas (head, neck, and torso). While there are no immediate life-threatening red flags, the duration of several months and the spread suggest a need for clinical evaluation to prevent further progression.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This skin issue has lasted a long time and is spreading, so it is best to see a nurse at the PHC in the next day or two. Treating it now will prevent it from getting worse and costing you more time and money away from the harvest later.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--6892134106113245039",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or mild inflammatory skin condition without systemic involvement. There are no reported red flags, fever, or rapid spreading that would justify the high cost of transport during harvest. The condition can be monitored at home for changes.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to stay and work; just come back to me if it starts to spread quickly or you develop a fever.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-5336018037169319124",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic inflammatory skin condition without systemic involvement. There are no red flags such as fever, spreading redness, or rapid swelling that would justify the high cost of travel during harvest. The patient can monitor the area for changes while continuing work.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a common skin irritation that isn't dangerous right now. It is better to stay in the fields for the harvest and keep an eye on it; if it starts to spread or you get a fever, then we will make the trip to the clinic.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--8631687299829398206",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin reaction affecting multiple body regions. While there are no immediate respiratory red flags, the rapid spread and darkening of the lesions require a clinical evaluation to rule out systemic reactions or contagious conditions.\nRED_FLAGS_NOTED: widespread distribution, increasing size\nPATIENT_FRAMING: This rash is spreading to many parts of your body and needs a professional look to make sure it doesn't get worse. It is better to spend the travel cost now than to risk a more serious reaction that would keep you out of the fields for much longer.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-8876878857268678510",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction or hives, as the symptoms are limited to burning and raised bumps without systemic involvement. There are no reported red flags such as fever, difficulty breathing, or rapid spreading. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin reaction that we can watch at home for now so you don't miss work during the harvest. If you start feeling sick, get a fever, or have trouble breathing, we must go to the clinic immediately.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--2375843028488783684",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin condition, possibly Herpes Zoster, which requires clinical evaluation to prevent complications and manage pain. While there are no immediate systemic red flags, the location and nature of the rash necessitate a professional diagnosis within 1-2 days.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is important to visit the clinic in the next day or two to get the right medicine. Treating this now will prevent it from getting worse and keep you from missing more work during the harvest later.",
+      "condition": "Herpes Zoster",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7120026547390926334",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or mild inflammatory skin condition without systemic involvement. There are no reported red flags, fever, or signs of rapid spread that would justify the high cost of transport and loss of harvest income.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. Since the clinic is far and harvest is busy, it is better to stay in the field unless the area becomes very painful, hot, or you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--6289614905936431714",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-infectious skin condition that is slowly expanding over several weeks. There are no systemic symptoms, fever, or signs of acute infection that would justify the high cost of travel during harvest. The patient can monitor the area and return if it begins to blister, ooze, or spread rapidly.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a slow-moving skin issue that isn't dangerous right now. Since it is harvest time, it is better to stay in the fields and keep an eye on it rather than spending your wages on a trip to the clinic today.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--7350637768936675559",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction such as urticaria without any reported systemic symptoms. There are no red flags, such as difficulty breathing or fever, noted in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin rash that we can watch at home for now. It is better to stay in the fields today and save the travel cost, but please come back immediately if you feel any swelling in your throat or have trouble breathing.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--3643248167198411501",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild skin reaction without systemic involvement. There are no reported red flags, fever, or respiratory distress that would justify the high cost of travel during the harvest. The patient can monitor the area for changes.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. Since the clinic is far and harvest is busy, it is better to stay and work unless you develop a fever or the rash spreads quickly.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--568386322973258434",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-infectious skin condition given the long duration of three to twelve months. There are no systemic symptoms, fever, or signs of rapid spread that would justify immediate travel. The condition appears stable and manageable with monitoring.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term skin irritation that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to stay and work; we will only travel if it starts spreading quickly or you develop a fever.",
+      "condition": "Psoriasis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--6776518044035331491",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized skin reaction without systemic involvement. There are no reported red flags, fever, or respiratory distress in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin reaction that we can watch at home for now. It is better to stay in the fields today and save your money, but please come back immediately if you develop a fever or if the rash spreads quickly.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--7961989933579874918",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread inflammatory reaction across multiple body regions (head, torso, limbs) that is increasing in size. While there are no immediate systemic red flags like fever or respiratory distress, the rapid spread and fluid-filled nature require a clinical evaluation to prevent further escalation.\nRED_FLAGS_NOTED: spreading rash, fluid-filled lesions\nPATIENT_FRAMING: This rash is spreading to many parts of your body and needs a professional look to stop it from getting worse. It is better to spend the travel cost and a few hours now than to risk a more severe reaction that could keep you out of the fields for much longer.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-1017795787212437294",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized skin irritation or fungal infection without systemic involvement. There are no red flags such as fever, rapid spreading, or signs of sepsis reported in the SOAP fields. The condition is currently stable and does not justify the high transport cost and loss of harvest income.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields during harvest and only travel to the clinic if you develop a fever or if the area becomes very painful and hot.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--8299809889773574040",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or inflammatory skin condition without acute distress. There are no reported red flags, fever, or signs of spreading infection in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a common skin irritation that isn't dangerous right now. It is better to stay and work the harvest today, but please come back to see me if the area starts to leak fluid, spreads quickly, or if you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--8269030899358756664",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest an inflammatory skin reaction that is causing pain and burning, which requires a clinical evaluation to rule out infection or severe dermatitis. While there are no immediate systemic red flags like fever, the symptoms are distressing enough to warrant a professional check within 1-2 days.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin reaction that needs a doctor's look to make sure it doesn't get worse. It is better to spend the travel money now for a quick check at the PHC than to risk a more serious infection that would keep you out of the fields for much longer.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-4554657738494117603",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, itchy skin reaction that has been stable for up to three months. There are no reported red flags such as fever, rapid spreading, or respiratory distress. Given the long duration and lack of systemic symptoms, immediate travel is not clinically indicated.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a skin irritation that has been there for a while and isn't an emergency. Since the clinic is far and harvest is busy, you can monitor it at home for now, but please come back if you develop a fever or if the rash spreads very quickly.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--5629003537657501292",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-acute skin condition that has been present for several months without progression. There are no reported systemic symptoms, fever, or signs of acute infection. Given the high cost of transport and active harvest, immediate travel is not clinically indicated.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term skin irritation that isn't an emergency. Since it has been stable for months, it is better to keep working the harvest now and only visit the clinic if the skin starts to blister, spread quickly, or you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-7176461562946921192",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, itchy skin condition without systemic involvement. There are no red flags such as fever, spreading infection, or rapid progression reported in the SOAP fields. The condition has been stable for up to four weeks.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. Since the clinic is far and harvest is busy, it is better to stay in the field unless the rash spreads quickly or you develop a fever.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-6050019040579522081",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin condition, possibly Herpes Zoster, which requires clinical evaluation to prevent complications. There are no systemic red flags like fever or spreading infection reported in the SOAP fields. Evaluation within 1-2 days is necessary to start appropriate treatment.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get the right medicine. This will help it heal faster and prevent it from getting worse, which would cost you more time away from the harvest later.",
+      "condition": "Herpes Zoster",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--7901710788064822966",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a spreading skin reaction that is causing pain and burning. While there are no immediate respiratory red flags, the increasing size of the lesions warrants a clinical evaluation to prevent further escalation. A visit within 1-2 days is recommended to ensure the condition does not worsen during the harvest.\nRED_FLAGS_NOTED: increasing size, burning/pain\nPATIENT_FRAMING: Your skin reaction is spreading and causing pain, so it is best to see the nurse at the PHC in the next day or two. It is better to spend the travel money now than to risk a worse reaction that could keep you out of the fields for a whole week.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--6172974054434578584",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a spreading inflammatory skin reaction characterized by burning and increasing size over several weeks. While there are no immediate systemic red flags, the progression of the lesion requires a clinical evaluation to prevent further spread or secondary infection.\nRED_FLAGS_NOTED: increasing size, burning sensation\nPATIENT_FRAMING: This skin issue is spreading and needs a professional look to stop it from getting worse. It is better to spend the travel cost now than to risk a more severe infection that would keep you out of the fields for much longer.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-4639578100401351922",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic or mild inflammatory skin condition without systemic involvement. There are no reported red flags, fever, or signs of acute infection in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that can be watched at home for now. It is better to stay in the fields during harvest than to spend your daily wage on a trip to the clinic today.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--4752985713674166359",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin condition, possibly Herpes Zoster, which requires clinical evaluation to prevent complications. There are no systemic red flags like fever or spreading infection reported in the SOAP fields. Evaluation within 1-2 days is recommended to start appropriate treatment.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get the right medicine. Treating this now will prevent it from getting worse and keep you from missing more work during the harvest later.",
+      "condition": "Herpes Zoster",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-1237595093610148205",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a contagious skin condition, likely impetigo, which requires clinical evaluation to prevent spreading. There are no systemic red flags like fever or rapid spreading reported in the SOAP fields. A visit within 1-2 days is appropriate to secure treatment before the condition worsens.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get a cream or medicine. Treating this now will prevent it from spreading and keep you from needing a much longer, more expensive trip to the district hospital later.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-5275181661240813075",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin condition affecting multiple body areas (head, torso, buttocks) that is increasing in size and causing pain. While there are no immediate life-threatening red flags, the progression and distribution require a clinical evaluation to prevent further spread or secondary infection.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This skin issue is spreading and causing you pain, so it is best to see a provider in the next day or two. It is better to spend the travel cost now than to let it get worse and be forced to miss more work during the harvest later.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--3969569173710538759",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a localized skin infection, likely impetigo, which requires clinical evaluation to prevent spreading. While there are no systemic red flags like fever, the reported pain and raised texture necessitate a professional check within 1-2 days.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: It is best to visit the clinic in the next day or two to get a proper cream or medicine. Treating this now prevents it from spreading or getting worse, which would cost you much more in lost work days later.",
+      "condition": "Impetigo",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--5514159851754006416",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-infectious skin condition without systemic symptoms. There are no reported red flags, fever, or signs of rapid spread that would justify the high cost of travel during harvest.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a common skin irritation that isn't dangerous. Since the clinic is far and harvest is busy, it is better to monitor it at home for now and only travel if it starts to spread or becomes painful.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--7851195646036204419",
+      "ground_truth": "yellow",
+      "predicted": "yellow",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a persistent skin condition that is increasing in size and causing significant itching. While there are no immediate systemic red flags, the progression over several weeks warrants a clinical evaluation to differentiate between fungal and inflammatory causes.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This skin issue is spreading and needs a proper look by a nurse or doctor to get the right cream. It is better to spend the travel money now than to let it grow and miss more work days later.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--8561049931128520858",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized skin reaction characterized by itching and raised bumps. There are no reported red flags such as fever, difficulty breathing, or rapid spreading. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today, but please come back immediately if you develop a fever or have any trouble breathing.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-6675143408858735444",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a mild, localized inflammatory skin reaction without systemic involvement. There are no reported red flags such as fever, spreading warmth, or rapid progression. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields during harvest than to spend your wages on a trip to the clinic today, but please come back if you develop a fever or if the rash spreads quickly.",
+      "condition": "Eczema",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7636687047776991161",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-urgent skin condition that has been present for several months without progression. There are no reported systemic symptoms, fever, or signs of acute infection. Given the high cost of transport and active harvest, immediate travel is not clinically indicated.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a slow-growing skin issue that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to keep an eye on it and only travel if it starts spreading quickly or becomes painful.",
+      "condition": "Tinea",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-3623323873565698897",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, itchy skin condition that has been stable for one to three months. There are no reported red flags such as fever, difficulty breathing, or rapid spreading. Given the long duration and lack of systemic symptoms, immediate travel is not clinically indicated.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that has been there for a while and isn't dangerous. It is better to stay and work the harvest now, but please come back to see me if it starts spreading quickly or if you develop a fever.",
+      "condition": "Urticaria",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-9076222836036925266",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized skin reaction without systemic involvement. There are no reported red flags, fever, or spreading symptoms in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate unless symptoms worsen.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that we can watch at home for now. It is better to stay in the fields today and save the travel cost, but please come back immediately if you develop a fever or if the rash spreads quickly.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--4550841138827406706",
+      "ground_truth": "yellow",
+      "predicted": "green",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-spreading skin irritation that has been present for several weeks without systemic symptoms. There are no red flags such as fever or rapid spread that would justify the high cost of travel during the harvest. The condition appears stable and can be monitored at home.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a mild skin irritation that isn't dangerous. Since the clinic is far and harvest is busy, it is better to watch it at home for now and only travel if it starts spreading or you develop a fever.",
+      "condition": "Allergic Contact Dermatitis",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--736680390960982157",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a localized insect bite or mild skin irritation. There are no reported red flags, systemic symptoms, or signs of spreading infection in the SOAP fields. Given the high cost of transport and active harvest, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a simple bite that can be managed at home for now. It is better to stay in the fields and keep an eye on it rather than spending your daily wage on a trip to the clinic today.",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--8717214960305771044",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, long-term skin condition given the five-year duration. There are no reported systemic symptoms, fever, or acute red flags to indicate an urgent infection.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a long-term issue that isn't an emergency. Since the clinic is far and harvest is busy, you can monitor this at home for now and visit the PHC if it starts to spread or becomes painful.",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN--4606009793409551660",
+      "ground_truth": "green",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a fluid-filled skin reaction that is causing pain and burning. While there are no systemic red flags like fever, the presence of blisters and pain warrants a clinical evaluation to rule out infection or severe allergic reaction. A 1-2 day window allows the patient to balance the cost of travel with the need for professional assessment.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a reaction that needs a nurse or doctor to check it within a day or two to make sure it doesn't get worse. It is better to spend the travel money now than to risk a bigger infection that would keep you out of the fields for longer.",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-1519975931025758567",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 1.0,
+      "parse_ok": true,
+      "raw": "URGENCY: GREEN\nREASONING: Signs suggest a chronic, non-urgent skin condition that has been present for several months without progression. There are no reported systemic symptoms, fever, or acute inflammatory markers to justify immediate travel. Given the high cost of transport relative to daily wages and the lack of acute distress, home monitoring is appropriate.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This looks like a slow-moving skin issue that isn't dangerous right now. Since the clinic is far and harvest is busy, it is better to keep an eye on it and only spend the money for a trip if it starts to spread quickly or you develop a fever.",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-2774822906299888049",
+      "ground_truth": "green",
+      "predicted": "yellow",
+      "reward": 0.5,
+      "parse_ok": true,
+      "raw": "URGENCY: YELLOW\nREASONING: Signs suggest a widespread skin condition affecting multiple body regions, including sensitive areas. While there are no immediate life-threatening red flags, the extent of the distribution and the presence of pain and burning warrant a clinical evaluation to rule out systemic infection or severe dermatitis.\nRED_FLAGS_NOTED: none\nPATIENT_FRAMING: This is not an emergency today, but because it is spreading to many parts of your body, it is best to visit the clinic in the next day or two. It is better to spend the travel cost now than to let it get worse and lose more work days during the harvest.",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown"
+    },
+    {
+      "case_id": "SCIN-3914859093772206420",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-865490754577119373",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--2618609792423828453",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "V-VI",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-6355469165466318386",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--7999991740162950505",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-7978747053447862871",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--4128905480190900218",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-7992099817197638769",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-4088138694893149839",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--8714014630063136316",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--3753220776898215006",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--4892781362024578938",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "V-VI",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-2126547957554095009",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--545007797193276281",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-6651883265161294231",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-8662153452056460124",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-2551255942474416458",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--1710683267759148357",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--871000789648050928",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-6809243309702270506",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--2091950744963898567",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--6229433733209363727",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-912700613781949239",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-123018484144067727",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-3016253320150390940",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-7969479584628963549",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--8348498902094393408",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-5206521494202002386",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--5259170744103459236",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--4495950094362909099",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--6990753820375520856",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--8425933059055994650",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-7184684249603937869",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--1388057736180861488",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-6060334855367071181",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-8517515112307434630",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--3990231191768619319",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-4667087707045961077",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--5048121674534375075",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--6326437324680204662",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-8067582930685511187",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-7230755869642234629",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-864969376606488572",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--2538491294281447306",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "V-VI",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--1213387482804414270",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-2883286840345609843",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-4735748123656222129",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--4503897366378370087",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-4336240504062881387",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-325284060839949957",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-1132535085816432291",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-5383278245398537608",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-5607945186462654031",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--7711091231416269014",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-1861601422455627001",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-5328649673855199414",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-7235439692769072121",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-4168671109103152917",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--4516438110978983282",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--3245549247380873817",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--8722194535323438165",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--422726985230604591",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-318786810547984125",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-3958546394143844695",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "V-VI",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--5983320270847607538",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN--2025662459941441200",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-7960457666530672586",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "unknown",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-3023415219850652814",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-5515455349045471891",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Pigmented purpuric eruption",
+      "fitzpatrick_bucket": "III-IV",
+      "error": "Connection error."
+    },
+    {
+      "case_id": "SCIN-5461287862238262172",
+      "ground_truth": "green",
+      "predicted": "green",
+      "reward": 0.0,
+      "parse_ok": false,
+      "raw": "",
+      "condition": "Insect Bite",
+      "fitzpatrick_bucket": "I-II",
+      "error": "Connection error."
+    }
+  ]
+}

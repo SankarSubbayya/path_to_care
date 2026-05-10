@@ -1,0 +1,67 @@
+{
+  "village": "Synthetic-Tamil-Nadu-Composite",
+  "currency": "INR",
+  "_note": "Synthetic composite of typical rural Tamil Nadu village logistics. Replaces docs/ASSETS.md CareGraph data which lives on a different machine. Numbers calibrated against publicly reported PHC distances and bus-fare ranges. v2 will use real data from a chosen village.",
+
+  "primary_health_centre": {
+    "distance_km": 18,
+    "transport_options": [
+      {"mode": "bus", "frequency": "every 90 minutes 06:00-19:00", "fare_inr": 25, "duration_minutes": 45},
+      {"mode": "shared_auto", "frequency": "on demand", "fare_inr": 70, "duration_minutes": 30},
+      {"mode": "ambulance_108", "frequency": "free, slow response", "fare_inr": 0, "duration_minutes": 90}
+    ],
+    "open_hours": {"weekday": "10:00-13:00", "saturday": "10:00-12:00", "sunday": "closed"},
+    "services": ["consultation", "first_aid", "basic_pharmacy", "antibiotics", "tetanus_shot", "ORS"],
+    "lab_capacity": "basic_blood_count + urine_dipstick; no imaging, no culture"
+  },
+
+  "district_hospital": {
+    "distance_km": 65,
+    "transport_options": [
+      {"mode": "bus", "frequency": "every 2 hours", "fare_inr": 90, "duration_minutes": 150},
+      {"mode": "ambulance_108", "frequency": "free", "fare_inr": 0, "duration_minutes": 120}
+    ],
+    "open_hours": {"weekday": "24/7 emergency", "outpatient": "08:00-13:00 weekday"},
+    "services": ["emergency", "surgery", "imaging", "ICU", "antivenom", "blood_bank"]
+  },
+
+  "private_clinic_in_village": {
+    "distance_km": 0,
+    "available": true,
+    "fee_consultation_inr": 200,
+    "open_hours": {"weekday": "evening 17:00-20:00"},
+    "services": ["consultation", "minor_dressing"],
+    "_note": "RMP/quack-risk; not a substitute for the PHC for serious cases."
+  },
+
+  "drug_availability_phc": {
+    "amoxicillin_500mg_oral": {"in_stock": true,  "cost_inr": 0, "_note": "free under govt scheme when stock is available"},
+    "cefalexin_500mg_oral":   {"in_stock": false, "cost_inr": 60, "_note": "must buy from private pharmacy"},
+    "paracetamol_500mg":      {"in_stock": true,  "cost_inr": 0},
+    "tetanus_toxoid":         {"in_stock": true,  "cost_inr": 0},
+    "antivenom_polyvalent":   {"in_stock": false, "cost_inr": null, "_note": "district hospital only"}
+  },
+
+  "household_economics": {
+    "patient_daily_wage_inr": 350,
+    "average_round_trip_to_phc_inr": 50,
+    "average_round_trip_to_district_inr": 180,
+    "private_clinic_visit_inr": 200,
+    "_note": "round-trip transport for the PHC ≈ one-seventh of a day's wage. District trip ≈ half a day's wage plus 5 hours of time."
+  },
+
+  "seasonal_calendar": {
+    "harvest_active_months": ["may", "june", "october", "november"],
+    "monsoon_active_months": ["june", "july", "august", "september"],
+    "current_month": "may",
+    "labor_demand_today": "peak — leaving the field costs visible income today",
+    "transport_disruption_today": "none"
+  },
+
+  "cultural_factors": [
+    "neighbor's opinion often substitutes for clinical advice in mild cases",
+    "private RMP visited first because the PHC has limited evening hours",
+    "tetanus risk underappreciated for small wounds from agricultural metalwork",
+    "fever in children commonly home-treated for 24-48h before help-seeking"
+  ]
+}

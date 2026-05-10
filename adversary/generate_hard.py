@@ -1,0 +1,254 @@
+"""Generate a HARDER 30-case test set designed to push the urgency-triage
+boundary cases that base Gemma 4 31B handles cleanly on the easy set.
+
+Each case is at a urgency-level boundary (Red/Yellow or Yellow/Green) and
+relies on signals the model has to *weigh*, not count. Categories:
+
+  - Atypical presentations (nec fasc with normal skin; SJS early; pain-out-
+    of-proportion; immunocompromised "simple" cellulitis).
+  - High-risk patient + minor presentation (diabetic, pregnant, elderly,
+    pediatric, immunocompromised) — many models default to "green" here.
+  - Dramatic narrative + actually-benign (tests over-triage tendency).
+  - Mucosal / systemic signs subtle in narrative.
+  - Time-since-onset matters (delayed envenomation, post-antibiotic
+    non-response).
+
+Output: data/cases_hard.jsonl. Same schema as data/cases.jsonl so the
+existing harness, reward fn, and stratification scripts work unchanged.
+"""
+from __future__ import annotations
+
+import json
+import os
+import sys
+from pathlib import Path
+
+OUT = "data/cases_hard.jsonl"
+
+
+# 10 RED — atypical / high-risk / pain-out-of-proportion --------------------
+RED_CASES = [
+    {"case_id": "P2C-H-R01",
+     "narrative": "My father has diabetes for 20 years. Small ulcer on his big toe for 3 weeks. He says no pain in the toe. Today the toe looks dusky, almost black at the tip, and his sock had a bad smell. He is more tired than usual but not feverish.",
+     "image_description": "Diabetic great toe with dry gangrenous tip, surrounding mild erythema, pulses likely absent. No overt cellulitis but tissue necrosis present.",
+     "red_flags": ["diabetic foot with tissue necrosis", "absent pain (neuropathy)", "limb-threatening ischemia"],
+     "adversarial_features": ["misleading: 'no pain'", "absence of fever distractor"]},
+
+    {"case_id": "P2C-H-R02",
+     "narrative": "My thigh hurts very badly since yesterday. The pain is much more than the redness looks. I had a small cut from the goat's horn 2 days ago. The skin looks only slightly red but I cannot bear to even touch the leg.",
+     "image_description": "Thigh with mild surface erythema disproportionate to severe reported pain; possible early dusky discoloration centrally; no obvious crepitus on description.",
+     "red_flags": ["pain out of proportion to skin findings", "necrotizing fasciitis suspicion", "rapid progression"],
+     "adversarial_features": ["misleading: 'only slightly red'"]},
+
+    {"case_id": "P2C-H-R03",
+     "narrative": "I have HIV, on medication. Small red patch on my arm 4 days, now slightly bigger. Mild warm to touch. Temperature 37.8. I feel okay otherwise, no chills.",
+     "image_description": "Forearm with localized erythema 4 cm diameter, mild warmth; no systemic appearance in the description.",
+     "red_flags": ["immunocompromised host", "low threshold for serious infection", "atypical presentation possible"],
+     "adversarial_features": ["benign-looking presentation in high-risk patient"]},
+
+    {"case_id": "P2C-H-R04",
+     "narrative": "My 4-year-old has spots on her legs and arms since this morning. They look like small purple-red dots, not raised. She has fever 39.5 and is unusually sleepy, not eating.",
+     "image_description": "Lower limbs with non-blanching petechial rash, scattered ecchymoses on shins; child appears lethargic in the description.",
+     "red_flags": ["petechiae + fever in child (meningococcemia rule-out)", "lethargy", "non-blanching rash"],
+     "adversarial_features": ["distractor: 'looks like spots' downplays severity"]},
+
+    {"case_id": "P2C-H-R05",
+     "narrative": "I am 7 months pregnant. Painful red area on my breast since yesterday, not breastfeeding. Mild fever 38.2. The area is hard and warm.",
+     "image_description": "Breast with localized erythema, induration, warmth; non-lactational; pregnancy-related.",
+     "red_flags": ["pregnancy + infection", "non-lactational mastitis (rule out inflammatory carcinoma)", "fever"],
+     "adversarial_features": ["seems like routine mastitis but patient is pregnant"]},
+
+    {"case_id": "P2C-H-R06",
+     "narrative": "Snake bit me on my hand 6 hours ago in the morning. I felt fine until 1 hour back. Now my hand is very swollen and I am bleeding from gums and nose a little.",
+     "image_description": "Hand with two fang marks, marked edema, ecchymosis spreading; mucosal bleeding suggested.",
+     "red_flags": ["delayed envenomation", "coagulopathy (mucosal bleeding)", "antivenom indicated urgently"],
+     "adversarial_features": ["misleading: 'fine until 1 hour back' — delayed onset is normal for some snakes"]},
+
+    {"case_id": "P2C-H-R07",
+     "narrative": "My toddler son, 2 years, had high fever 3 days. Now his skin is peeling off in sheets in his armpits and groin. It looks like a burn but he was not burned. He is fussy.",
+     "image_description": "Toddler with widespread skin desquamation in flexures, intact skin between sheets; appears systemically ill.",
+     "red_flags": ["staphylococcal scalded skin syndrome", "pediatric dermatologic emergency", "fluid loss risk"],
+     "adversarial_features": ["distractor: looks like a burn but isn't"]},
+
+    {"case_id": "P2C-H-R08",
+     "narrative": "I started a new tablet for seizures 2 weeks back. Yesterday I noticed sores in my mouth and on my eyes feel sticky in the morning. Now there are red spots on my chest spreading.",
+     "image_description": "Truncal target-like erythematous macules, mucosal involvement (oral, ocular) — early Stevens-Johnson presentation.",
+     "red_flags": ["mucosal involvement + new drug + skin eruption", "Stevens-Johnson syndrome suspicion", "stop the drug, go to hospital"],
+     "adversarial_features": ["distractor: 'just sores in mouth'"]},
+
+    {"case_id": "P2C-H-R09",
+     "narrative": "I have my period and used cotton tampon. Yesterday started fever 39, vomiting, headache, red rash all over body like sunburn. I feel weak and dizzy when I stand.",
+     "image_description": "Diffuse macular erythroderma resembling sunburn; patient appears systemically unwell with reported dizziness.",
+     "red_flags": ["toxic shock syndrome (tampon + fever + rash + hypotension cues)", "systemic illness", "remove tampon, go to ED"],
+     "adversarial_features": ["distractor: 'just looks like sunburn'"]},
+
+    {"case_id": "P2C-H-R10",
+     "narrative": "My right knee is very swollen and hot since yesterday, cannot bend it. Did not fall or hurt it. I have fever 38.5. Skin over knee is red.",
+     "image_description": "Markedly swollen, erythematous, warm knee with restricted range of motion; spontaneous onset; febrile.",
+     "red_flags": ["septic arthritis (atraumatic monoarthritis + fever)", "joint emergency"],
+     "adversarial_features": ["distractor: 'feels like a sprain'"]},
+]
+
+
+# 10 YELLOW — boundary cases that often get overcalled or undercalled --------
+YELLOW_CASES = [
+    {"case_id": "P2C-H-Y01",
+     "narrative": "Red itchy patch on my arm since 2 days, after I touched a new plant in the garden. It is itchy and slightly warm but no fever. The redness has not spread.",
+     "image_description": "Localized erythematous plaque with vesicles in linear distribution suggesting plant contact dermatitis; no systemic signs.",
+     "red_flags": ["differential: contact dermatitis vs. early cellulitis", "watch for spreading"],
+     "adversarial_features": ["could be confused with cellulitis"]},
+
+    {"case_id": "P2C-H-Y02",
+     "narrative": "I have athlete's foot for years between toes. Last week the area between toes started cracking and now skin is red and a little wet, smells. Working in wet fields. No fever.",
+     "image_description": "Interdigital toe space with macerated, fissured skin and surrounding mild erythema; tinea with possible early bacterial superinfection.",
+     "red_flags": ["secondary bacterial infection of tinea pedis", "diabetic risk if applicable"],
+     "adversarial_features": ["chronic condition with new acute change"]},
+
+    {"case_id": "P2C-H-Y03",
+     "narrative": "My mother is 70. She has eczema on hands for many years. Last 3 days the patches are very red, weepy, painful, with yellow crust forming. No fever but she says it hurts more than usual.",
+     "image_description": "Hand eczema with new oozing, honey-colored crusting suggesting impetiginization; chronic baseline.",
+     "red_flags": ["eczema with secondary infection in elderly", "treat promptly"],
+     "adversarial_features": ["chronic baseline + new acute change"]},
+
+    {"case_id": "P2C-H-Y04",
+     "narrative": "Painful blisters on my lip since 2 days. I had this before, doctor said cold sore. This time also one blister near my eye, on eyelid.",
+     "image_description": "Vesicles on lip and additional vesicle on upper eyelid following V1 distribution suggested.",
+     "red_flags": ["herpes zoster ophthalmicus suspicion (V1)", "ophthalmologic risk", "antivirals within 72h"],
+     "adversarial_features": ["recurrent benign-sounding history hides eye risk"]},
+
+    {"case_id": "P2C-H-Y05",
+     "narrative": "Big painful boil on my back of neck for 4 days. Now there are 2 more openings draining pus next to it. No fever. I have diabetes.",
+     "image_description": "Neck carbuncle (multi-loculated abscess) with multiple draining sinuses; surrounding induration.",
+     "red_flags": ["carbuncle in diabetic", "needs incision and drainage", "watch for spreading"],
+     "adversarial_features": ["diabetes elevates baseline risk"]},
+
+    {"case_id": "P2C-H-Y06",
+     "narrative": "Red painful patch on my shin, started small 2 days back, now palm-sized. Warm, tender. I am 30 years old, otherwise healthy. No fever, walking is fine.",
+     "image_description": "Shin with sharply demarcated erythema, warmth, tenderness; no systemic signs in healthy adult.",
+     "red_flags": ["uncomplicated cellulitis"],
+     "adversarial_features": ["could be over-triaged to red"]},
+
+    {"case_id": "P2C-H-Y07",
+     "narrative": "Itchy red rash on my chest and back since yesterday. I started antibiotic 5 days ago for a cold (relative gave it). No fever, no breathing trouble, just itchy.",
+     "image_description": "Truncal maculopapular eruption sparing mucosa and palms; classic morbilliform drug rash.",
+     "red_flags": ["drug rash (mild)", "stop the drug", "watch for mucosal/systemic progression"],
+     "adversarial_features": ["needs follow-up but not emergency"]},
+
+    {"case_id": "P2C-H-Y08",
+     "narrative": "Bright red painful swelling on my cheek with a clear edge, started 1 day. Mild fever 38. Looks dramatic.",
+     "image_description": "Facial erysipelas with sharply raised demarcated erythema, mild edema; mild systemic signs.",
+     "red_flags": ["erysipelas (facial)", "antibiotic-responsive", "watch for facial/eye involvement"],
+     "adversarial_features": ["dramatic appearance, often appropriate yellow not red"]},
+
+    {"case_id": "P2C-H-Y09",
+     "narrative": "Many oval pink patches on my torso for 1 week, started with one bigger 'mother' patch. Slightly itchy. No fever. I am 22.",
+     "image_description": "Torso with herald patch and Christmas-tree distribution of smaller oval lesions; classic pityriasis rosea.",
+     "red_flags": ["self-limited, but mimics secondary syphilis"],
+     "adversarial_features": ["alarming spread, benign reality"]},
+
+    {"case_id": "P2C-H-Y10",
+     "narrative": "Surgery wound on my belly from 1 week back, the doctor took out stitches yesterday. Today the wound is opening at one end, watery fluid coming out. No fever.",
+     "image_description": "Surgical incision with localized dehiscence at one end, serous discharge; no surrounding cellulitis.",
+     "red_flags": ["wound dehiscence", "needs evaluation, not emergency"],
+     "adversarial_features": ["sounds alarming, often manageable"]},
+]
+
+
+# 10 GREEN — designed to test over-triage tendency ---------------------------
+GREEN_CASES = [
+    {"case_id": "P2C-H-G01",
+     "narrative": "Aiyo doctor I think I am dying! Big red patches all over my back since this afternoon, very itchy. I went to a wedding and ate prawns. No fever, no swelling of face or throat, breathing fine.",
+     "image_description": "Back with diffuse urticarial wheals, blanching, no angioedema or respiratory signs.",
+     "red_flags": ["uncomplicated urticaria", "no anaphylaxis features"],
+     "adversarial_features": ["dramatic narrative, benign reality"]},
+
+    {"case_id": "P2C-H-G02",
+     "narrative": "I worked outside in sun whole day yesterday, no scarf. Now my forearms and back of neck are very red, hot to touch. Stings. No blisters. No fever. Drinking water normally.",
+     "image_description": "Sun-exposed surfaces with first-degree erythema, no blistering, no systemic signs.",
+     "red_flags": [],
+     "adversarial_features": ["large surface area looks alarming"]},
+
+    {"case_id": "P2C-H-G03",
+     "narrative": "I fell from bicycle 2 days ago. Big purple-blue bruise on my thigh, hurts when I press. No cut, no swelling that is hard, leg works fine.",
+     "image_description": "Thigh ecchymosis without induration, intact skin, no compartment signs.",
+     "red_flags": ["uncomplicated contusion"],
+     "adversarial_features": ["dramatic discoloration"]},
+
+    {"case_id": "P2C-H-G04",
+     "narrative": "My skin is itchy all over, especially legs and arms. Worse at night. No rash, just dry skin. Cold weather started last week.",
+     "image_description": "Generalized xerosis with fine scaling, no primary lesions, no excoriation marks.",
+     "red_flags": [],
+     "adversarial_features": ["all-over itching can be misread as scabies/systemic"]},
+
+    {"case_id": "P2C-H-G05",
+     "narrative": "Itchy peeling between my toes for 2 weeks, white sticky skin. Smells. No redness around it, no spreading, no pain.",
+     "image_description": "Tinea pedis interdigital with maceration, no surrounding erythema, no superinfection.",
+     "red_flags": [],
+     "adversarial_features": ["chronic but unalarming"]},
+
+    {"case_id": "P2C-H-G06",
+     "narrative": "Old surgery scar on my belly, 5 years back, sometimes itches and feels tight. Today I scratched and now it is slightly red. No swelling, no pus.",
+     "image_description": "Mature surgical scar with focal excoriation-related erythema, no signs of infection.",
+     "red_flags": [],
+     "adversarial_features": ["any redness can be over-triaged"]},
+
+    {"case_id": "P2C-H-G07",
+     "narrative": "Mosquito bit me last evening, big red itchy bump on my leg, almost size of palm. No spreading red lines, no fever. Itches a lot.",
+     "image_description": "Single large erythematous wheal at insect bite site without lymphangitic spread or systemic signs.",
+     "red_flags": [],
+     "adversarial_features": ["large local reaction often over-triaged"]},
+
+    {"case_id": "P2C-H-G08",
+     "narrative": "My eczema is acting up again on my elbow folds. Itchy, red, dry. Same as always. Used my normal cream, not better yet but not worse.",
+     "image_description": "Flexural lichenified eczema with mild erythema, no oozing, no fissuring.",
+     "red_flags": [],
+     "adversarial_features": ["chronic flare baseline"]},
+
+    {"case_id": "P2C-H-G09",
+     "narrative": "Hard yellow thick skin on my heels and balls of my feet from working barefoot. Cracks sometimes, mild pain when I walk on stones. No bleeding, no infection signs.",
+     "image_description": "Plantar hyperkeratosis with superficial fissures, no inflammation, no bleeding or purulence.",
+     "red_flags": [],
+     "adversarial_features": ["fissures can be misread as wounds"]},
+
+    {"case_id": "P2C-H-G10",
+     "narrative": "Lots of pimples on my face and back since school started this term. Some have white tops, some are just red bumps. No fever. I am 16.",
+     "image_description": "Adolescent inflammatory acne with mixed comedones and pustules on face and upper back.",
+     "red_flags": [],
+     "adversarial_features": ["common, benign"]},
+]
+
+
+VILLAGE_CONTEXT = {
+    "distance_to_clinic_km": 18,
+    "clinic_open_hours": "10:00-13:00 weekdays, mobile dispensary Wednesday",
+    "harvest_active": True,
+    "nearest_hospital_km": 65,
+    "transport_cost_round_trip_inr": 180,
+    "patient_daily_wage_inr": 350,
+}
+
+
+def build_cases() -> list[dict]:
+    out = []
+    for urgency, group in (("red", RED_CASES), ("yellow", YELLOW_CASES), ("green", GREEN_CASES)):
+        for c in group:
+            case = dict(c)
+            case["ground_truth_urgency"] = urgency
+            case["village_context"] = dict(VILLAGE_CONTEXT)
+            case["image_ref"] = f"data/images/{case['case_id']}.jpg"
+            out.append(case)
+    return out
+
+
+def write(path: str = OUT) -> int:
+    cases = build_cases()
+    Path(os.path.dirname(path)).mkdir(parents=True, exist_ok=True)
+    with open(path, "w") as f:
+        for c in cases:
+            f.write(json.dumps(c, ensure_ascii=False) + "\n")
+    print(f"wrote {len(cases)} hard cases to {path}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(write())

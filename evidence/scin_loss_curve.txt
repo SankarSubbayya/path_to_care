@@ -1,0 +1,13 @@
+verdict: PASS
+plot: docs/figures/scin_lora_loss.png
+train_points: 180
+eval_points:  10
+first_train_loss: 4.6197  (step 5)
+last_train_loss:  0.0422  (step 900)
+min_train_loss:   0.0299
+first_eval_loss:  0.0559  (step 100)
+last_eval_loss:   0.0400  (step 903)
+min_eval_loss:    0.0355
+final_token_acc:  0.9847
+total_wall_seconds: 2924
+shape: monotonic decay 4.6 -> 0.04 by step ~30, plateau through step 903; eval tracks train (no overfit)

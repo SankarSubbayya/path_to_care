@@ -21,11 +21,11 @@ def main() -> int:
         lines.append(f"gradio_version: {gr.__version__}")
         # Import the app. Will fail loudly if any orchestrator/MCP module
         # has a syntax error or import error.
-        from frontend.app import demo, DISCLAIMER, run, CANNED_RAJAN
+        from frontend.app import demo, DISCLAIMER_PATIENT, run, CANNED_RAJAN_NARRATIVE
         assert isinstance(demo, gr.Blocks), f"demo is {type(demo)}, expected gradio.Blocks"
-        assert "decision-support" in DISCLAIMER.lower(), "disclaimer missing key phrase"
+        assert "decision-support" in DISCLAIMER_PATIENT.lower(), "disclaimer missing key phrase"
         assert callable(run), "run() must be callable"
-        assert "rusty nail" in CANNED_RAJAN, "canned dialogue should reference the Rajan case"
+        assert "rusty nail" in CANNED_RAJAN_NARRATIVE, "canned dialogue should reference the Rajan case"
         lines.insert(0, "verdict: PASS")
         lines.append("demo object: gradio.Blocks ✓")
         lines.append("disclaimer present ✓")

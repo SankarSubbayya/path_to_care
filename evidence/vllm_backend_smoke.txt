@@ -1,0 +1,8 @@
+verdict: PASS
+INFERENCE_BACKEND: vllm
+handle.model:         google/gemma-4-31B-it
+handle.is_multimodal: True
+generate_seconds: 0.90
+output_len_chars: 77
+output: 'Cellulitis [0.8]\nStaphylococcal skin infection [0.6]\nContact dermatitis [0.3]'
+diagnostic_phrases_found: []

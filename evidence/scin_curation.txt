@@ -1,0 +1,43 @@
+verdict: PASS
+source: data/scin/dx_curated.jsonl (curated by scripts/curate_scin_dx.py)
+mapping_basis: github.com/google-research-datasets/scin loading pattern + your patient_advocacy_agent fine-grained scheme
+classes: 34
+min_cases_per_class: 20
+total_cases: 2481
+by_fitzpatrick: {'I-II': 1147, 'III-IV': 1098, 'unknown': 61, 'V-VI': 175}
+
+per-class counts:
+   488  Eczema
+   270  Allergic Contact Dermatitis
+   214  Urticaria
+   185  Insect Bite
+   142  Folliculitis
+   109  Psoriasis
+    93  Tinea
+    69  Impetigo
+    68  Herpes Zoster
+    62  Pigmented purpuric eruption
+    61  Acne
+    58  Drug Rash
+    55  Herpes Simplex
+    46  Acute dermatitis, NOS
+    44  Pityriasis rosea
+    39  Irritant Contact Dermatitis
+    37  Tinea Versicolor
+    36  CD - Contact dermatitis
+    32  Keratosis pilaris
+    32  Lichen Simplex Chronicus
+    29  Rosacea
+    29  Viral Exanthem
+    28  Lichen planus/lichenoid eruption
+    28  O/E - ecchymoses present
+    27  Granuloma annulare
+    25  Leukocytoclastic Vasculitis
+    24  Hypersensitivity
+    23  Photodermatitis
+    23  Abrasion, scrape, or scab
+    22  Prurigo nodularis
+    21  Purpura
+    21  Stasis Dermatitis
+    21  Scabies
+    20  Verruca vulgaris

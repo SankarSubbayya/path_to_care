@@ -1,0 +1,7 @@
+verdict: PASS
+url: https://huggingface.co/spaces/sankara68/path-to-care
+commit: 68ab5487fb6275f3af7581ab3b7d9c06c293523f
+namespace: sankara68 (HF user, distinct from GitHub SankarSubbayya)
+deploy_method: hf upload .tmp_space --repo-type space
+files_uploaded: 18
+hardware_note: free tier; set PTC_GEMMA4_ID and PTC_QWEN_ID env vars in Space Settings to fall back to smaller models if needed

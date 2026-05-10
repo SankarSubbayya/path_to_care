@@ -1,0 +1,53 @@
+=== results/baseline_metrics.json (30 cases) ===
+
+-- by ground-truth urgency --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  green                              10    1.000   1.000    1.000    0.000
+  red                                10    1.000   1.000    1.000    0.000
+  yellow                             10    0.950   0.900    1.000    0.000
+
+-- by perturbation (clean vs. perturbed) --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  clean                               5    1.000   1.000    1.000    0.000
+  perturbed                          25    0.980   0.960    1.000    0.000
+
+-- by perturbation subtype --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  clean_or_minor                     19    0.974   0.947    1.000    0.000
+  contradicted_narrative              4    1.000   1.000    1.000    0.000
+  dialect_noise                       5    1.000   1.000    1.000    0.000
+  off_distribution_image              2    1.000   1.000    1.000    0.000
+
+-- by red-flag severity --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  high (>=3 red flags)               10    1.000   1.000    1.000    0.000
+  low (1-2 red flags)                 7    1.000   1.000    1.000    0.000
+  none                               13    0.962   0.923    1.000    0.000
+
+=== results/tuned_metrics.json (30 cases) ===
+
+-- by ground-truth urgency --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  green                              10    1.000   1.000    1.000    0.000
+  red                                10    1.000   1.000    1.000    0.000
+  yellow                             10    0.950   0.900    1.000    0.000
+
+-- by perturbation (clean vs. perturbed) --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  clean                               5    1.000   1.000    1.000    0.000
+  perturbed                          25    0.980   0.960    1.000    0.000
+
+-- by perturbation subtype --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  clean_or_minor                     19    0.974   0.947    1.000    0.000
+  contradicted_narrative              4    1.000   1.000    1.000    0.000
+  dialect_noise                       5    1.000   1.000    1.000    0.000
+  off_distribution_image              2    1.000   1.000    1.000    0.000
+
+-- by red-flag severity --
+  bucket                              n   mean_R   exact  within1  fn_R->G
+  high (>=3 red flags)               10    1.000   1.000    1.000    0.000
+  low (1-2 red flags)                 7    1.000   1.000    1.000    0.000
+  none                               13    0.962   0.923    1.000    0.000
+
+Note: skin-tone (Fitzpatrick) stratification is not reported — the synthetic test set carries no skin-tone labels. See docs/PLAN.md v2 for the HAM10000 + Fitzpatrick expansion plan.

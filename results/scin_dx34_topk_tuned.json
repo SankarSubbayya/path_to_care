@@ -1,0 +1,2958 @@
+{
+  "_meta": {
+    "model": "google/gemma-4-31B-it + tuned adapter",
+    "in": "data/scin/dx34_trl_topk_holdout.jsonl",
+    "n": 100,
+    "wall_seconds": 169.9
+  },
+  "metrics": {
+    "n": 100,
+    "top1_accuracy": 0.21,
+    "top3_set_match": 0.58,
+    "n_top1_correct": 21,
+    "n_top3_correct": 58,
+    "by_class": {
+      "Abrasion, scrape, or scab": {
+        "n": 5,
+        "tp": 0,
+        "fp": 1,
+        "fn": 5,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Acne": {
+        "n": 12,
+        "tp": 4,
+        "fp": 0,
+        "fn": 8,
+        "precision": 1.0,
+        "recall": 0.333,
+        "f1": 0.5,
+        "top3_recall": 0.75
+      },
+      "Acute dermatitis, NOS": {
+        "n": 9,
+        "tp": 0,
+        "fp": 0,
+        "fn": 9,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Allergic Contact Dermatitis": {
+        "n": 20,
+        "tp": 5,
+        "fp": 7,
+        "fn": 15,
+        "precision": 0.417,
+        "recall": 0.25,
+        "f1": 0.312,
+        "top3_recall": 0.55
+      },
+      "CD - Contact dermatitis": {
+        "n": 7,
+        "tp": 0,
+        "fp": 0,
+        "fn": 7,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Drug Rash": {
+        "n": 12,
+        "tp": 3,
+        "fp": 2,
+        "fn": 9,
+        "precision": 0.6,
+        "recall": 0.25,
+        "f1": 0.353,
+        "top3_recall": 0.333
+      },
+      "Eczema": {
+        "n": 20,
+        "tp": 5,
+        "fp": 4,
+        "fn": 15,
+        "precision": 0.556,
+        "recall": 0.25,
+        "f1": 0.345,
+        "top3_recall": 0.55
+      },
+      "Folliculitis": {
+        "n": 15,
+        "tp": 4,
+        "fp": 5,
+        "fn": 11,
+        "precision": 0.444,
+        "recall": 0.267,
+        "f1": 0.333,
+        "top3_recall": 0.4
+      },
+      "Granuloma annulare": {
+        "n": 0,
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Herpes Simplex": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Herpes Zoster": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Hypersensitivity": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Impetigo": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Insect Bite": {
+        "n": 0,
+        "tp": 0,
+        "fp": 11,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Irritant Contact Dermatitis": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Keratosis pilaris": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Leukocytoclastic Vasculitis": {
+        "n": 0,
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Lichen Simplex Chronicus": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Lichen planus/lichenoid eruption": {
+        "n": 0,
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "O/E - ecchymoses present": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Photodermatitis": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Pigmented purpuric eruption": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Pityriasis rosea": {
+        "n": 0,
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Prurigo nodularis": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Psoriasis": {
+        "n": 0,
+        "tp": 0,
+        "fp": 4,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Purpura": {
+        "n": 0,
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Rosacea": {
+        "n": 0,
+        "tp": 0,
+        "fp": 3,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Scabies": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Stasis Dermatitis": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Tinea": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Tinea Versicolor": {
+        "n": 0,
+        "tp": 0,
+        "fp": 2,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Urticaria": {
+        "n": 0,
+        "tp": 0,
+        "fp": 18,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Verruca vulgaris": {
+        "n": 0,
+        "tp": 0,
+        "fp": 1,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      },
+      "Viral Exanthem": {
+        "n": 0,
+        "tp": 0,
+        "fp": 0,
+        "fn": 0,
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "top3_recall": 0.0
+      }
+    },
+    "by_fitzpatrick": {
+      "I-II": {
+        "n": 45,
+        "top1_accuracy": 0.2,
+        "top3_set_match": 0.6888888888888889
+      },
+      "III-IV": {
+        "n": 48,
+        "top1_accuracy": 0.20833333333333334,
+        "top3_set_match": 0.4583333333333333
+      },
+      "V-VI": {
+        "n": 7,
+        "top1_accuracy": 0.2857142857142857,
+        "top3_set_match": 0.7142857142857143
+      }
+    },
+    "confusion_pairs": [
+      {
+        "truth": "Folliculitis",
+        "pred": "Insect Bite",
+        "count": 7
+      },
+      {
+        "truth": "Drug Rash",
+        "pred": "Urticaria",
+        "count": 6
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Allergic Contact Dermatitis",
+        "count": 5
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Eczema",
+        "count": 5
+      },
+      {
+        "truth": "Acne",
+        "pred": "Acne",
+        "count": 4
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Eczema",
+        "count": 4
+      },
+      {
+        "truth": "CD - Contact dermatitis",
+        "pred": "Urticaria",
+        "count": 4
+      },
+      {
+        "truth": "Folliculitis",
+        "pred": "Folliculitis",
+        "count": 4
+      },
+      {
+        "truth": "Acne",
+        "pred": "Rosacea",
+        "count": 3
+      },
+      {
+        "truth": "Acute dermatitis, NOS",
+        "pred": "Urticaria",
+        "count": 3
+      },
+      {
+        "truth": "Drug Rash",
+        "pred": "Drug Rash",
+        "count": 3
+      },
+      {
+        "truth": "Acne",
+        "pred": "Folliculitis",
+        "count": 2
+      },
+      {
+        "truth": "Acute dermatitis, NOS",
+        "pred": "Impetigo",
+        "count": 2
+      },
+      {
+        "truth": "Acute dermatitis, NOS",
+        "pred": "Folliculitis",
+        "count": 2
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Tinea",
+        "count": 2
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Insect Bite",
+        "count": 2
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Psoriasis",
+        "count": 2
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Keratosis pilaris",
+        "count": 2
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Tinea Versicolor",
+        "count": 2
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Allergic Contact Dermatitis",
+        "count": 2
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Urticaria",
+        "count": 2
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Stasis Dermatitis",
+        "count": 2
+      },
+      {
+        "truth": "Folliculitis",
+        "pred": "Leukocytoclastic Vasculitis",
+        "count": 2
+      },
+      {
+        "truth": "Abrasion, scrape, or scab",
+        "pred": "Insect Bite",
+        "count": 1
+      },
+      {
+        "truth": "Abrasion, scrape, or scab",
+        "pred": "Purpura",
+        "count": 1
+      },
+      {
+        "truth": "Abrasion, scrape, or scab",
+        "pred": "Pigmented purpuric eruption",
+        "count": 1
+      },
+      {
+        "truth": "Abrasion, scrape, or scab",
+        "pred": "Herpes Zoster",
+        "count": 1
+      },
+      {
+        "truth": "Abrasion, scrape, or scab",
+        "pred": "Allergic Contact Dermatitis",
+        "count": 1
+      },
+      {
+        "truth": "Acne",
+        "pred": "Herpes Simplex",
+        "count": 1
+      },
+      {
+        "truth": "Acne",
+        "pred": "Allergic Contact Dermatitis",
+        "count": 1
+      },
+      {
+        "truth": "Acne",
+        "pred": "Urticaria",
+        "count": 1
+      },
+      {
+        "truth": "Acute dermatitis, NOS",
+        "pred": "Herpes Zoster",
+        "count": 1
+      },
+      {
+        "truth": "Acute dermatitis, NOS",
+        "pred": "Drug Rash",
+        "count": 1
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Leukocytoclastic Vasculitis",
+        "count": 1
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Drug Rash",
+        "count": 1
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Pigmented purpuric eruption",
+        "count": 1
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Urticaria",
+        "count": 1
+      },
+      {
+        "truth": "Allergic Contact Dermatitis",
+        "pred": "Abrasion, scrape, or scab",
+        "count": 1
+      },
+      {
+        "truth": "CD - Contact dermatitis",
+        "pred": "Allergic Contact Dermatitis",
+        "count": 1
+      },
+      {
+        "truth": "CD - Contact dermatitis",
+        "pred": "Verruca vulgaris",
+        "count": 1
+      },
+      {
+        "truth": "CD - Contact dermatitis",
+        "pred": "Insect Bite",
+        "count": 1
+      },
+      {
+        "truth": "Drug Rash",
+        "pred": "Granuloma annulare",
+        "count": 1
+      },
+      {
+        "truth": "Drug Rash",
+        "pred": "Allergic Contact Dermatitis",
+        "count": 1
+      },
+      {
+        "truth": "Drug Rash",
+        "pred": "Psoriasis",
+        "count": 1
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Psoriasis",
+        "count": 1
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Lichen planus/lichenoid eruption",
+        "count": 1
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Folliculitis",
+        "count": 1
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Herpes Simplex",
+        "count": 1
+      },
+      {
+        "truth": "Eczema",
+        "pred": "Pityriasis rosea",
+        "count": 1
+      },
+      {
+        "truth": "Folliculitis",
+        "pred": "Urticaria",
+        "count": 1
+      },
+      {
+        "truth": "Folliculitis",
+        "pred": "Allergic Contact Dermatitis",
+        "count": 1
+      }
+    ]
+  },
+  "per_case": [
+    {
+      "case_id": "SCIN-2476186720631597836",
+      "truth_primary": "Abrasion, scrape, or scab",
+      "truth_set": [
+        "Abrasion, scrape, or scab",
+        "Allergic Contact Dermatitis",
+        "Insect Bite"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Insect Bite (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8982554228980998818",
+      "truth_primary": "Abrasion, scrape, or scab",
+      "truth_set": [
+        "Abrasion, scrape, or scab",
+        "Eczema",
+        "O/E - petechiae on skin"
+      ],
+      "pred_top1": "Purpura",
+      "pred_topk": [
+        [
+          "Purpura",
+          0.5
+        ],
+        [
+          "Leukocytoclastic Vasculitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Purpura (0.50); Leukocytoclastic Vasculitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-4685575002898621346",
+      "truth_primary": "Abrasion, scrape, or scab",
+      "truth_set": [
+        "Abrasion, scrape, or scab",
+        "Eczema"
+      ],
+      "pred_top1": "Pigmented purpuric eruption",
+      "pred_topk": [
+        [
+          "Pigmented purpuric eruption",
+          0.5
+        ],
+        [
+          "Leukocytoclastic Vasculitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Pigmented purpuric eruption (0.50); Leukocytoclastic Vasculitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--4056721844074008988",
+      "truth_primary": "Abrasion, scrape, or scab",
+      "truth_set": [
+        "Abrasion, scrape, or scab",
+        "Benign cutaneous vascular tumor",
+        "O/E - ecchymoses present"
+      ],
+      "pred_top1": "Herpes Zoster",
+      "pred_topk": [
+        [
+          "Herpes Zoster",
+          1.0
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Herpes Zoster (1.00)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-5712094336588197231",
+      "truth_primary": "Abrasion, scrape, or scab",
+      "truth_set": [
+        "Abrasion, scrape, or scab",
+        "Burn of skin",
+        "Eczema"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--1591850424860312359",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Adnexal neoplasm",
+        "Cyst"
+      ],
+      "pred_top1": "Rosacea",
+      "pred_topk": [
+        [
+          "Rosacea",
+          0.5
+        ],
+        [
+          "Acne",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Rosacea (0.50); Acne (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-2311974363421871372",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne"
+      ],
+      "pred_top1": "Acne",
+      "pred_topk": [
+        [
+          "Acne",
+          0.5
+        ],
+        [
+          "Rosacea",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Acne (0.50); Rosacea (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--8074230965389996366",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Folliculitis",
+        "Grover's disease"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Acne",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Folliculitis (0.50); Acne (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--7214942537525659338",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne"
+      ],
+      "pred_top1": "Acne",
+      "pred_topk": [
+        [
+          "Acne",
+          0.67
+        ],
+        [
+          "Rosacea",
+          0.33
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Acne (0.67); Rosacea (0.33)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-6857595741723301953",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne"
+      ],
+      "pred_top1": "Acne",
+      "pred_topk": [
+        [
+          "Acne",
+          0.5
+        ],
+        [
+          "Rosacea",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Acne (0.50); Rosacea (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-2449169882294231662",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Rosacea"
+      ],
+      "pred_top1": "Rosacea",
+      "pred_topk": [
+        [
+          "Rosacea",
+          0.5
+        ],
+        [
+          "Acne",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Rosacea (0.50); Acne (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-3043670062961372946",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Folliculitis"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Acne",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Folliculitis (0.50); Acne (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--63753751533757188",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Impetigo"
+      ],
+      "pred_top1": "Herpes Simplex",
+      "pred_topk": [
+        [
+          "Herpes Simplex",
+          0.5
+        ],
+        [
+          "Herpes Zoster",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Herpes Simplex (0.50); Herpes Zoster (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-1394308459147109933",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--2740479848383925335",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Comedone",
+        "Rosacea"
+      ],
+      "pred_top1": "Acne",
+      "pred_topk": [
+        [
+          "Acne",
+          0.5
+        ],
+        [
+          "Rosacea",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Acne (0.50); Rosacea (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--7275764427572709680",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Folliculitis"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Drug Rash",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Drug Rash (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-8798670183321884538",
+      "truth_primary": "Acne",
+      "truth_set": [
+        "Acne",
+        "Allergic Contact Dermatitis",
+        "Folliculitis"
+      ],
+      "pred_top1": "Rosacea",
+      "pred_topk": [
+        [
+          "Rosacea",
+          0.5
+        ],
+        [
+          "Acne",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Rosacea (0.50); Acne (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7754333012238295111",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-2918792631005593556",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS"
+      ],
+      "pred_top1": "Impetigo",
+      "pred_topk": [
+        [
+          "Impetigo",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Impetigo (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--7307470538479869697",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--8555709419997689501",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS",
+        "Allergic Contact Dermatitis",
+        "Herpes Zoster"
+      ],
+      "pred_top1": "Herpes Zoster",
+      "pred_topk": [
+        [
+          "Herpes Zoster",
+          0.5
+        ],
+        [
+          "Herpes Simplex",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Herpes Zoster (0.50); Herpes Simplex (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--90727038662084249",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Keratosis pilaris",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Folliculitis (0.50); Keratosis pilaris (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--625924905419597951",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS"
+      ],
+      "pred_top1": "Drug Rash",
+      "pred_topk": [
+        [
+          "Drug Rash",
+          0.5
+        ],
+        [
+          "Viral Exanthem",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Drug Rash (0.50); Viral Exanthem (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--6768039405201694865",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS",
+        "Allergic Contact Dermatitis",
+        "Irritant Contact Dermatitis"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-4408864411024307516",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Folliculitis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-1827264590798311134",
+      "truth_primary": "Acute dermatitis, NOS",
+      "truth_set": [
+        "Acute dermatitis, NOS"
+      ],
+      "pred_top1": "Impetigo",
+      "pred_topk": [
+        [
+          "Impetigo",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Impetigo (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-792402490224297680",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Pigmented purpuric eruption"
+      ],
+      "pred_top1": "Leukocytoclastic Vasculitis",
+      "pred_topk": [
+        [
+          "Leukocytoclastic Vasculitis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Leukocytoclastic Vasculitis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-4051122012442956545",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Acute dermatitis, NOS",
+        "Allergic Contact Dermatitis"
+      ],
+      "pred_top1": "Tinea",
+      "pred_topk": [
+        [
+          "Tinea",
+          1.0
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Tinea (1.00)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--3850165856889995124",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Impetigo"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-2389185407987087869",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--4154592516831070190",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Folliculitis",
+        "Photodermatitis"
+      ],
+      "pred_top1": "Drug Rash",
+      "pred_topk": [
+        [
+          "Drug Rash",
+          0.5
+        ],
+        [
+          "Viral Exanthem",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Drug Rash (0.50); Viral Exanthem (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-5728037008848615215",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Leukocytoclastic Vasculitis"
+      ],
+      "pred_top1": "Pigmented purpuric eruption",
+      "pred_topk": [
+        [
+          "Pigmented purpuric eruption",
+          0.5
+        ],
+        [
+          "Leukocytoclastic Vasculitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Pigmented purpuric eruption (0.50); Leukocytoclastic Vasculitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--4888752062408288970",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Keratosis pilaris",
+        "Sunburn",
+        "Xerosis"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-5642859456660035960",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Lichen Simplex Chronicus",
+        "Psoriasis"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-3641213346667363410",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Acute dermatitis, NOS",
+        "Allergic Contact Dermatitis",
+        "Insect Bite",
+        "Scabies"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Insect Bite (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--4605740019003216427",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Irritant Contact Dermatitis"
+      ],
+      "pred_top1": "Psoriasis",
+      "pred_topk": [
+        [
+          "Psoriasis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Psoriasis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-4716235809681478742",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-5454196086035642390",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Herpes Zoster"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-2589196630648590712",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Acute dermatitis, NOS",
+        "Allergic Contact Dermatitis",
+        "Drug Rash",
+        "Photodermatitis",
+        "Rosacea"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-7890977335291622439",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Irritant Contact Dermatitis"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-8121408208937913379",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Urticaria"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--2420670963295906064",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis"
+      ],
+      "pred_top1": "Tinea",
+      "pred_topk": [
+        [
+          "Tinea",
+          0.5
+        ],
+        [
+          "Psoriasis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Tinea (0.50); Psoriasis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-5820803283917487342",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Insect Bite"
+      ],
+      "pred_top1": "Abrasion, scrape, or scab",
+      "pred_topk": [
+        [
+          "Abrasion, scrape, or scab",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Abrasion, scrape, or scab (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8733225459543319051",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Acute and chronic dermatitis",
+        "Allergic Contact Dermatitis"
+      ],
+      "pred_top1": "Psoriasis",
+      "pred_topk": [
+        [
+          "Psoriasis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Psoriasis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-6317542003263234425",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Lichen planus/lichenoid eruption"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Urticaria",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Insect Bite (0.50); Urticaria (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--408534567856996060",
+      "truth_primary": "Allergic Contact Dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Irritant Contact Dermatitis"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7583101550894209107",
+      "truth_primary": "CD - Contact dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "CD - Contact dermatitis",
+        "Eczema",
+        "Lichen Simplex Chronicus",
+        "Pigmented purpuric eruption"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8644997413483835653",
+      "truth_primary": "CD - Contact dermatitis",
+      "truth_set": [
+        "CD - Contact dermatitis",
+        "Dermatitis herpetiformis",
+        "Eczema"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-1339661251231389364",
+      "truth_primary": "CD - Contact dermatitis",
+      "truth_set": [
+        "Acute dermatitis, NOS",
+        "Allergic Contact Dermatitis",
+        "CD - Contact dermatitis",
+        "Hypersensitivity",
+        "Irritant Contact Dermatitis",
+        "Urticaria"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-3908037707863400902",
+      "truth_primary": "CD - Contact dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "CD - Contact dermatitis",
+        "Eczema",
+        "Lichen nitidus"
+      ],
+      "pred_top1": "Verruca vulgaris",
+      "pred_topk": [
+        [
+          "Verruca vulgaris",
+          1.0
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Verruca vulgaris (1.00)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--2835025510005310152",
+      "truth_primary": "CD - Contact dermatitis",
+      "truth_set": [
+        "CD - Contact dermatitis",
+        "Drug Rash",
+        "Pityriasis rosea",
+        "Tinea Versicolor"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Viral Exanthem",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Viral Exanthem (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--2685406940260388372",
+      "truth_primary": "CD - Contact dermatitis",
+      "truth_set": [
+        "CD - Contact dermatitis"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Insect Bite (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--7748469913070145463",
+      "truth_primary": "CD - Contact dermatitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "CD - Contact dermatitis",
+        "Erythema multiforme"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--9088712704113417292",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Erythema marginatum",
+        "Urticaria"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          1.0
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Urticaria (1.00)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--4588998586738992246",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Eczema",
+        "Viral Exanthem"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--5266894220476412069",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Eczema"
+      ],
+      "pred_top1": "Drug Rash",
+      "pred_topk": [
+        [
+          "Drug Rash",
+          0.5
+        ],
+        [
+          "Viral Exanthem",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Drug Rash (0.50); Viral Exanthem (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8021394879303182286",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Eczema",
+        "Tinea"
+      ],
+      "pred_top1": "Granuloma annulare",
+      "pred_topk": [
+        [
+          "Granuloma annulare",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Granuloma annulare (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--5590702956804148448",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "CD - Contact dermatitis",
+        "Drug Rash",
+        "Eczema",
+        "Photodermatitis"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-901044982929616236",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Erythema multiforme",
+        "Leukocytoclastic Vasculitis"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--9190247622747939061",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Eczema",
+        "Hypersensitivity"
+      ],
+      "pred_top1": "Drug Rash",
+      "pred_topk": [
+        [
+          "Drug Rash",
+          0.5
+        ],
+        [
+          "Viral Exanthem",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Drug Rash (0.50); Viral Exanthem (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--7153750305679064145",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "RMSF - Rocky Mountain spotted fever",
+        "Vasculitis of the skin"
+      ],
+      "pred_top1": "Drug Rash",
+      "pred_topk": [
+        [
+          "Drug Rash",
+          0.5
+        ],
+        [
+          "Viral Exanthem",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Drug Rash (0.50); Viral Exanthem (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--2967497432069044121",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Hypersensitivity",
+        "Viral Exanthem"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--7090021276954018675",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Psoriasiform dermatitis"
+      ],
+      "pred_top1": "Psoriasis",
+      "pred_topk": [
+        [
+          "Psoriasis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Psoriasis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--704918755156824855",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Pityriasis rubra pilaris",
+        "Urticaria"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Drug Rash",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Urticaria (0.50); Drug Rash (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--1226908042701108862",
+      "truth_primary": "Drug Rash",
+      "truth_set": [
+        "Drug Rash",
+        "Leukocytoclastic Vasculitis"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Insect Bite",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Insect Bite (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-3456891911232930877",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Miliaria"
+      ],
+      "pred_top1": "Keratosis pilaris",
+      "pred_topk": [
+        [
+          "Keratosis pilaris",
+          1.0
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Keratosis pilaris (1.00)",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-8071773760767575918",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "HK - Hyperkeratosis",
+        "Keratoderma"
+      ],
+      "pred_top1": "Psoriasis",
+      "pred_topk": [
+        [
+          "Psoriasis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Psoriasis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-5275181661240813075",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema"
+      ],
+      "pred_top1": "Tinea Versicolor",
+      "pred_topk": [
+        [
+          "Tinea Versicolor",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Tinea Versicolor (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-1163886050326602708",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Chronic dermatitis, NOS",
+        "Eczema"
+      ],
+      "pred_top1": "Keratosis pilaris",
+      "pred_topk": [
+        [
+          "Keratosis pilaris",
+          1.0
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Keratosis pilaris (1.00)",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-3998476769988018648",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Psoriasis"
+      ],
+      "pred_top1": "Lichen planus/lichenoid eruption",
+      "pred_topk": [
+        [
+          "Lichen planus/lichenoid eruption",
+          0.5
+        ],
+        [
+          "Psoriasis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Lichen planus/lichenoid eruption (0.50); Psoriasis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-3914126473410086984",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Xerosis"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-2426005272291842267",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Pityriasis lichenoides",
+        "Tinea Versicolor"
+      ],
+      "pred_top1": "Tinea Versicolor",
+      "pred_topk": [
+        [
+          "Tinea Versicolor",
+          0.5
+        ],
+        [
+          "Tinea",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Tinea Versicolor (0.50); Tinea (0.50)",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--5386001319667999365",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Drug Rash",
+        "Eczema"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Urticaria (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-2718854131676367612",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Lichen Simplex Chronicus",
+        "Psoriasis"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Psoriasis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Psoriasis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--55453462805346412",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Lichen Simplex Chronicus",
+        "Lichen planus/lichenoid eruption",
+        "Stasis Dermatitis"
+      ],
+      "pred_top1": "Stasis Dermatitis",
+      "pred_topk": [
+        [
+          "Stasis Dermatitis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Stasis Dermatitis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--5053547823727699517",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Insect Bite",
+        "Irritant Contact Dermatitis"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Folliculitis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--1440607007617551864",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--2219827066341789081",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Folliculitis",
+        "Irritant Contact Dermatitis",
+        "Scabies",
+        "Tinea"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--3334867013813268088",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--3053256628485862140",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Herpes Simplex",
+        "Molluscum Contagiosum"
+      ],
+      "pred_top1": "Herpes Simplex",
+      "pred_topk": [
+        [
+          "Herpes Simplex",
+          0.5
+        ],
+        [
+          "Herpes Zoster",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Herpes Simplex (0.50); Herpes Zoster (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--6118687420139087611",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Stasis Dermatitis"
+      ],
+      "pred_top1": "Stasis Dermatitis",
+      "pred_topk": [
+        [
+          "Stasis Dermatitis",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Stasis Dermatitis (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN--887349597372827539",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--5007684126286758763",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Tinea"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Insect Bite",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Insect Bite (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-5638485555901716918",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Impetigo"
+      ],
+      "pred_top1": "Eczema",
+      "pred_topk": [
+        [
+          "Eczema",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Eczema (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "V-VI"
+    },
+    {
+      "case_id": "SCIN-3397875770673970206",
+      "truth_primary": "Eczema",
+      "truth_set": [
+        "Eczema",
+        "Pityriasis rosea",
+        "Psoriasis"
+      ],
+      "pred_top1": "Pityriasis rosea",
+      "pred_topk": [
+        [
+          "Pityriasis rosea",
+          0.5
+        ],
+        [
+          "Tinea Versicolor",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Pityriasis rosea (0.50); Tinea Versicolor (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--2051363250643774652",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis",
+        "Keratosis pilaris"
+      ],
+      "pred_top1": "Urticaria",
+      "pred_topk": [
+        [
+          "Urticaria",
+          0.5
+        ],
+        [
+          "Eczema",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Urticaria (0.50); Eczema (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-4860862531174713006",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Folliculitis"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Insect Bite",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Folliculitis (0.50); Insect Bite (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--707950849867291642",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Folliculitis"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Insect Bite (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-3910036176802997486",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis",
+        "Insect Bite"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Urticaria",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Insect Bite (0.50); Urticaria (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-3689862615752795245",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Insect Bite (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-2544728617164619888",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis",
+        "Insect Bite",
+        "Viral Exanthem"
+      ],
+      "pred_top1": "Leukocytoclastic Vasculitis",
+      "pred_topk": [
+        [
+          "Leukocytoclastic Vasculitis",
+          0.5
+        ],
+        [
+          "Pigmented purpuric eruption",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Leukocytoclastic Vasculitis (0.50); Pigmented purpuric eruption (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-8078665794653560810",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis",
+        "O/E - ecchymoses present",
+        "Post-Inflammatory hyperpigmentation"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Insect Bite (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-2383547606705121100",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis",
+        "Scabies"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Folliculitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Insect Bite (0.50); Folliculitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--9080876840738845556",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Acute dermatitis, NOS",
+        "CD - Contact dermatitis",
+        "Folliculitis",
+        "Granuloma annulare",
+        "Milia"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Keratosis pilaris",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Folliculitis (0.50); Keratosis pilaris (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-7766253481783555886",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Allergic Contact Dermatitis",
+        "Eczema",
+        "Folliculitis"
+      ],
+      "pred_top1": "Allergic Contact Dermatitis",
+      "pred_topk": [
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ],
+        [
+          "Irritant Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Allergic Contact Dermatitis (0.50); Irritant Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN--7140426751919971254",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Allergic Contact Dermatitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Insect Bite (0.50); Allergic Contact Dermatitis (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN--8077935876609010934",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis",
+        "Irritant Contact Dermatitis",
+        "Keratosis pilaris"
+      ],
+      "pred_top1": "Insect Bite",
+      "pred_topk": [
+        [
+          "Insect Bite",
+          0.5
+        ],
+        [
+          "Folliculitis",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": true,
+      "raw": "Insect Bite (0.50); Folliculitis (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-3703025959306724787",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis"
+      ],
+      "pred_top1": "Leukocytoclastic Vasculitis",
+      "pred_topk": [
+        [
+          "Leukocytoclastic Vasculitis",
+          0.5
+        ],
+        [
+          "Pigmented purpuric eruption",
+          0.5
+        ]
+      ],
+      "top1_correct": false,
+      "top3_correct": false,
+      "raw": "Leukocytoclastic Vasculitis (0.50); Pigmented purpuric eruption (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    },
+    {
+      "case_id": "SCIN-6712413870544266528",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Acne",
+        "Folliculitis"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Acne",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Folliculitis (0.50); Acne (0.50)",
+      "fitzpatrick_bucket": "I-II"
+    },
+    {
+      "case_id": "SCIN-5483324975095927683",
+      "truth_primary": "Folliculitis",
+      "truth_set": [
+        "Folliculitis"
+      ],
+      "pred_top1": "Folliculitis",
+      "pred_topk": [
+        [
+          "Folliculitis",
+          0.5
+        ],
+        [
+          "Herpes Simplex",
+          0.5
+        ]
+      ],
+      "top1_correct": true,
+      "top3_correct": true,
+      "raw": "Folliculitis (0.50); Herpes Simplex (0.50)",
+      "fitzpatrick_bucket": "III-IV"
+    }
+  ]
+}

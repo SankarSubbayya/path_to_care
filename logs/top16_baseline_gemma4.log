@@ -1,0 +1,32 @@
+loading google/gemma-4-31B-it (~30-90 s; first run also downloads ~54 GB)...
+Loading weights:   0%|          | 0/1188 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1188 [00:00<02:11,  9.04it/s]Loading weights:   0%|          | 2/1188 [00:01<12:31,  1.58it/s]Loading weights:   0%|          | 3/1188 [00:01<09:03,  2.18it/s]Loading weights:   1%|          | 11/1188 [00:01<02:07,  9.24it/s]Loading weights:   3%|▎         | 33/1188 [00:02<00:44, 25.97it/s]Loading weights:   3%|▎         | 41/1188 [00:02<00:45, 25.32it/s]Loading weights:   5%|▍         | 58/1188 [00:03<00:57, 19.68it/s]Loading weights:   9%|▊         | 103/1188 [00:04<00:42, 25.68it/s]Loading weights:  14%|█▍        | 165/1188 [00:05<00:25, 40.13it/s]Loading weights:  17%|█▋        | 200/1188 [00:07<00:35, 27.83it/s]Loading weights:  24%|██▍       | 287/1188 [00:08<00:16, 55.19it/s]Loading weights:  26%|██▌       | 306/1188 [00:08<00:15, 57.43it/s]Loading weights:  27%|██▋       | 322/1188 [00:08<00:17, 50.12it/s]Loading weights:  28%|██▊       | 334/1188 [00:09<00:17, 48.89it/s]Loading weights:  29%|██▉       | 344/1188 [00:09<00:17, 47.63it/s]Loading weights:  30%|██▉       | 352/1188 [00:09<00:22, 37.83it/s]Loading weights:  31%|███▏      | 373/1188 [00:10<00:18, 44.63it/s]Loading weights:  32%|███▏      | 384/1188 [00:10<00:23, 33.51it/s]Loading weights:  35%|███▌      | 416/1188 [00:11<00:23, 33.00it/s]Loading weights:  38%|███▊      | 454/1188 [00:12<00:15, 47.86it/s]Loading weights:  40%|███▉      | 472/1188 [00:13<00:20, 34.79it/s]Loading weights:  43%|████▎     | 511/1188 [00:13<00:16, 42.26it/s]Loading weights:  45%|████▌     | 538/1188 [00:14<00:13, 49.40it/s]Loading weights:  46%|████▋     | 551/1188 [00:14<00:11, 53.65it/s]Loading weights:  47%|████▋     | 559/1188 [00:14<00:12, 51.49it/s]Loading weights:  48%|████▊     | 566/1188 [00:14<00:15, 39.58it/s]Loading weights:  49%|████▉     | 586/1188 [00:15<00:15, 38.33it/s]Loading weights:  51%|█████     | 608/1188 [00:15<00:12, 45.05it/s]Loading weights:  52%|█████▏    | 620/1188 [00:16<00:16, 34.72it/s]Loading weights:  55%|█████▍    | 649/1188 [00:16<00:11, 47.42it/s]Loading weights:  56%|█████▌    | 663/1188 [00:17<00:17, 30.70it/s]Loading weights:  59%|█████▉    | 702/1188 [00:17<00:09, 50.02it/s]Loading weights:  60%|██████    | 716/1188 [00:18<00:09, 51.35it/s]Loading weights:  61%|██████    | 727/1188 [00:18<00:08, 54.10it/s]Loading weights:  62%|██████▏   | 735/1188 [00:18<00:10, 45.18it/s]Loading weights:  62%|██████▏   | 741/1188 [00:18<00:11, 40.52it/s]Loading weights:  63%|██████▎   | 750/1188 [00:19<00:10, 42.95it/s]Loading weights:  64%|██████▍   | 761/1188 [00:19<00:13, 32.66it/s]Loading weights:  66%|██████▌   | 780/1188 [00:20<00:14, 27.66it/s]Loading weights:  69%|██████▊   | 814/1188 [00:20<00:08, 42.52it/s]Loading weights:  72%|███████▏  | 858/1188 [00:20<00:04, 75.33it/s]Loading weights:  80%|███████▉  | 946/1188 [00:21<00:01, 160.03it/s]Loading weights:  87%|████████▋ | 1029/1188 [00:21<00:00, 244.03it/s]Loading weights:  95%|█████████▌| 1131/1188 [00:21<00:00, 360.31it/s]Loading weights: 100%|██████████| 1188/1188 [00:21<00:00, 55.56it/s] 
+  loaded in 26.5s
+[005/100] SCIN--3709809055383318696      truth=Acne                      pred1=Folliculitis              X1 V3 acc1=0.400 acc3=0.800 (1.6s/case)
+[010/100] SCIN-5373485488810311376       truth=Acne                      pred1=Pigmented purpuric erupti X1 X3 acc1=0.400 acc3=0.700 (1.6s/case)
+[015/100] SCIN--6768039405201694865      truth=Acute dermatitis, NOS     pred1=Allergic Contact Dermatit X1 V3 acc1=0.267 acc3=0.600 (1.7s/case)
+[020/100] SCIN--6343783873341382806      truth=Acute dermatitis, NOS     pred1=Insect Bite               X1 X3 acc1=0.200 acc3=0.550 (1.5s/case)
+[025/100] SCIN--7206039626315740792      truth=Allergic Contact Dermatit pred1=Eczema                    X1 V3 acc1=0.160 acc3=0.640 (1.8s/case)
+[030/100] SCIN--1502911455314184658      truth=Allergic Contact Dermatit pred1=Acute dermatitis, NOS     X1 V3 acc1=0.167 acc3=0.667 (1.8s/case)
+[035/100] SCIN--6776518044035331491      truth=Allergic Contact Dermatit pred1=Insect Bite               X1 X3 acc1=0.171 acc3=0.686 (1.6s/case)
+[040/100] SCIN--6012562319822542066      truth=Allergic Contact Dermatit pred1=Insect Bite               X1 V3 acc1=0.225 acc3=0.725 (1.6s/case)
+[045/100] SCIN-7347419344161762585       truth=Allergic Contact Dermatit pred1=Allergic Contact Dermatit V1 V3 acc1=0.244 acc3=0.756 (1.9s/case)
+[050/100] SCIN--4431962068713879149      truth=Drug Rash                 pred1=Urticaria                 X1 X3 acc1=0.260 acc3=0.740 (1.7s/case)
+[055/100] SCIN--9190247622747939061      truth=Drug Rash                 pred1=Drug Rash                 V1 V3 acc1=0.273 acc3=0.709 (1.7s/case)
+[060/100] SCIN--2219827066341789081      truth=Eczema                    pred1=Eczema                    V1 V3 acc1=0.283 acc3=0.717 (1.6s/case)
+[065/100] SCIN--3053256628485862140      truth=Eczema                    pred1=Herpes Simplex            X1 V3 acc1=0.277 acc3=0.723 (1.7s/case)
+[070/100] SCIN-1345721193150322031       truth=Eczema                    pred1=Eczema                    V1 V3 acc1=0.271 acc3=0.729 (1.7s/case)
+[075/100] SCIN--2079383910052664228      truth=Eczema                    pred1=Insect Bite               X1 X3 acc1=0.280 acc3=0.733 (1.7s/case)
+[080/100] SCIN--5376888133703495985      truth=Eczema                    pred1=Drug Rash                 X1 V3 acc1=0.287 acc3=0.738 (1.6s/case)
+[085/100] SCIN--8018705038614693970      truth=Folliculitis              pred1=Folliculitis              V1 V3 acc1=0.282 acc3=0.729 (1.6s/case)
+[090/100] SCIN--5675058813348276029      truth=Folliculitis              pred1=Folliculitis              V1 V3 acc1=0.278 acc3=0.711 (1.5s/case)
+[095/100] SCIN--7130314863872132543      truth=Folliculitis              pred1=Insect Bite               X1 V3 acc1=0.284 acc3=0.705 (1.6s/case)
+[100/100] SCIN--114959561601268372       truth=Folliculitis              pred1=Insect Bite               X1 X3 acc1=0.280 acc3=0.710 (1.6s/case)
+
+== google/gemma-4-31B-it baseline ==
+  top1_accuracy:  0.280 (28/100)
+  top3_set_match: 0.710 (71/100)
+  by Fitzpatrick:
+    I-II      n= 38  top1=0.316  top3=0.868
+    III-IV    n= 54  top1=0.222  top3=0.593
+    V-VI      n=  8  top1=0.500  top3=0.750
+  wall: 173.6s
