@@ -13,15 +13,20 @@ export function Tabs({ tabs, initial = 0 }: { tabs: TabSpec[]; initial?: number 
   const [active, setActive] = useState(initial);
   return (
     <div>
-      <div className="flex gap-1 rounded-2xl border border-slate-200/70 bg-white/70 p-1 backdrop-blur-sm shadow-sm">
+      <div
+        className="flex gap-0 border-b border-[var(--rule)] ptc-ui"
+        role="tablist"
+      >
         {tabs.map((t, i) => (
           <button
             key={t.id}
+            role="tab"
+            aria-selected={active === i}
             onClick={() => setActive(i)}
-            className={`flex-1 rounded-xl px-4 py-2 text-sm font-medium transition ${
+            className={`-mb-px border-b-2 px-5 py-2.5 text-sm font-medium uppercase tracking-wider transition ${
               active === i
-                ? "bg-gradient-to-r from-teal-600 to-cyan-600 text-white shadow-md shadow-cyan-500/20"
-                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                ? "border-[var(--clay)] text-[var(--ink)]"
+                : "border-transparent text-[var(--ink-muted)] hover:text-[var(--ink)]"
             }`}
           >
             {t.icon && <span className="mr-1.5">{t.icon}</span>}

@@ -4,6 +4,7 @@ import { useState } from "react";
 import type { TriageResult } from "@/lib/types";
 import { CameraCapture } from "./CameraCapture";
 import { VoiceInput } from "./VoiceInput";
+import { resizeImageForUpload } from "@/lib/image-resize";
 
 const CANNED_NARRATIVE =
   "I cut my foot on a rusty nail two days back when I was working in the field. " +
@@ -52,19 +53,44 @@ export function InputForm({ onResult, onError, onLoading, loading }: Props) {
       const fd = new FormData();
       fd.append("narrative", narrative);
       fd.append("image_description", imageDescription);
-      if (imageFile) fd.append("image", imageFile);
+      if (imageFile) {
+        // Resize large phone captures before upload; HF Spaces' proxy
+        // rejects requests >~5 MB with a generic "Failed to fetch."
+        const resized = await resizeImageForUpload(imageFile, { maxDim: 1280, quality: 0.85 });
+        fd.append("image", resized);
+      }
       if (imageSource !== "none") fd.append("image_source", imageSource);
 
-      const resp = await fetch("/api/triage", { method: "POST", body: fd });
+      // Long timeout — vLLM cold-start + cudagraph warmup can take ~60 s.
+      const ctrl = new AbortController();
+      const tid = setTimeout(() => ctrl.abort(), 120_000);
+      let resp: Response;
+      try {
+        resp = await fetch("/api/triage", { method: "POST", body: fd, signal: ctrl.signal });
+      } finally {
+        clearTimeout(tid);
+      }
+
       if (!resp.ok) {
         const j = (await resp.json().catch(() => ({}))) as { error?: string };
-        onError(j.error ?? `HTTP ${resp.status}`);
+        onError(j.error ?? `HTTP ${resp.status}: backend returned a non-2xx response.`);
         return;
       }
       const r = (await resp.json()) as TriageResult;
       onResult(r);
     } catch (e) {
-      onError(e instanceof Error ? e.message : String(e));
+      // Distinguish abort vs network failure for the user.
+      if (e instanceof DOMException && e.name === "AbortError") {
+        onError("Request timed out after 120 s. The MI300X may be cold-starting; please retry.");
+      } else if (e instanceof TypeError && /fetch/i.test(e.message)) {
+        onError(
+          "Network error: the request didn't reach the server. " +
+          "Most common cause: the photo is too large for the upload proxy. " +
+          "Try without a photo, or attach a smaller image."
+        );
+      } else {
+        onError(e instanceof Error ? e.message : String(e));
+      }
     } finally {
       onLoading(false);
     }
@@ -75,8 +101,8 @@ export function InputForm({ onResult, onError, onLoading, loading }: Props) {
       onSubmit={handleSubmit}
       className="ptc-card relative space-y-5 overflow-hidden rounded-2xl p-6"
     >
-      {/* decorative accent strip */}
-      <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-teal-500 via-cyan-500 to-amber-500" />
+      {/* decorative accent strip — single clay band, no gradient */}
+      <div aria-hidden className="absolute inset-x-0 top-0 h-1 bg-[var(--clay)]" />
 
       <div className="flex items-center gap-2">
         <span className="text-lg">📝</span>

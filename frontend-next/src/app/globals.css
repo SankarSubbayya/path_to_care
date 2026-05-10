@@ -1,92 +1,144 @@
 @import "tailwindcss";
 
+/* Editorial / apothecary palette
+   Warm cream paper, deep ink, terracotta + muted gold accents.
+   Inspired by Indian medical pamphlets + The Economist style.
+*/
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --paper: #fbf6ec;       /* warm cream */
+  --paper-deep: #f4ecdc;  /* slightly darker for cards / contrast */
+  --ink: #1a1410;         /* near-black espresso */
+  --ink-muted: #5b4a3d;   /* warm gray-brown */
+  --rule: #d6c9b4;        /* hairline rules */
+  --clay: #b14a32;        /* terracotta — primary action */
+  --clay-deep: #8d3920;   /* hover */
+  --teal-deep: #1f3a3d;   /* near-black with green undertone */
+  --gold: #b8821e;        /* muted ochre */
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family:
+    "Iowan Old Style", "Georgia", "Times New Roman", "Cambria", serif;
+  font-feature-settings: "kern", "liga", "onum";
 }
 
-/* Subtle layered gradient + soft grid pattern */
+/* Body bg: just warm cream + a faint vertical paper grain. No gradient blobs. */
 .ptc-bg {
-  background-color: #f8fafc;
+  background-color: var(--paper);
   background-image:
-    radial-gradient(at 20% 0%, rgba(56, 189, 248, 0.10) 0, transparent 50%),
-    radial-gradient(at 80% 0%, rgba(251, 191, 36, 0.08) 0, transparent 45%),
-    radial-gradient(at 50% 100%, rgba(20, 184, 166, 0.10) 0, transparent 60%);
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,0) 0,
+      rgba(0,0,0,0) 22px,
+      rgba(26, 20, 16, 0.018) 22px,
+      rgba(26, 20, 16, 0.018) 23px
+    );
 }
 
-/* Brand gradient text */
-.ptc-gradient-text {
-  background: linear-gradient(90deg, #0d9488 0%, #2563eb 45%, #f97316 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+/* Display heading style — ink color, tight serif. No gradient text. */
+.ptc-display {
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Charter", "Georgia", serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
 }
 
-/* Glass-style card */
+/* Card: paper-deep on paper, single hairline rule, soft shadow */
 .ptc-card {
-  background: rgba(255, 255, 255, 0.78);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(15, 23, 42, 0.06);
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 8px 24px -16px rgba(15, 23, 42, 0.18);
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-radius: 6px;
+  box-shadow: 0 1px 0 rgba(26, 20, 16, 0.04);
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
 }
 .ptc-card:hover {
-  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.06), 0 12px 32px -12px rgba(15, 23, 42, 0.22);
-  border-color: rgba(13, 148, 136, 0.25);
+  border-color: #c8b698;
+  box-shadow: 0 1px 0 rgba(26, 20, 16, 0.06), 0 8px 20px -16px rgba(26, 20, 16, 0.18);
 }
 
-/* Status pill */
+/* Status pill — bordered, no fill */
 .ptc-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.25rem 0.7rem;
-  border-radius: 9999px;
-  font-size: 0.72rem;
+  padding: 0.2rem 0.65rem;
+  border-radius: 4px;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 0.7rem;
   font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  background: rgba(255, 255, 255, 0.7);
-  color: #0f172a;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid var(--rule);
+  background: var(--paper);
+  color: var(--ink-muted);
+}
+.ptc-pill.is-live {
+  border-color: var(--clay);
+  color: var(--clay-deep);
+  background: #fbf0e8;
 }
 .ptc-pill .dot {
   display: inline-block;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.45rem;
+  height: 0.45rem;
   border-radius: 9999px;
-  background: #14b8a6;
-  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25);
-  animation: ptc-pulse 1.6s ease-in-out infinite;
+  background: var(--clay);
+  animation: ptc-pulse 1.8s ease-in-out infinite;
 }
 @keyframes ptc-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%      { opacity: 0.6; transform: scale(0.85); }
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.45; }
+}
+
+/* Section heading mark — small numbered/decorative dot before titles */
+.ptc-section-mark {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--clay);
+  margin-right: 8px;
+  vertical-align: middle;
+  margin-top: -2px;
+}
+
+/* Drop-cap / monogram tile for the logo */
+.ptc-monogram {
+  font-family: "Iowan Old Style", "Charter", "Georgia", serif;
+  font-weight: 700;
+  font-style: italic;
+  background: var(--ink);
+  color: var(--paper);
+  letter-spacing: -0.02em;
 }
 
 /* Red-urgency pulse on the urgency badge */
 .ptc-urgency-pulse::before {
   content: "";
   position: absolute;
-  inset: -3px;
+  inset: -4px;
   border-radius: inherit;
-  border: 2px solid rgba(220, 38, 38, 0.6);
+  border: 2px solid rgba(177, 74, 50, 0.55);
   animation: ptc-ring 1.8s ease-out infinite;
   pointer-events: none;
 }
 @keyframes ptc-ring {
   0%   { transform: scale(1);   opacity: 0.7; }
   100% { transform: scale(1.05); opacity: 0; }
+}
+
+/* UI text (forms, buttons, tables) uses sans for legibility — serif is for prose only */
+input, textarea, select, button, table, code, pre,
+.ptc-ui {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
 }

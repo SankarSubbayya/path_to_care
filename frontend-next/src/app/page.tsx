@@ -211,45 +211,45 @@ export default function Home() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 pb-16 pt-10">
-      <header className="mb-8">
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="ptc-pill"><span className="dot" />vLLM live</span>
-          <span className="ptc-pill">⚡ AMD MI300X · 192 GB</span>
-          <span className="ptc-pill">🧠 Gemma 4 31B-it</span>
-          <span className="ptc-pill">🔬 SCIN top-16 LoRA · +7.0 pp</span>
+      <header className="mb-10">
+        <div className="flex flex-wrap items-center gap-2 ptc-ui">
+          <span className="ptc-pill is-live"><span className="dot" />vLLM live</span>
+          <span className="ptc-pill">AMD MI300X · 192 GB</span>
+          <span className="ptc-pill">Gemma 4 31B-it</span>
+          <span className="ptc-pill">SCIN top-16 LoRA · +7.0 pp</span>
           <a
             href="https://github.com/SankarSubbayya/path_to_care"
-            className="ptc-pill hover:bg-white"
+            className="ptc-pill hover:border-[var(--ink)] hover:text-[var(--ink)]"
             target="_blank"
             rel="noreferrer"
           >
-            <span>★</span> GitHub
+            GitHub
           </a>
         </div>
 
-        <div className="mt-5 flex items-start gap-4">
-          <div className="flex h-14 w-14 flex-none items-center justify-center rounded-2xl bg-gradient-to-br from-teal-500 via-cyan-500 to-blue-600 text-3xl shadow-lg shadow-cyan-500/30">
-            🩺
+        <div className="mt-6 flex items-start gap-5">
+          <div className="ptc-monogram flex h-16 w-16 flex-none items-center justify-center rounded text-3xl">
+            P
           </div>
           <div className="min-w-0">
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">
-              <span className="ptc-gradient-text">Path to Care</span>
-            </h1>
-            <p className="mt-1 text-sm font-medium uppercase tracking-widest text-slate-500">
-              Rural healthcare triage decision-support · never diagnoses
+            <h1 className="ptc-display text-5xl sm:text-6xl">Path to Care</h1>
+            <p className="mt-2 text-sm font-medium uppercase tracking-[0.18em] text-[var(--ink-muted)] ptc-ui">
+              Rural healthcare triage · never diagnoses
             </p>
           </div>
         </div>
 
-        <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-700">
-          Multimodal, agentic decision-support for rural healthcare. The system{" "}
-          <strong className="text-slate-900">never diagnoses.</strong> It (1) ranks plausible skin
-          conditions as top-3 with confidence, (2) assesses urgency{" "}
-          <span className="font-semibold text-rose-600">Red</span> /{" "}
-          <span className="font-semibold text-amber-600">Yellow</span> /{" "}
-          <span className="font-semibold text-emerald-600">Green</span>, (3) flags red signs, and
-          (4) frames the cost-benefit of travelling to the clinic.
-        </p>
+        <div className="mt-6 max-w-3xl border-l-2 border-[var(--clay)] pl-5">
+          <p className="text-lg leading-relaxed text-[var(--ink)]">
+            Multimodal, agentic decision-support for rural healthcare. The system{" "}
+            <strong>never diagnoses.</strong> It ranks plausible skin conditions as top-3 with
+            confidence, assesses urgency{" "}
+            <span className="font-semibold text-[var(--clay-deep)]">Red</span> /{" "}
+            <span className="font-semibold text-[var(--gold)]">Yellow</span> /{" "}
+            <span className="font-semibold text-[var(--teal-deep)]">Green</span>, flags red signs,
+            and frames the cost-benefit of travelling to the clinic.
+          </p>
+        </div>
       </header>
 
       <InputForm

@@ -15,15 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="ptc-bg min-h-screen text-slate-900 antialiased">
-        {/* decorative blurred gradient mesh, fixed to viewport */}
-        <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-          <div className="absolute -top-40 -left-32 h-[420px] w-[420px] rounded-full bg-teal-300/30 blur-3xl" />
-          <div className="absolute top-20 right-[-120px] h-[420px] w-[420px] rounded-full bg-amber-200/40 blur-3xl" />
-          <div className="absolute bottom-[-160px] left-1/3 h-[460px] w-[460px] rounded-full bg-blue-200/40 blur-3xl" />
-        </div>
-        {children}
-      </body>
+      <body className="ptc-bg min-h-screen antialiased">{children}</body>
     </html>
   );
 }
