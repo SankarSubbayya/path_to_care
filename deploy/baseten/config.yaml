@@ -1,0 +1,64 @@
+# Truss config for Path to Care — Gemma 4 31B-it + SCIN top-16 LoRA on Baseten.
+#
+# This is the **secondary** fallback path (Modal was the first attempt; AMD
+# MI300X droplet remains the canonical inference path that produced the
+# +7.0 pp SCIN top-16 result). Same model, same LoRA, same OpenAI-compat API
+# key, so the HF Space can flip targets via a single PTC_VLLM_GEMMA4_URL
+# env-var change.
+#
+# Architecture mirrors deploy/modal/serve.py:
+#   - Single GPU (A100-80GB by default; bf16 Gemma 4 31B ≈ 62 GB resident)
+#   - vLLM CUDA build, --enable-lora, multimodal Gemma 4 vision tower
+#   - Mounts the SCIN LoRA from huggingface.co/sankara68/path-to-care-scin-top16-lora
+#   - Exposes /v1/chat/completions, /v1/models (OpenAI-compatible)
+#
+# Deploy:
+#   uvx truss login --api-key <BASETEN_API_KEY>
+#   uvx truss push deploy/baseten --publish
+#
+# Set HF_TOKEN as a secret in the Baseten UI:
+#   https://app.baseten.co/settings/secrets → add `hf_access_token`
+
+model_name: ptc-gemma4-serve
+
+python_version: py311
+
+# `requirements` are unpinned so the resolver picks the latest vllm +
+# transformers pair that supports Gemma 4 (`model_type: "gemma4"`). Pinning
+# `vllm==0.6.3.post1` would fail with `KeyError: 'gemma4'` (the bug we hit
+# on the Modal CUDA path before bumping to latest).
+requirements:
+  - vllm
+  - transformers
+  - huggingface_hub[hf_transfer]
+  - peft
+
+# Triton / torch._inductor JIT-compiles kernels at runtime and silently
+# needs a C compiler on PATH. Install via system_packages.
+system_packages:
+  - git
+  - gcc
+  - g++
+  - build-essential
+
+environment_variables:
+  HF_HUB_ENABLE_HF_TRANSFER: "1"
+
+resources:
+  cpu: "4"
+  memory: 32Gi
+  use_gpu: true
+  # A100 (80 GB) fits bf16 Gemma 4 31B (~62 GB) + KV cache headroom.
+  # Bump to H100 if budget allows (~2× faster inference, ~2× hourly cost).
+  accelerator: A100
+
+runtime:
+  # Image+text inference dominates wall time; a single concurrent request
+  # is the safe default. Increase if you observe the GPU isn't saturating.
+  predict_concurrency: 1
+
+secrets:
+  # Set the actual token value in the Baseten UI as a workspace secret
+  # named `hf_access_token`. Required because Gemma 4 31B is gated for
+  # some accounts; the LoRA repo is public but a token avoids rate limits.
+  hf_access_token: null
