@@ -230,7 +230,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         { role: "system", content: [{ type: "text", text: SYSTEM_PROMPT }] },
         { role: "user", content: userParts },
       ],
-      max_tokens: 1024,
+      max_tokens: 4096,
       temperature: 0,
     };
 
@@ -258,10 +258,15 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
     };
     const raw = vllmJson.choices?.[0]?.message?.content ?? "";
 
+    // AI Studio's Gemma 4 emits a <thought>...</thought> reasoning block before
+    // the JSON. It eats max_tokens and can contain stray braces that would
+    // mislead extractJsonObject. Strip it before any further processing.
+    const dethought = raw.replace(/<thought>[\s\S]*?<\/thought>\s*/g, "");
+
     // Cardinal-rule rewrite on the entire raw output BEFORE parsing — rewrites
     // both reasoning and patient_framing in one pass. Rewriting JSON values
     // is safe since the patterns target prose, not field names.
-    const { text: cleanText, rewrites } = enforceCardinalRule(raw);
+    const { text: cleanText, rewrites } = enforceCardinalRule(dethought);
 
     const parsed = extractJsonObject(cleanText) as Record<string, unknown> | null;
 
